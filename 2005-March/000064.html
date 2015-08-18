@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r50 - in trunk/src: de/berlios/jmds/server fr/umlv/ir3/corba/forum
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r50%20-%20in%20trunk/src%3A%20de/berlios/jmds/server%20fr/umlv/ir3/corba/forum&In-Reply-To=%3C200503031022.j23AMLKf003326%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000063.html">
+   <LINK REL="Next"  HREF="000065.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r50 - in trunk/src: de/berlios/jmds/server fr/umlv/ir3/corba/forum</H1>
+    <B>J&#233;r&#244;me GUERS at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r50%20-%20in%20trunk/src%3A%20de/berlios/jmds/server%20fr/umlv/ir3/corba/forum&In-Reply-To=%3C200503031022.j23AMLKf003326%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r50 - in trunk/src: de/berlios/jmds/server fr/umlv/ir3/corba/forum">jguers at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar  3 11:22:21 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000063.html">[Jmds-svn] r49 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/server fr/umlv/ir3/corba/forum
+</A></li>
+        <LI>Next message: <A HREF="000065.html">[Jmds-svn] r51 - in trunk/src/de/berlios/jmds: client server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#64">[ date ]</a>
+              <a href="thread.html#64">[ thread ]</a>
+              <a href="subject.html#64">[ subject ]</a>
+              <a href="author.html#64">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: jguers
+Date: 2005-03-03 11:22:20 +0100 (Thu, 03 Mar 2005)
+New Revision: 50
+
+Added:
+   trunk/src/de/berlios/jmds/server/FindObject.java
+Removed:
+   trunk/src/fr/umlv/ir3/corba/forum/FindObject.java
+Log:
+D?\195?\169plac?\195?\169 ?\195?\160 distance
+
+Copied: trunk/src/de/berlios/jmds/server/FindObject.java (from rev 49, trunk/src/fr/umlv/ir3/corba/forum/FindObject.java)
+
+Deleted: trunk/src/fr/umlv/ir3/corba/forum/FindObject.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/FindObject.java	2005-03-02 23:39:25 UTC (rev 49)
++++ trunk/src/fr/umlv/ir3/corba/forum/FindObject.java	2005-03-03 10:22:20 UTC (rev 50)
+@@ -1,103 +0,0 @@
+-/*
+- * Created on 1 oct. 2004
+- */
+-package fr.umlv.ir3.corba.forum;
+-
+-import org.omg.CORBA.ORB;
+-import org.omg.CORBA.Object;
+-import org.omg.CosNaming.Binding;
+-import org.omg.CosNaming.BindingIterator;
+-import org.omg.CosNaming.BindingIteratorHolder;
+-import org.omg.CosNaming.BindingListHolder;
+-import org.omg.CosNaming.BindingType;
+-import org.omg.CosNaming.NamingContext;
+-import org.omg.CosNaming.NamingContextExtHelper;
+-import org.omg.CosNaming.NamingContextHelper;
+-import org.omg.CosNaming.NamingContextPackage.CannotProceed;
+-import org.omg.CosNaming.NamingContextPackage.InvalidName;
+-import org.omg.CosNaming.NamingContextPackage.NotFound;
+-
+-
+-/**
+- * @author jguers
+- */
+-public class FindObject {
+-
+-    /**
+-     * @param args
+-     * @throws Exception
+-     */
+-    public static void main(String[] args) throws Exception {
+-        
+-    	java.util.Properties props = System.getProperties();
+-        // props.put( &quot;org.omg.CORBA.ORBClass&quot;, &quot;org.openorb.CORBA.ORB&quot; );
+-        // props.put(&quot;org.omg.CORBA.ORBSingletonClass&quot;,&quot;org.openorb.CORBA.ORBSingleton&quot; );
+-        // props.put( &quot;verbose&quot;, &quot;5&quot; );
+-    	props.put (&quot;org.omg.CORBA.ORBInitialPort&quot; , &quot;1234&quot;);
+-
+-        ORB orb = ORB.init(args, props);
+-
+-//        String[] objects = orb.list_initial_services();
+-//        System.out.println(objects);
+-//        for (int i = 0 ; i&lt;objects.length; i++)
+-//        	System.out.println(objects[i]);
+-        
+-        // Recuperation du service d'annuaire
+-        NamingContext nc = NamingContextExtHelper.narrow(orb.resolve_initial_references(&quot;NameService&quot;));
+-        
+-        //Exploration de l'arborescence et sotkage des objets dans le fichier de conf
+-        createConfig(orb, nc);
+-    }
+-    
+-    /**
+-     * @param orb
+-     * @param context The current context
+-     * @throws InvalidName
+-     * @throws CannotProceed
+-     * @throws NotFound
+-     */
+-    private static void createConfig (ORB orb, NamingContext context) throws NotFound, CannotProceed, InvalidName
+-    {
+-//    	Binding[] bl = null;
+-//    	BindingListHolder blh = new BindingListHolder();
+-//    	BindingIteratorHolder bih = new BindingIteratorHolder();
+-//    	context.list (10, blh, bih);
+-//    	bl = blh.value;
+-//    	for (int i=0; i &lt; bl.length; i++) {
+-//    		for (int j=0; j&lt;bl[i].binding_name.length; j++)
+-//    			System.out.println (&quot;boucle1 : &quot; + bl[i].binding_name[j].id);
+-//    	}
+-//    	BindingIterator bi = bih.value;
+-//    	if (bi != null) {
+-//    		boolean continuer = true;
+-//    		while (continuer) {
+-//    			continuer = bi.next_n(10,blh);
+-//    			bl = blh.value;
+-//    			for (int i=0; i &lt; bl.length; i++) {
+-//    				System.out.println (&quot;boucle2 : &quot; + bl[i].binding_name);
+-//    			}
+-//    		}
+-//    		bi.destroy();
+-//    	}
+-    	Binding[] binding = null;
+-    	BindingListHolder listHolder = new BindingListHolder ();
+-    	BindingIteratorHolder iteratorHolder = new BindingIteratorHolder ();
+-    	context.list (10, listHolder, iteratorHolder);
+-    	do {
+-    		binding = listHolder.value;
+-    		for ( int i=0; i &lt; binding.length; i++) {
+-    			for (int j=0; j&lt;binding[i].binding_name.length; j++)
+-    			{
+-    				System.out.println(binding[i].binding_name[j].id + &quot; : &quot;+ binding[i].binding_name[j].kind +  &quot; : &quot; + binding[i].binding_name[j]);
+-    				Object objProxy = context.resolve(binding[i].binding_name);
+-    				System.out.println(objProxy.toString());
+-    			}  
+-    			if ( binding[i].binding_type.equals (BindingType.ncontext))
+-    			{
+-    				NamingContext newContext =	NamingContextHelper.narrow (context.resolve(binding[i].binding_name));
+-    				createConfig(orb, newContext);
+-    			}
+-    		}
+-    	} while( iteratorHolder.value != null &amp;&amp; iteratorHolder.value.next_n (10, listHolder));
+-    }
+-}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000063.html">[Jmds-svn] r49 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/server fr/umlv/ir3/corba/forum
+</A></li>
+	<LI>Next message: <A HREF="000065.html">[Jmds-svn] r51 - in trunk/src/de/berlios/jmds: client server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#64">[ date ]</a>
+              <a href="thread.html#64">[ thread ]</a>
+              <a href="subject.html#64">[ subject ]</a>
+              <a href="author.html#64">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,1063 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r17 - in trunk: src src/de src/de/berlios src/de/berlios/jmds src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/client/core src/de/berlios/jmds/ior src/de/berlios/jmds/server src/de/berlios/jmds/server/core src/de/berlios/jmds/tools test/de/berlios/jmds/test test/de/berlios/jmds/test/clients
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r17%20-%20in%20trunk%3A%20src%20src/de%20src/de/berlios%20src/de/berlios/jmds%20src/de/berlios/jmds/applet%20src/de/berlios/jmds/client%20src/de/berlios/jmds/client/core%20src/de/berlios/jmds/ior%20src/de/berlios/jmds/server%20src/de/berlios/jmds/server/core%20src/de/berlios/jmds/tools%20test/de/berlios/jmds/test%20test/de/berlios/jmds/test/clients&In-Reply-To=%3C200502191002.j1JA2o6j007531%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000027.html">
+   <LINK REL="Next"  HREF="000026.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r17 - in trunk: src src/de src/de/berlios src/de/berlios/jmds src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/client/core src/de/berlios/jmds/ior src/de/berlios/jmds/server src/de/berlios/jmds/server/core src/de/berlios/jmds/tools test/de/berlios/jmds/test test/de/berlios/jmds/test/clients</H1>
+    <B>S&#233;bastien Guinchard at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r17%20-%20in%20trunk%3A%20src%20src/de%20src/de/berlios%20src/de/berlios/jmds%20src/de/berlios/jmds/applet%20src/de/berlios/jmds/client%20src/de/berlios/jmds/client/core%20src/de/berlios/jmds/ior%20src/de/berlios/jmds/server%20src/de/berlios/jmds/server/core%20src/de/berlios/jmds/tools%20test/de/berlios/jmds/test%20test/de/berlios/jmds/test/clients&In-Reply-To=%3C200502191002.j1JA2o6j007531%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r17 - in trunk: src src/de src/de/berlios src/de/berlios/jmds src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/client/core src/de/berlios/jmds/ior src/de/berlios/jmds/server src/de/berlios/jmds/server/core src/de/berlios/jmds/tools test/de/berlios/jmds/test test/de/berlios/jmds/test/clients">sguincha at sheep.berlios.de
+       </A><BR>
+    <I>Sat Feb 19 11:02:50 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000027.html">[Jmds-svn] JMDS : pb repository
+</A></li>
+        <LI>Next message: <A HREF="000026.html">[Jmds-svn] r18 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: sguincha
+Date: 2005-02-19 11:02:48 +0100 (Sat, 19 Feb 2005)
+New Revision: 17
+
+Added:
+   trunk/src/de/
+   trunk/src/de/berlios/
+   trunk/src/de/berlios/jmds/
+   trunk/src/de/berlios/jmds/applet/
+   trunk/src/de/berlios/jmds/applet/Ping.java
+   trunk/src/de/berlios/jmds/client/
+   trunk/src/de/berlios/jmds/client/ForumClient.java
+   trunk/src/de/berlios/jmds/client/core/
+   trunk/src/de/berlios/jmds/client/core/ClientInter.java
+   trunk/src/de/berlios/jmds/client/core/ClientORBInitializer.java
+   trunk/src/de/berlios/jmds/ior/
+   trunk/src/de/berlios/jmds/ior/IORInter.java
+   trunk/src/de/berlios/jmds/server/
+   trunk/src/de/berlios/jmds/server/ForumServer.java
+   trunk/src/de/berlios/jmds/server/core/
+   trunk/src/de/berlios/jmds/server/core/ForumImpl.java
+   trunk/src/de/berlios/jmds/server/core/ServerInter.java
+   trunk/src/de/berlios/jmds/server/core/ServerORBInitializer.java
+   trunk/src/de/berlios/jmds/tools/
+   trunk/src/de/berlios/jmds/tools/Convertor.java
+   trunk/test/de/berlios/jmds/test/clients/
+   trunk/test/de/berlios/jmds/test/clients/ClientPing.java
+Log:
+Voici un petit commentaire car j'ai bien l'intention de remettre en jeu ma palme d'or ;)
+Ben en fait, c les sources qui permettent de faire ce que Denis a expliqu?\195?\169 dans le mail de cette nuit...
+A savoir, interception client et serveur, modification du Service Context, et et envoie de la r?\195?\169ponse au client...
+
+Voikl?\195?\160 les loulous..
+
+Added: trunk/src/de/berlios/jmds/applet/Ping.java
+===================================================================
+--- trunk/src/de/berlios/jmds/applet/Ping.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/src/de/berlios/jmds/applet/Ping.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,82 @@
++/*
++ * Created on 8 f&#233;vr. 2005
++ * by J&#233;r&#244;me GUERS
++ * Copyright: GPL - UMLV(FR) - 2004/2005
++ */
++package de.berlios.jmds.applet;
++
++import javacard.framework.APDU;
++import javacard.framework.Applet;
++import javacard.framework.ISOException;
++import javacard.framework.ISO7816;
++
++/**
++ * Premi&#232;re classe de test d'une applet JavaCard Renvoie juste les donn&#233;es
++ * envoy&#233;es
++ * 
++ * @version 0.1
++ * 
++ * @author J&#233;r&#244;me GUERS
++ */
++public class Ping extends Applet {
++
++    private final static byte CLA_PING = (byte) 0x80;
++    private final static byte ECHO_REQUEST = (byte) 0x10;
++    private final static byte ECHO_REPLY = (byte) 0x30;
++    private final static short BUFFER_LENGTH = (short) 255;
++
++    private byte[] buffer;
++    private byte messLength;
++
++    /**
++     * Constructeur par d&#233;faut
++     */
++    protected Ping() {
++        buffer = new byte[BUFFER_LENGTH];
++        messLength = (byte) 0;
++        register();
++    }
++
++    /**
++     * @see javacard.framework.Applet#install(byte[], short, byte)
++     */
++    public static void install(byte[] bArray, short bOffset, byte bLength) {
++        new Ping();
++    }
++
++    /**
++     * M&#233;thide appel&#233;e &#224; l'arriv&#233;e d'une trame APDU
++     * 
++     * @param apdu
++     * @throws ISOException
++     * 
++     * @see javacard.framework.Applet#process(javacard.framework.APDU)
++     */
++    public void process(APDU apdu) throws ISOException {
++        byte[] tmpBuffer = apdu.getBuffer();
++
++        // CLA &#224; 0x80
++        if (tmpBuffer[ISO7816.OFFSET_CLA] == CLA_PING) {
++            switch (tmpBuffer[ISO7816.OFFSET_INS]) {
++            case ECHO_REQUEST:
++                messLength = (byte)(apdu.setIncomingAndReceive());
++//                if ((byteRead &gt; (byte) BUFFER_LENGTH) || (byteRead &lt;= (byte) 0))
++//                    ISOException.throwIt(ISO7816.SW_WRONG_DATA);
++                for (byte i = (byte) 0; i &lt; messLength; i++) {
++                    buffer[i] = tmpBuffer[ISO7816.OFFSET_CDATA + i];
++                }
++                break;
++
++            case ECHO_REPLY:
++                // Le = taille de la r&#233;ponse attendue
++                short Le = apdu.setOutgoing();
++                // Verification que Le &gt;= Lc (taille des donn&#233;es envoy&#233;es)
++                if (Le &lt; messLength)
++                    ISOException.throwIt(ISO7816.SW_WRONG_LENGTH);
++                apdu.setOutgoingLength((short) messLength);
++                apdu.sendBytesLong(buffer, (short) 0, (short) messLength);
++                break;
++            }
++        }
++    }
++}
+
+Added: trunk/src/de/berlios/jmds/client/ForumClient.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/ForumClient.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/src/de/berlios/jmds/client/ForumClient.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,97 @@
++/*
++ * Created on 1 oct. 2004
++ */
++package de.berlios.jmds.client;
++
++import java.io.*;
++import java.util.Date;
++import java.util.Properties;
++
++import org.omg.CORBA.ORB;
++
++import fr.umlv.ir3.corba.sguincha.td2.Forum;
++import fr.umlv.ir3.corba.sguincha.td2.ForumHelper;
++import fr.umlv.ir3.corba.sguincha.td2.Message;
++
++
++/**
++ * @author jguers
++ */
++public class ForumClient
++{
++
++	/**
++	 * @param args
++	 * @throws IOException
++	 */
++	public static void main (String [] args) throws IOException
++	{
++
++		/* initialisation de l'ORB */
++		Properties prop = new Properties ();
++		prop.put (&quot;org.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.client.core.ClientORBInitializer&quot; , &quot;&quot;);
++		ORB orb = ORB.init (args , prop);
++		/* R&#233;cup&#233;ration de l'id de l'objet servant */
++		BufferedReader buffer = new BufferedReader (new FileReader (&quot;ObjectRef&quot;));
++		String ior = buffer.readLine ();
++
++		BufferedReader in = new BufferedReader (new InputStreamReader (System.in));
++
++		/* Cr&#233;ation d'un objet Forum */
++		Forum forumProxy = ForumHelper.narrow (orb.string_to_object (ior));
++		while (true)
++		{
++			System.out.println (&quot;Que voulez-vous faire ?&quot;);
++			System.out.println (&quot;a - ajouter un message&quot;);
++			System.out.println (&quot;v - voir les messages&quot;);
++			System.out.println (&quot;l - lire un message&quot;);
++			System.out.println (&quot;r - retirer un message&quot;);
++
++			int choix = System.in.read ();
++			in.readLine ();
++			switch (choix)
++			{
++				case 'a' :
++				{
++					/*System.out.print (&quot;Votre nom: &quot;);
++					String auth = in.readLine ();
++					System.out.print (&quot;Titre du message: &quot;);
++					String title = in.readLine ();
++					System.out.print (&quot;Message: &quot;);
++					String mess = in.readLine ();
++					forumProxy.postMessage (new Message (title, auth, (new Date ()).toString (), mess));*/
++					forumProxy.postMessage (new Message (&quot;toto&quot;, &quot;titi&quot;, (new Date ()).toString (), &quot;tutu&quot;));
++				}
++					break;
++
++				case 'l' :
++				{
++					System.out.print (&quot;Titre du message: &quot;);
++					String title = in.readLine ();
++					Message m = forumProxy.getMessage (title);
++					System.out.println (m.author + &quot; a &#233;crit &#224; &quot; + m.date.toString ());
++					System.out.println (&quot;Titre: &quot; + m.title);
++					System.out.println (m.body + &quot;\n&quot;);
++				}
++					break;
++
++				case 'r' :
++				{
++					System.out.print (&quot;Titre du message: &quot;);
++					String title = in.readLine ();
++				}
++					break;
++
++				case 'v' :
++				{
++					Message [] tab = forumProxy.getMessages ();
++
++					for (int i = 0; i &lt; tab.length; i++)
++					{
++						System.out.println (tab [i].author + &quot;\t&quot; + tab [i].date + &quot;\t&quot; + tab [i].title + &quot;\n&quot;);
++					}
++				}
++			}
++		}
++	}
++}
+
+Added: trunk/src/de/berlios/jmds/client/core/ClientInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/core/ClientInter.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/src/de/berlios/jmds/client/core/ClientInter.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,87 @@
++/*
++ * Created on 18 f&#233;vr. 2005 go to Window - Preferences - Java - Code Style -
++ * Code Templates
++ */
++package de.berlios.jmds.client.core;
++
++import org.omg.IOP.ServiceContext;
++import org.omg.PortableInterceptor.ClientRequestInfo;
++import org.omg.PortableInterceptor.ClientRequestInterceptor;
++import org.omg.PortableInterceptor.ForwardRequest;
++
++
++/**
++ * @author sguincha go to Window - Preferences - Java - Code Style - Code
++ *         Templates
++ */
++public class ClientInter extends org.omg.CORBA.LocalObject implements ClientRequestInterceptor
++{
++
++	/**
++	 * Comment for &lt;code&gt;serialVersionUID&lt;/code&gt;
++	 */
++	private static final long	serialVersionUID	= 1L;
++
++	/**
++	 * @see org.omg.PortableInterceptor.ClientRequestInterceptorOperations#send_request(org.omg.PortableInterceptor.ClientRequestInfo)
++	 */
++	public void send_request (ClientRequestInfo ri) throws ForwardRequest
++	{
++		ServiceContext sc = new ServiceContext ();
++		byte[] scData = &quot;toto&quot;.getBytes();
++		sc.context_data = scData;
++		ri.add_request_service_context (sc, true);
++		System.out.println (&quot;ClientInter.send request: &quot; + ri.operation ());
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.ClientRequestInterceptorOperations#send_poll(org.omg.PortableInterceptor.ClientRequestInfo)
++	 */
++	public void send_poll (ClientRequestInfo ri)
++	{
++		System.out.println (&quot;ClientInter.send poll: &quot; + ri.operation ());
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.ClientRequestInterceptorOperations#receive_reply(org.omg.PortableInterceptor.ClientRequestInfo)
++	 */
++	public void receive_reply (ClientRequestInfo ri)
++	{
++		ServiceContext sc = ri.get_reply_service_context(0);
++		String sData = new String(sc.context_data);
++		System.out.println (&quot;ClientInter.receive reply: &quot; + sData);
++		
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.ClientRequestInterceptorOperations#receive_exception(org.omg.PortableInterceptor.ClientRequestInfo)
++	 */
++	public void receive_exception (ClientRequestInfo ri) throws ForwardRequest
++	{
++		System.out.println (&quot;ClientInter.receive exception: &quot; + ri.operation ());
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.ClientRequestInterceptorOperations#receive_other(org.omg.PortableInterceptor.ClientRequestInfo)
++	 */
++	public void receive_other (ClientRequestInfo ri) throws ForwardRequest
++	{
++		System.out.println (&quot;ClientInter.receive other: &quot; + ri.operation ());
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.InterceptorOperations#name()
++	 */
++	public String name ()
++	{
++		return &quot;Mon intercepteur&quot;;
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.InterceptorOperations#destroy()
++	 */
++	public void destroy ()
++	{
++	}
++
++}
+
+Added: trunk/src/de/berlios/jmds/client/core/ClientORBInitializer.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/core/ClientORBInitializer.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/src/de/berlios/jmds/client/core/ClientORBInitializer.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,52 @@
++/*
++ * Created on 18 f&#233;vr. 2005 TODO To change the template for this generated file
++ * go to Window - Preferences - Java - Code Style - Code Templates
++ */
++package de.berlios.jmds.client.core;
++
++import org.omg.CORBA.LocalObject;
++import org.omg.PortableInterceptor.ORBInitInfo;
++import org.omg.PortableInterceptor.ORBInitializer;
++import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
++
++
++
++
++/**
++ * @author sguincha TODO To change the template for this generated type comment
++ *         go to Window - Preferences - Java - Code Style - Code Templates
++ */
++public class ClientORBInitializer extends LocalObject implements ORBInitializer
++{
++
++	/**
++	 * Comment for &lt;code&gt;serialVersionUID&lt;/code&gt;
++	 */
++	private static final long	serialVersionUID	= 1L;
++
++	/**
++	 * @see org.omg.PortableInterceptor.ORBInitializerOperations#pre_init(org.omg.PortableInterceptor.ORBInitInfo)
++	 */
++	public void pre_init (ORBInitInfo info)
++	{
++		System.out.println (&quot;MonORBInitializer.pre_init: ORB ID: &quot; + info);
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.ORBInitializerOperations#post_init(org.omg.PortableInterceptor.ORBInitInfo)
++	 */
++	public void post_init (ORBInitInfo info)
++	{
++		System.out.println (&quot;MonORBInitializer.post_init: ORB ID: &quot; + info);
++		ClientInter client = new ClientInter ();
++		try
++		{
++			info.add_client_request_interceptor (client);
++		}
++		catch (DuplicateName e)
++		{
++			e.printStackTrace ();
++		}
++	}
++
++}
+
+Added: trunk/src/de/berlios/jmds/ior/IORInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/ior/IORInter.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/src/de/berlios/jmds/ior/IORInter.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,49 @@
++/*
++ * Created on 18 f&#233;vr. 2005 TODO To change the template for this generated file
++ * go to Window - Preferences - Java - Code Style - Code Templates
++ */
++package de.berlios.jmds.ior;
++
++import org.omg.PortableInterceptor.IORInfo;
++import org.omg.PortableInterceptor.IORInterceptor;
++
++
++/**
++ * @author sguincha TODO To change the template for this generated type comment
++ *         go to Window - Preferences - Java - Code Style - Code Templates
++ */
++public class IORInter extends org.omg.CORBA.LocalObject implements IORInterceptor
++{
++
++	/**
++	 * Comment for &lt;code&gt;serialVersionUID&lt;/code&gt;
++	 */
++	private static final long	serialVersionUID	= 1L;
++
++	/**
++	 * @see org.omg.PortableInterceptor.IORInterceptorOperations#establish_components(org.omg.PortableInterceptor.IORInfo)
++	 */
++	public void establish_components (IORInfo info)
++	{
++		// TODO Auto-generated method stub
++
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.InterceptorOperations#name()
++	 */
++	public String name ()
++	{
++		return &quot;My IOR Interceptor&quot;;
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.InterceptorOperations#destroy()
++	 */
++	public void destroy ()
++	{
++		// TODO Auto-generated method stub
++
++	}
++
++}
+
+Added: trunk/src/de/berlios/jmds/server/ForumServer.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/ForumServer.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/src/de/berlios/jmds/server/ForumServer.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,66 @@
++/*
++ * Created on 1 oct. 2004
++ */
++package de.berlios.jmds.server;
++
++import java.io.*;
++import java.util.Properties;
++
++import org.omg.CORBA.*;
++import org.omg.CORBA.Object;
++import org.omg.CORBA.ORBPackage.InvalidName;
++import org.omg.PortableServer.*;
++import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
++import org.omg.PortableServer.POAPackage.*;
++
++import de.berlios.jmds.server.core.ForumImpl;
++
++
++
++/**
++ * @author jguers
++ */
++public class ForumServer
++{
++
++	/**
++	 * @param args
++	 * @throws InvalidName
++	 * @throws ServantAlreadyActive
++	 * @throws ObjectNotActive
++	 * @throws WrongPolicy
++	 * @throws IOException
++	 * @throws AdapterInactive
++	 */
++	public static void main (String [] args) throws InvalidName, ServantAlreadyActive, ObjectNotActive, WrongPolicy, IOException, AdapterInactive
++	{
++		/* Initialisation de l'ORB */
++		Properties prop = new Properties ();
++		prop.put (&quot;org.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.server.core.ServerORBInitializer&quot; , &quot;&quot;);
++		ORB orb = ORB.init (args , prop);
++
++		/* R&#233;cup&#233;ration de r&#233;f&#233;rence de l'adaptateur d'objet racine */
++		POA rootPOA = POAHelper.narrow (orb.resolve_initial_references (&quot;RootPOA&quot;));
++
++		/* Cr&#233;ation de l'objet SERVANT */
++		ForumImpl forum = new ForumImpl (&quot;Forum de Test&quot;, &quot;GG&quot;);
++
++		/* Enregistrement et activation de l'objet servant dans le POA */
++		byte [] objectID = rootPOA.activate_object (forum);
++
++		/* R&#233;cup&#233;ration de la r&#233;f&#233;rence du servant */
++		Object obj = rootPOA.id_to_reference (objectID);
++
++		/* Enregistrement de l'ID de l'objet dans un fichier */
++		FileOutputStream file = new FileOutputStream (&quot;ObjectRef&quot;);
++		file.write (orb.object_to_string (obj).getBytes ());
++
++		/* Activation du POA */
++		rootPOA.the_POAManager ().activate ();
++
++		/* Lancement de l'ORB */
++		System.out.println (&quot;Server started&quot;);
++		orb.run ();
++
++	}
++}
+
+Added: trunk/src/de/berlios/jmds/server/core/ForumImpl.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/core/ForumImpl.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/src/de/berlios/jmds/server/core/ForumImpl.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,88 @@
++/*
++ * Created on 1 oct. 2004
++ */
++package de.berlios.jmds.server.core;
++
++import java.util.concurrent.ConcurrentHashMap;
++
++import fr.umlv.ir3.corba.sguincha.td2.ForumPOA;
++import fr.umlv.ir3.corba.sguincha.td2.Message;
++
++
++/**
++ * @author sguinchard
++ */
++public class ForumImpl extends ForumPOA
++{
++
++	private String				moderator;
++	private String				theme;
++	private ConcurrentHashMap	discussion;
++
++	/**
++	 * @param theme
++	 * @param moderator
++	 */
++	public ForumImpl (String theme, String moderator)
++	{
++		this.theme = theme;
++		this.moderator = moderator;
++		discussion = new ConcurrentHashMap ();
++	}
++
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#theme()
++	 */
++	public String theme ()
++	{
++		return theme;
++	}
++
++	
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#moderator()
++	 */
++	public String moderator ()
++	{
++		return moderator;
++	}
++
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#postMessage(fr.umlv.ir3.corba.sguincha.td2.Message)
++	 */
++	public boolean postMessage (Message m)
++	{
++		if (discussion.putIfAbsent (theme , m) == null)
++			return true;
++		return false;
++	}
++
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#getMessage(java.lang.String)
++	 */
++	public Message getMessage (String title)
++	{
++		return (Message) discussion.get (title);
++	}
++
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#getMessages()
++	 */
++	public Message [] getMessages ()
++	{
++		return (Message []) discussion.values ().toArray (new Message [discussion.size ()]);
++	}
++
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#removeMessage(java.lang.String)
++	 */
++	public boolean removeMessage (String title)
++	{
++		if (discussion.containsKey (title))
++		{
++			discussion.remove (title);
++			return true;
++		}
++		return false;
++	}
++}
+
+Added: trunk/src/de/berlios/jmds/server/core/ServerInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/core/ServerInter.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/src/de/berlios/jmds/server/core/ServerInter.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,90 @@
++/*
++ * Created on 18 f&#233;vr. 2005 TODO To change the template for this generated file
++ * go to Window - Preferences - Java - Code Style - Code Templates
++ */
++package de.berlios.jmds.server.core;
++
++import org.omg.IOP.ServiceContext;
++import org.omg.PortableInterceptor.ForwardRequest;
++import org.omg.PortableInterceptor.ServerRequestInfo;
++import org.omg.PortableInterceptor.ServerRequestInterceptor;
++
++
++/**
++ * @author sguincha TODO To change the template for this generated type comment
++ *         go to Window - Preferences - Java - Code Style - Code Templates
++ */
++public class ServerInter extends org.omg.CORBA.LocalObject implements ServerRequestInterceptor
++{
++
++	/**
++	 * Comment for &lt;code&gt;serialVersionUID&lt;/code&gt;
++	 */
++	private static final long	serialVersionUID	= 1L;
++
++	/**
++	 * @see org.omg.PortableInterceptor.ServerRequestInterceptorOperations#receive_request_service_contexts(org.omg.PortableInterceptor.ServerRequestInfo)
++	 */
++	public void receive_request_service_contexts (ServerRequestInfo ri) throws ForwardRequest
++	{
++		ServiceContext sc = ri.get_request_service_context (0);
++		String sData = new String (sc.context_data);
++		System.out.println (&quot;ServerInter.receive request_SC: &quot; + sData);
++		sc.context_data = &quot;titi&quot;.getBytes ();
++		ri.add_reply_service_context (sc , true);
++
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.ServerRequestInterceptorOperations#receive_request(org.omg.PortableInterceptor.ServerRequestInfo)
++	 */
++	public void receive_request (ServerRequestInfo ri) throws ForwardRequest
++	{
++		System.out.println (&quot;ServerInter.receive request: &quot; + ri.operation ());
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.ServerRequestInterceptorOperations#send_reply(org.omg.PortableInterceptor.ServerRequestInfo)
++	 */
++	public void send_reply (ServerRequestInfo ri)
++	{
++		ServiceContext sc = ri.get_request_service_context (0);
++		sc.context_data = &quot;titi&quot;.getBytes ();
++		ri.add_reply_service_context (sc , true);
++		System.out.println (&quot;ServerInter.send_reply: &quot; + ri.operation ());
++
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.ServerRequestInterceptorOperations#send_exception(org.omg.PortableInterceptor.ServerRequestInfo)
++	 */
++	public void send_exception (ServerRequestInfo ri) throws ForwardRequest
++	{
++		System.out.println (&quot;ServerInter.send_exception: &quot; + ri.operation ());
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.ServerRequestInterceptorOperations#send_other(org.omg.PortableInterceptor.ServerRequestInfo)
++	 */
++	public void send_other (ServerRequestInfo ri) throws ForwardRequest
++	{
++		System.out.println (&quot;ServerInter.send_other: &quot; + ri.operation ());
++
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.InterceptorOperations#name()
++	 */
++	public String name ()
++	{
++		return &quot;Mon Intercepteur Serveur&quot;;
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.InterceptorOperations#destroy()
++	 */
++	public void destroy ()
++	{
++	}
++
++}
+
+Added: trunk/src/de/berlios/jmds/server/core/ServerORBInitializer.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/core/ServerORBInitializer.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/src/de/berlios/jmds/server/core/ServerORBInitializer.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,56 @@
++/*
++ * Created on 18 f&#233;vr. 2005 TODO To change the template for this generated file
++ * go to Window - Preferences - Java - Code Style - Code Templates
++ */
++package de.berlios.jmds.server.core;
++
++import org.omg.CORBA.LocalObject;
++import org.omg.PortableInterceptor.ORBInitInfo;
++import org.omg.PortableInterceptor.ORBInitializer;
++import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
++
++
++
++
++/**
++ * @author sguincha TODO To change the template for this generated type comment
++ *         go to Window - Preferences - Java - Code Style - Code Templates
++ */
++public class ServerORBInitializer extends LocalObject implements ORBInitializer
++{
++
++	/**
++	 * Comment for &lt;code&gt;serialVersionUID&lt;/code&gt;
++	 */
++	private static final long	serialVersionUID	= 1L;
++
++	/**
++	 * @see org.omg.PortableInterceptor.ORBInitializerOperations#pre_init(org.omg.PortableInterceptor.ORBInitInfo)
++	 */
++	public void pre_init (ORBInitInfo info)
++	{
++		System.out.println (&quot;MonORBInitializer.pre_init: ORB ID: &quot; + info);
++	}
++
++	/**
++	 * @see org.omg.PortableInterceptor.ORBInitializerOperations#post_init(org.omg.PortableInterceptor.ORBInitInfo)
++	 */
++	public void post_init (ORBInitInfo info)
++	{
++		System.out.println (&quot;MonORBInitializer.post_init: ORB ID: &quot; + info);
++		// ClientInter client = new ClientInter();
++		ServerInter server = new ServerInter ();
++		// IORInter ior = new IORInter();
++		try
++		{
++			// info.add_client_request_interceptor(client);
++			info.add_server_request_interceptor (server);
++			// info.add_ior_interceptor(ior);
++		}
++		catch (DuplicateName e)
++		{
++			e.printStackTrace ();
++		}
++	}
++
++}
+
+Added: trunk/src/de/berlios/jmds/tools/Convertor.java
+===================================================================
+--- trunk/src/de/berlios/jmds/tools/Convertor.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/src/de/berlios/jmds/tools/Convertor.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,83 @@
++/*
++ * Created on 9 f&#233;vr. 2005
++ * by J&#233;r&#244;me GUERS
++ * Copyright: GPL - UMLV(FR) - 2004/2005
++ */
++package de.berlios.jmds.tools;
++
++/**
++ * Permet la conversion de String en short[] et inversement
++ * 
++ * @version 0.1
++ * 
++ * @author J&#233;r&#244;me GUERS
++ */
++public class Convertor {
++    
++    /**
++     * DOCME
++     * @param value 
++     * @return a table of short
++     */
++    public final static short[] stringToShortArray(String value) {
++        short shortKey[] = new short[(value.length() / 2)];
++        int y = 0;
++        String strShort;
++
++        for (int x = 0; x &lt; shortKey.length; x++) {
++            strShort = value.substring(y, (y + 2));
++            if (strShort.equals(&quot;FF&quot;)) {
++                shortKey[x] = (short) 0xFF;
++            } else {
++                try {
++                    shortKey[x] = (short) Short.parseShort(strShort, 16);
++                } catch (NumberFormatException e) {
++                    System.out.println(&quot;HexStringToShortArray Failed &quot;);
++                }
++            }
++            y = y + 2;
++        }
++        return shortKey;
++    }
++    
++    /**
++     * DOCME
++     * @param value 
++     * @return a table of int containing the stirng
++     */
++    public static int[] stringToIntArray(String value) {
++        int intKey[] = new int[(value.length() / 2)];
++        int y = 0;
++        String strInt;
++
++        for (int x = 0; x &lt; intKey.length; x++) {
++            strInt = value.substring(y, (y + 2));
++            if (strInt.equals(&quot;FF&quot;)) {
++                intKey[x] = (int) 0xFF;
++            } else {
++                try {
++                    intKey[x] = (int) Integer.parseInt(strInt, 16);
++                } catch (NumberFormatException e) {
++                    System.out.println(&quot;stringToShortArray Failed &quot;);
++                }
++            }
++
++            y = y + 2;
++        }
++        return intKey;
++    }
++
++	/**
++	 * @param context_data
++	 * @return string of the byte table
++	 */
++	public static String byteToString (byte [] context_data)
++	{
++		StringBuffer sb = new StringBuffer();
++		for(int i=0; i &lt; context_data.length; i++) {
++			sb.append(context_data[i]);
++		}
++		return sb.toString();
++	}
++}
++
+
+Added: trunk/test/de/berlios/jmds/test/clients/ClientPing.java
+===================================================================
+--- trunk/test/de/berlios/jmds/test/clients/ClientPing.java	2005-02-19 03:29:13 UTC (rev 16)
++++ trunk/test/de/berlios/jmds/test/clients/ClientPing.java	2005-02-19 10:02:48 UTC (rev 17)
+@@ -0,0 +1,152 @@
++/*
++ * Created on 9 f&#233;vr. 2005
++ * by J&#233;r&#244;me GUERS
++ * Copyright: GPL - UMLV(FR) - 2004/2005
++ */
++package de.berlios.jmds.test.clients;
++
++import slb.iop.IOP;
++import slb.iop.IOPEvent;
++import slb.iop.IOPListener;
++import slb.iop.SmartCard;
++import de.berlios.jmds.tools.Convertor;
++
++
++
++/**
++ * Teste la classe Ping charg&#233;e sur la carte
++ * 
++ * @version 0.1
++ * 
++ * @author J&#233;r&#244;me GUERS
++ */
++public class ClientPing {
++
++    private static class jmdsIOPListener implements IOPListener {
++
++        /**
++         * DOCME
++         * 
++         * @param event
++         * 
++         * @see slb.iop.IOPListener#CardRemoved(slb.iop.IOPEvent)
++         */
++        public void CardRemoved(IOPEvent event) {
++            System.out.println(&quot;Carte retir&#233;e de &quot;);
++            System.out.println(event.getReaderName());
++        }
++
++        /**
++         * DOCME
++         * 
++         * @param event
++         * 
++         * @see slb.iop.IOPListener#CardInserted(slb.iop.IOPEvent)
++         */
++        public void CardInserted(IOPEvent event) {
++            System.out.print(&quot;Carte ins&#233;r&#233;e dans &quot;);
++            System.out.println(event.getReaderName());
++        }
++
++        /**
++         * DOCME
++         * 
++         * @param event
++         * 
++         * @see slb.iop.IOPListener#ReaderRemoved(slb.iop.IOPEvent)
++         */
++        public void ReaderRemoved(IOPEvent event) {
++            System.out.println(&quot;Lecteur d&#233;connect&#233;&quot;);
++        }
++
++        /**
++         * DOCME
++         * 
++         * @param event
++         * 
++         * @see slb.iop.IOPListener#ReaderInserted(slb.iop.IOPEvent)
++         */
++        public void ReaderInserted(IOPEvent event) {
++            System.out.println(&quot;Lecteur connect&#233;&quot;);
++        }
++    }
++
++    /**
++     * @param args
++     */
++    public static void main(String[] args) {
++        IOP sIOP = new IOP();
++
++        jmdsIOPListener listener = new jmdsIOPListener();
++        sIOP.addIOPListener(listener);
++
++        String[] lstReaders = sIOP.ListReaders();
++
++        for (int i = 0; i &lt; lstReaders.length; i++) {
++            System.out.println(lstReaders[i]);
++        }
++
++        SmartCard card = new SmartCard();
++        if (lstReaders.length &gt; 0) {
++            boolean result = sIOP.Connect(card, lstReaders[0], false);
++            if (result) {
++                System.out.println(&quot;Carte connectee&quot;);
++
++                int CLA = Integer.parseInt(&quot;00&quot;, 16);
++                int INS = Integer.parseInt(&quot;A4&quot;, 16);
++                int P1 = Integer.parseInt(&quot;04&quot;, 16);
++                int P2 = Integer.parseInt(&quot;00&quot;, 16);
++                int[] body = Convertor.stringToIntArray(&quot;11223344556677&quot;);
++                int LE = Integer.parseInt(&quot;00&quot;, 16);
++                try {
++                    System.out.println(&quot;Applet Selection&quot;);
++                    card.BeginTransaction();
++                    card.SendCardAPDU(CLA, INS, P1, P2, body, LE);
++                    System.out.println(&quot;Applet selected&quot;);
++                    card.EndTransaction();
++                } catch (slb.iop.slbException e) {
++                    System.out.println(&quot;Pb de Selection&quot;);
++                    e.printStackTrace();
++                }
++
++                System.out.println(&quot;Envoi de l'APDU Echo Request&quot;);
++                CLA = Integer.parseInt(&quot;80&quot;, 16);
++                INS = Integer.parseInt(&quot;10&quot;, 16);
++                P1 = Integer.parseInt(&quot;00&quot;, 16);
++                P2 = Integer.parseInt(&quot;00&quot;, 16);
++                body = Convertor.stringToIntArray(&quot;102030&quot;);
++                LE = Integer.parseInt(&quot;00&quot;, 16);
++
++                try {
++                    card.BeginTransaction();
++                    card.SendCardAPDU(CLA, INS, P1, P2, body, LE);
++                    card.EndTransaction();
++                } catch (slb.iop.slbException e) {
++                    System.out.println(&quot;Erreur request&quot;);
++                    e.printStackTrace();
++                }
++
++                System.out.print(&quot;Envoi de l'APDU Echo Reply: &gt; &quot;);
++                CLA = (int) Integer.parseInt(&quot;80&quot;, 16);
++                INS = (int) Integer.parseInt(&quot;30&quot;, 16);
++                P1 = (int) Integer.parseInt(&quot;00&quot;, 16);
++                P2 = (int) Integer.parseInt(&quot;00&quot;, 16);
++                body = Convertor.stringToIntArray(&quot;&quot;);
++                LE = (int) Integer.parseInt(&quot;03&quot;, 16);
++
++                try {
++                    card.BeginTransaction();
++                    short[] out = card.SendCardAPDU(CLA, INS, P1, P2, body, LE);
++                    for (int i = 0; i &lt; out.length; i++) {
++                        System.out.print(Integer.toHexString(out[i]) + &quot; &quot;);
++                    }
++                    System.out.println(&quot;&quot;);
++                    card.EndTransaction();
++                } catch (slb.iop.slbException e) {
++                    System.out.println(&quot;Erreur reply&quot;);
++                    e.printStackTrace();
++                }
++            }
++        }
++    }
++}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000027.html">[Jmds-svn] JMDS : pb repository
+</A></li>
+	<LI>Next message: <A HREF="000026.html">[Jmds-svn] r18 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

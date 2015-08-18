@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r23 - trunk/src/de/berlios/jmds/applet
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r23%20-%20trunk/src/de/berlios/jmds/applet&In-Reply-To=%3C200502191846.j1JIkNBc001799%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000031.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r23 - trunk/src/de/berlios/jmds/applet</H1>
+    <B>J&#233;r&#244;me GUERS at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r23%20-%20trunk/src/de/berlios/jmds/applet&In-Reply-To=%3C200502191846.j1JIkNBc001799%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r23 - trunk/src/de/berlios/jmds/applet">jguers at sheep.berlios.de
+       </A><BR>
+    <I>Sat Feb 19 19:46:23 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000031.html">[Jmds-svn] r22 - in trunk: . applet applet/de applet/de/berlios applet/de/berlios/jmds applet/de/berlios/jmds/applet applet/de/berlios/jmds/applet/javacard generator src/de/berlios/jmds/applet
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[Jmds-svn] r24 - in trunk: applet/de/berlios/jmds/applet/javacard generator src/de/berlios/jmds/applet
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: jguers
+Date: 2005-02-19 19:46:21 +0100 (Sat, 19 Feb 2005)
+New Revision: 23
+
+Modified:
+   trunk/src/de/berlios/jmds/applet/JmdsSecurityApplet.java
+Log:
+Correction de la gestion de l'encode
+
+Modified: trunk/src/de/berlios/jmds/applet/JmdsSecurityApplet.java
+===================================================================
+--- trunk/src/de/berlios/jmds/applet/JmdsSecurityApplet.java	2005-02-19 18:26:03 UTC (rev 22)
++++ trunk/src/de/berlios/jmds/applet/JmdsSecurityApplet.java	2005-02-19 18:46:21 UTC (rev 23)
+@@ -20,28 +20,23 @@
+  */
+ public class JmdsSecurityApplet extends Applet {
+ 
+-	private static byte[] SC;
+-	
+     private final static byte CLA_SECURITY = (byte) 0x69;
+-    private final static byte ENCODEUR = (byte) 0x10;
+-    //private final static byte DECODEUR = (byte) 0x30;
++    private final static byte CODE = (byte) 0x10;
++    private final static byte GET_CODE = (byte) 0x20;
++    private final static byte DECODE = (byte) 0x30;
++    private final static byte GET_DECODE = (byte) 0x40;
+     private final static short BUFFER_LENGTH = (short) 255;
+ 
+     private byte[] buffer;
+-    private byte messLength;
++    private byte[] code;
++    private short messLength;
+     
+     /**
+      * Constructeur par d&#233;faut
+      */
+     protected JmdsSecurityApplet() {
+         buffer = new byte[BUFFER_LENGTH];
+-        SC[0] = (byte)'d';
+-        SC[1] = (byte)'e';
+-        SC[2] = (byte)'n';
+-        SC[3] = (byte)'i';
+-        SC[4] = (byte)'s';
+-        SC[5] = (byte)'e';
+-        
++        code = new byte[BUFFER_LENGTH];
+         messLength = (byte) 0;
+         register();
+     }
+@@ -54,7 +49,7 @@
+     }
+ 
+     /**
+-     * M&#233;thide appel&#233;e &#224; l'arriv&#233;e d'une trame APDU
++     * M&#233;thode appel&#233;e &#224; l'arriv&#233;e d'une trame APDU
+      * 
+      * @param apdu
+      * @throws ISOException
+@@ -62,36 +57,41 @@
+      * @see javacard.framework.Applet#process(javacard.framework.APDU)
+      */
+     public void process(APDU apdu) throws ISOException {
+-        byte[] tmpBuffer = apdu.getBuffer();
++        byte[] buffer = apdu.getBuffer();
+ 
+-        // CLA &#224; 0x80
+-        if (tmpBuffer[ISO7816.OFFSET_CLA] == CLA_SECURITY) {
+-            switch (tmpBuffer[ISO7816.OFFSET_INS]) {
+- /*           case ENCODEUR:
+-            	apdu.setOutgoingLength((short) messLength);
+-            	apdu.sendBytesLong(SC, (short) 0, (short) messLength);
+-            	
+-            	messLength = (byte)(apdu.setIncomingAndReceive());
+-//                if ((byteRead &gt; (byte) BUFFER_LENGTH) || (byteRead &lt;= (byte) 0))
+-//                    ISOException.throwIt(ISO7816.SW_WRONG_DATA);
+-                for (byte i = (byte) 0; i &lt; messL ength; i++) {
+-                    buffer[i] = tmpBuffer[ISO7816.OFFSET_CDATA + i];
+-                }
+-                break;
+-*/
+-            case ENCODEUR:
+-//            	//Affectration du service context au buffer de la trame
+-//            	buffer = SC;
+-//                // Le = taille de la r&#233;ponse attendue
+-//            	messLength = (byte)(apdu.setIncomingAndReceive());
+-//            	short Le = apdu.setOutgoing();
+-//                // Verification que Le &gt;= messLength (taille des donn&#233;es envoy&#233;es)
+-//                if (Le &lt; messLength)
+-//                    ISOException.throwIt(ISO7816.SW_WRONG_LENGTH);
+-                apdu.setOutgoingLength((short) SC.length);
+-                apdu.sendBytesLong(SC, (short) 0, (short) SC.length);
+-                break;
++        // CLA &#224; 69
++        if (buffer[ISO7816.OFFSET_CLA] == CLA_SECURITY) {
++            switch (buffer[ISO7816.OFFSET_INS]) {
++                case CODE:
++                    encode(apdu);
++                    break;
++                
++                case GET_CODE:
++                    getEncode(apdu);
++                    break;
++
++                case DECODE:
++                    break;
++                    
++                case GET_DECODE:
++                    break;
+             }
+         }
+     }
++    
++    private void encode(APDU apdu)
++    {
++        messLength = apdu.setIncomingAndReceive();
++        for (int i = 0; i &lt; messLength; i++) {
++            code[i] = (byte)(buffer[i + ISO7816.OFFSET_CDATA] &amp; 0x10);
++        }
++    }
++    
++    private void getEncode(APDU apdu)
++    {
++        if(apdu.setOutgoing() &lt; messLength)
++            ISOException.throwIt(ISO7816.SW_WRONG_LENGTH);
++        
++        apdu.sendBytesLong(code, (short)0, messLength);
++    }
+ }
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000031.html">[Jmds-svn] r22 - in trunk: . applet applet/de applet/de/berlios applet/de/berlios/jmds applet/de/berlios/jmds/applet applet/de/berlios/jmds/applet/javacard generator src/de/berlios/jmds/applet
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[Jmds-svn] r24 - in trunk: applet/de/berlios/jmds/applet/javacard generator src/de/berlios/jmds/applet
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,1181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r12 - in trunk: . .settings generated-src generated-src/fr generated-src/fr/umlv generated-src/fr/umlv/ir3 generated-src/fr/umlv/ir3/corba generated-src/fr/umlv/ir3/corba/sguincha generated-src/fr/umlv/ir3/corba/sguincha/td2 lib test test/de test/de/berlios test/de/berlios/jmds
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r12%20-%20in%20trunk%3A%20.%20.settings%20generated-src%20generated-src/fr%20generated-src/fr/umlv%20generated-src/fr/umlv/ir3%20generated-src/fr/umlv/ir3/corba%20generated-src/fr/umlv/ir3/corba/sguincha%20generated-src/fr/umlv/ir3/corba/sguincha/td2%20lib%20test%20test/de%20test/de/berlios%20test/de/berlios/jmds&In-Reply-To=%3C200502181950.j1IJouHX015777%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000015.html">
+   <LINK REL="Next"  HREF="000017.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r12 - in trunk: . .settings generated-src generated-src/fr generated-src/fr/umlv generated-src/fr/umlv/ir3 generated-src/fr/umlv/ir3/corba generated-src/fr/umlv/ir3/corba/sguincha generated-src/fr/umlv/ir3/corba/sguincha/td2 lib test test/de test/de/berlios test/de/berlios/jmds</H1>
+    <B>S&#233;bastien Guinchard at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r12%20-%20in%20trunk%3A%20.%20.settings%20generated-src%20generated-src/fr%20generated-src/fr/umlv%20generated-src/fr/umlv/ir3%20generated-src/fr/umlv/ir3/corba%20generated-src/fr/umlv/ir3/corba/sguincha%20generated-src/fr/umlv/ir3/corba/sguincha/td2%20lib%20test%20test/de%20test/de/berlios%20test/de/berlios/jmds&In-Reply-To=%3C200502181950.j1IJouHX015777%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r12 - in trunk: . .settings generated-src generated-src/fr generated-src/fr/umlv generated-src/fr/umlv/ir3 generated-src/fr/umlv/ir3/corba generated-src/fr/umlv/ir3/corba/sguincha generated-src/fr/umlv/ir3/corba/sguincha/td2 lib test test/de test/de/berlios test/de/berlios/jmds">sguincha at sheep.berlios.de
+       </A><BR>
+    <I>Fri Feb 18 20:50:56 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000015.html">[Jmds-svn] r11 - in members/jguers/TestCard/src/de/berlios/jmds: . client client/core ior server server/core
+</A></li>
+        <LI>Next message: <A HREF="000017.html">[Jmds-svn] r13 - members/jguers/TestCard/src/de/berlios/jmds/applet
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: sguincha
+Date: 2005-02-18 20:50:55 +0100 (Fri, 18 Feb 2005)
+New Revision: 12
+
+Added:
+   trunk/.classpath
+   trunk/.project
+   trunk/.settings/
+   trunk/.settings/org.eclipse.jdt.core.prefs
+   trunk/ObjectRef
+   trunk/convention_codage.xml
+   trunk/convention_template.xml
+   trunk/generated-src/fr/
+   trunk/generated-src/fr/umlv/
+   trunk/generated-src/fr/umlv/ir3/
+   trunk/generated-src/fr/umlv/ir3/corba/
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Forum.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHelper.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHolder.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumOperations.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumPOA.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Message.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHelper.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHolder.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHelper.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHolder.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/_ForumStub.java
+   trunk/lib/
+   trunk/lib/javacardframework.jar
+   trunk/test/de/
+   trunk/test/de/berlios/
+   trunk/test/de/berlios/jmds/
+   trunk/test/de/berlios/jmds/test/
+Log:
+
+
+Added: trunk/.classpath
+===================================================================
+--- trunk/.classpath	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/.classpath	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,10 @@
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
++&lt;classpath&gt;
++	&lt;classpathentry kind=&quot;src&quot; path=&quot;src&quot;/&gt;
++	&lt;classpathentry kind=&quot;src&quot; path=&quot;test&quot;/&gt;
++	&lt;classpathentry kind=&quot;src&quot; path=&quot;generated-src&quot;/&gt;
++	&lt;classpathentry kind=&quot;con&quot; path=&quot;org.eclipse.jdt.launching.JRE_CONTAINER&quot;/&gt;
++	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/javacardframework.jar&quot;/&gt;
++	&lt;classpathentry kind=&quot;lib&quot; path=&quot;C:/Program Files/Schlumberger/Smart Cards and Terminals/Cyberflex Access Kits/v4/Middleware Interfaces/jiop/slbJIop.jar&quot;/&gt;
++	&lt;classpathentry kind=&quot;output&quot; path=&quot;classes&quot;/&gt;
++&lt;/classpath&gt;
+
+Added: trunk/.project
+===================================================================
+--- trunk/.project	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/.project	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,17 @@
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
++&lt;projectDescription&gt;
++	&lt;name&gt;JMDS&lt;/name&gt;
++	&lt;comment&gt;&lt;/comment&gt;
++	&lt;projects&gt;
++	&lt;/projects&gt;
++	&lt;buildSpec&gt;
++		&lt;buildCommand&gt;
++			&lt;name&gt;org.eclipse.jdt.core.javabuilder&lt;/name&gt;
++			&lt;arguments&gt;
++			&lt;/arguments&gt;
++		&lt;/buildCommand&gt;
++	&lt;/buildSpec&gt;
++	&lt;natures&gt;
++		&lt;nature&gt;org.eclipse.jdt.core.javanature&lt;/nature&gt;
++	&lt;/natures&gt;
++&lt;/projectDescription&gt;
+
+Added: trunk/.settings/org.eclipse.jdt.core.prefs
+===================================================================
+--- trunk/.settings/org.eclipse.jdt.core.prefs	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/.settings/org.eclipse.jdt.core.prefs	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,12 @@
++#Fri Feb 18 20:20:20 CET 2005
++org.eclipse.jdt.core.compiler.debug.localVariable=generate
++org.eclipse.jdt.core.compiler.compliance=1.3
++org.eclipse.jdt.core.compiler.codegen.unusedLocal=preserve
++org.eclipse.jdt.core.compiler.debug.sourceFile=generate
++org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.1
++org.eclipse.jdt.core.compiler.problem.enumIdentifier=ignore
++eclipse.preferences.version=1
++org.eclipse.jdt.core.compiler.debug.lineNumber=generate
++org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
++org.eclipse.jdt.core.compiler.source=1.3
++org.eclipse.jdt.core.compiler.problem.assertIdentifier=ignore
+
+Added: trunk/ObjectRef
+===================================================================
+--- trunk/ObjectRef	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/ObjectRef	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1 @@
++IOR:000000000000001249444c3a7464322f466f72756d3a312e30000000000000010000000000000086000102000000000e38342e39392e3232322e32353200101200000031afabcb000000002026cbea9200000001000000000000000100000008526f6f74504f410000000008000000010000000014000000000000020000000100000020000000000001000100000002050100010001002000010109000000010001010000000026000000020002
+\ No newline at end of file
+
+Added: trunk/convention_codage.xml
+===================================================================
+--- trunk/convention_codage.xml	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/convention_codage.xml	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,186 @@
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
++&lt;profiles version=&quot;6&quot;&gt;
++&lt;profile name=&quot;JMDS&quot; version=&quot;6&quot;&gt;
++&lt;setting id=&quot;comment_clear_blank_lines&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;comment_format_comments&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;comment_format_header&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;comment_format_html&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;comment_format_source_code&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;comment_indent_parameter_description&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;comment_indent_root_tags&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;comment_line_length&quot; value=&quot;80&quot;/&gt;
++&lt;setting id=&quot;comment_new_line_for_parameter&quot; value=&quot;false&quot;/&gt;
++&lt;setting id=&quot;comment_separate_root_tags&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.align_type_members_on_columns&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_arguments_in_allocation_expression&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_arguments_in_explicit_constructor_call&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_arguments_in_qualified_allocation_expression&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_binary_expression&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_compact_if&quot; value=&quot;52&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_conditional_expression&quot; value=&quot;48&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_expressions_in_array_initializer&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_multiple_fields&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_parameters_in_constructor_declaration&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_parameters_in_method_declaration&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_selector_in_method_invocation&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_superclass_in_type_declaration&quot; value=&quot;64&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_superinterfaces_in_type_declaration&quot; value=&quot;64&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_throws_clause_in_constructor_declaration&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.alignment_for_throws_clause_in_method_declaration&quot; value=&quot;16&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.blank_lines_after_imports&quot; value=&quot;2&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.blank_lines_after_package&quot; value=&quot;1&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.blank_lines_before_field&quot; value=&quot;0&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.blank_lines_before_first_class_body_declaration&quot; value=&quot;0&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.blank_lines_before_imports&quot; value=&quot;0&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.blank_lines_before_member_type&quot; value=&quot;0&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.blank_lines_before_method&quot; value=&quot;1&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.blank_lines_before_new_chunk&quot; value=&quot;1&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.blank_lines_before_package&quot; value=&quot;0&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.blank_lines_between_type_declarations&quot; value=&quot;2&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.brace_position_for_anonymous_type_declaration&quot; value=&quot;next_line&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.brace_position_for_array_initializer&quot; value=&quot;end_of_line&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.brace_position_for_block&quot; value=&quot;next_line&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.brace_position_for_block_in_case&quot; value=&quot;next_line&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.brace_position_for_constructor_declaration&quot; value=&quot;next_line&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.brace_position_for_method_declaration&quot; value=&quot;next_line&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.brace_position_for_switch&quot; value=&quot;next_line&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.brace_position_for_type_declaration&quot; value=&quot;next_line&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.compact_else_if&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.continuation_indentation&quot; value=&quot;2&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.continuation_indentation_for_array_initializer&quot; value=&quot;2&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.format_guardian_clause_on_one_line&quot; value=&quot;false&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_type_header&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.indent_breaks_compare_to_cases&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.indent_statements_compare_to_block&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.indent_statements_compare_to_body&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.indent_switchstatements_compare_to_cases&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.indent_switchstatements_compare_to_switch&quot; value=&quot;true&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_new_line_after_opening_brace_in_array_initializer&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_new_line_before_catch_in_try_statement&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_new_line_before_closing_brace_in_array_initializer&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_new_line_before_else_in_if_statement&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_new_line_before_finally_in_try_statement&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_new_line_before_while_in_do_statement&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_new_line_in_empty_anonymous_type_declaration&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_new_line_in_empty_block&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_new_line_in_empty_method_body&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_new_line_in_empty_type_declaration&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_assignment_operator&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_binary_operator&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_closing_brace_in_block&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_closing_paren_in_cast&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_colon_in_assert&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_colon_in_case&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_colon_in_conditional&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_colon_in_labeled_statement&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_allocation_expression&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_array_initializer&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_constructor_declaration_parameters&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_constructor_declaration_throws&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_explicitconstructorcall_arguments&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_for_increments&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_for_inits&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_method_declaration_parameters&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_method_declaration_throws&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_method_invocation_arguments&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_multiple_field_declarations&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_multiple_local_declarations&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_comma_in_superinterfaces&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_brace_in_array_initializer&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_bracket_in_array_allocation_expression&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_bracket_in_array_reference&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_cast&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_catch&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_constructor_declaration&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_for&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_if&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_method_declaration&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_method_invocation&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_parenthesized_expression&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_switch&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_synchronized&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_while&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_postfix_operator&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_prefix_operator&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_question_in_conditional&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_semicolon_in_for&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_after_unary_operator&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_assignment_operator&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_binary_operator&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_brace_in_array_initializer&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_bracket_in_array_allocation_expression&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_bracket_in_array_reference&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_cast&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_catch&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_constructor_declaration&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_for&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_if&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_method_declaration&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_method_invocation&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_parenthesized_expression&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_switch&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_synchronized&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_while&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_colon_in_assert&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_colon_in_case&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_colon_in_conditional&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_colon_in_default&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_colon_in_labeled_statement&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_allocation_expression&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_array_initializer&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_constructor_declaration_parameters&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_constructor_declaration_throws&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_explicitconstructorcall_arguments&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_for_increments&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_for_inits&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_method_declaration_parameters&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_method_declaration_throws&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_method_invocation_arguments&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_multiple_field_declarations&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_multiple_local_declarations&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_comma_in_superinterfaces&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_anonymous_type_declaration&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_array_initializer&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_block&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_constructor_declaration&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_method_declaration&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_switch&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_type_declaration&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_bracket_in_array_allocation_expression&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_bracket_in_array_reference&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_bracket_in_array_type_reference&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_catch&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_constructor_declaration&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_for&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_if&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_method_declaration&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_method_invocation&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_parenthesized_expression&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_switch&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_synchronized&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_while&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_postfix_operator&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_prefix_operator&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_question_in_conditional&quot; value=&quot;insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_semicolon&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_semicolon_in_for&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_before_unary_operator&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_between_brackets_in_array_type_reference&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_between_empty_braces_in_array_initializer&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_between_empty_brackets_in_array_allocation_expression&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_constructor_declaration&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_method_declaration&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_method_invocation&quot; value=&quot;do not insert&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.keep_else_statement_on_same_line&quot; value=&quot;false&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.keep_empty_array_initializer_on_one_line&quot; value=&quot;false&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.keep_imple_if_on_one_line&quot; value=&quot;false&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.keep_then_statement_on_same_line&quot; value=&quot;false&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.lineSplit&quot; value=&quot;500&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.number_of_blank_lines_at_beginning_of_method_body&quot; value=&quot;0&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.number_of_empty_lines_to_preserve&quot; value=&quot;1&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.put_empty_statement_on_new_line&quot; value=&quot;false&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.tabulation.char&quot; value=&quot;tab&quot;/&gt;
++&lt;setting id=&quot;org.eclipse.jdt.core.formatter.tabulation.size&quot; value=&quot;4&quot;/&gt;
++&lt;/profile&gt;
++&lt;/profiles&gt;
+
+Added: trunk/convention_template.xml
+===================================================================
+--- trunk/convention_template.xml	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/convention_template.xml	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,29 @@
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;templates&gt;&lt;template context=&quot;gettercomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for getter method&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.gettercomment&quot; name=&quot;gettercomment&quot;&gt;/**
++ * @return Returns the ${bare_field_name}.
++ */&lt;/template&gt;&lt;template context=&quot;settercomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for setter method&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.settercomment&quot; name=&quot;settercomment&quot;&gt;/**
++ * @param ${param} The ${bare_field_name} to set.
++ */&lt;/template&gt;&lt;template context=&quot;constructorcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created constructors&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.constructorcomment&quot; name=&quot;constructorcomment&quot;&gt;/**
++ * ${tags}
++ */&lt;/template&gt;&lt;template context=&quot;typecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created types&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.typecomment&quot; name=&quot;typecomment&quot;&gt;/**
++ * @author ${user}
++ *
++ */&lt;/template&gt;&lt;template context=&quot;fieldcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for fields&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.fieldcomment&quot; name=&quot;fieldcomment&quot;&gt;/**
++ * Comment for &lt;code&gt;${field}&lt;/code&gt;
++ */&lt;/template&gt;&lt;template context=&quot;methodcomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for non-overriding methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.methodcomment&quot; name=&quot;methodcomment&quot;&gt;/**
++ * ${tags}
++ */&lt;/template&gt;&lt;template context=&quot;overridecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for overriding methods&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.overridecomment&quot; name=&quot;overridecomment&quot;&gt;/**
++ * ${see_to_overridden}
++ */&lt;/template&gt;&lt;template context=&quot;newtype_context&quot; deleted=&quot;false&quot; description=&quot;Newly created files&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.newtype&quot; name=&quot;newtype&quot;&gt;/* 
++ * File    : ${file_name}
++ * Created : ${date}
++ * 
++ * =======================================
++ * JMDS PROJECT (&quot;<A HREF="http://jmds.berlios.de">http://jmds.berlios.de</A>&quot;)
++ * =======================================
++ *
++ */
++
++${package_declaration}
++
++${typecomment}
++${type_declaration}&lt;/template&gt;&lt;template context=&quot;catchblock_context&quot; deleted=&quot;false&quot; description=&quot;Code in new catch blocks&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.catchblock&quot; name=&quot;catchblock&quot;&gt;${exception_var}.printStackTrace();&lt;/template&gt;&lt;template context=&quot;methodbody_context&quot; deleted=&quot;false&quot; description=&quot;Code in created method stubs&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.methodbody&quot; name=&quot;methodbody&quot;&gt;${body_statement}&lt;/template&gt;&lt;template context=&quot;constructorbody_context&quot; deleted=&quot;false&quot; description=&quot;Code in created constructor stubs&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.constructorbody&quot; name=&quot;constructorbody&quot;&gt;${body_statement}&lt;/template&gt;&lt;template context=&quot;getterbody_context&quot; deleted=&quot;false&quot; description=&quot;Code in created getters&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.getterbody&quot; name=&quot;getterbody&quot;&gt;return ${field};&lt;/template&gt;&lt;template context=&quot;setterbody_context&quot; deleted=&quot;false&quot; description=&quot;Code in cr!
+ eated setters&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.setterbody&quot; name=&quot;setterbody&quot;&gt;${field} = ${param};&lt;/template&gt;&lt;/templates&gt;
+\ No newline at end of file
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Forum.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Forum.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Forum.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,11 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/Forum.java . Generated by the IDL-to-Java
++ * compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15 octobre
++ * 2004 14 h 06 CEST
++ */
++
++public interface Forum extends ForumOperations, org.omg.CORBA.Object, org.omg.CORBA.portable.IDLEntity
++{
++} // interface Forum
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHelper.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHelper.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHelper.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,84 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/ForumHelper.java . Generated by the
++ * IDL-to-Java compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15
++ * octobre 2004 14 h 06 CEST
++ */
++
++abstract public class ForumHelper
++{
++	private static String	_id	= &quot;IDL:td2/Forum:1.0&quot;;
++
++	public static void insert (org.omg.CORBA.Any a, fr.umlv.ir3.corba.sguincha.td2.Forum that)
++	{
++		org.omg.CORBA.portable.OutputStream out = a.create_output_stream ();
++		a.type (type ());
++		write (out , that);
++		a.read_value (out.create_input_stream () , type ());
++	}
++
++	public static fr.umlv.ir3.corba.sguincha.td2.Forum extract (org.omg.CORBA.Any a)
++	{
++		return read (a.create_input_stream ());
++	}
++
++	private static org.omg.CORBA.TypeCode	__typeCode	= null;
++
++	synchronized public static org.omg.CORBA.TypeCode type ()
++	{
++		if (__typeCode == null)
++		{
++			__typeCode = org.omg.CORBA.ORB.init ().create_interface_tc (fr.umlv.ir3.corba.sguincha.td2.ForumHelper.id () , &quot;Forum&quot;);
++		}
++		return __typeCode;
++	}
++
++	public static String id ()
++	{
++		return _id;
++	}
++
++	public static fr.umlv.ir3.corba.sguincha.td2.Forum read (org.omg.CORBA.portable.InputStream istream)
++	{
++		return narrow (istream.read_Object (_ForumStub.class));
++	}
++
++	public static void write (org.omg.CORBA.portable.OutputStream ostream, fr.umlv.ir3.corba.sguincha.td2.Forum value)
++	{
++		ostream.write_Object ((org.omg.CORBA.Object) value);
++	}
++
++	public static fr.umlv.ir3.corba.sguincha.td2.Forum narrow (org.omg.CORBA.Object obj)
++	{
++		if (obj == null)
++			return null;
++		else if (obj instanceof fr.umlv.ir3.corba.sguincha.td2.Forum)
++			return (fr.umlv.ir3.corba.sguincha.td2.Forum) obj;
++		else if (!obj._is_a (id ()))
++			throw new org.omg.CORBA.BAD_PARAM ();
++		else
++		{
++			org.omg.CORBA.portable.Delegate delegate = ((org.omg.CORBA.portable.ObjectImpl) obj)._get_delegate ();
++			fr.umlv.ir3.corba.sguincha.td2._ForumStub stub = new fr.umlv.ir3.corba.sguincha.td2._ForumStub ();
++			stub._set_delegate (delegate);
++			return stub;
++		}
++	}
++
++	public static fr.umlv.ir3.corba.sguincha.td2.Forum unchecked_narrow (org.omg.CORBA.Object obj)
++	{
++		if (obj == null)
++			return null;
++		else if (obj instanceof fr.umlv.ir3.corba.sguincha.td2.Forum)
++			return (fr.umlv.ir3.corba.sguincha.td2.Forum) obj;
++		else
++		{
++			org.omg.CORBA.portable.Delegate delegate = ((org.omg.CORBA.portable.ObjectImpl) obj)._get_delegate ();
++			fr.umlv.ir3.corba.sguincha.td2._ForumStub stub = new fr.umlv.ir3.corba.sguincha.td2._ForumStub ();
++			stub._set_delegate (delegate);
++			return stub;
++		}
++	}
++
++}
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHolder.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHolder.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHolder.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,37 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/ForumHolder.java . Generated by the
++ * IDL-to-Java compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15
++ * octobre 2004 14 h 06 CEST
++ */
++
++public final class ForumHolder implements org.omg.CORBA.portable.Streamable
++{
++	public fr.umlv.ir3.corba.sguincha.td2.Forum	value	= null;
++
++	public ForumHolder ()
++	{
++	}
++
++	public ForumHolder (fr.umlv.ir3.corba.sguincha.td2.Forum initialValue)
++	{
++		value = initialValue;
++	}
++
++	public void _read (org.omg.CORBA.portable.InputStream i)
++	{
++		value = fr.umlv.ir3.corba.sguincha.td2.ForumHelper.read (i);
++	}
++
++	public void _write (org.omg.CORBA.portable.OutputStream o)
++	{
++		fr.umlv.ir3.corba.sguincha.td2.ForumHelper.write (o , value);
++	}
++
++	public org.omg.CORBA.TypeCode _type ()
++	{
++		return fr.umlv.ir3.corba.sguincha.td2.ForumHelper.type ();
++	}
++
++}
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumOperations.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumOperations.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumOperations.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,22 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/ForumOperations.java . Generated by the
++ * IDL-to-Java compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15
++ * octobre 2004 14 h 06 CEST
++ */
++
++public interface ForumOperations
++{
++	String theme ();
++
++	String moderator ();
++
++	boolean postMessage (fr.umlv.ir3.corba.sguincha.td2.Message m);
++
++	fr.umlv.ir3.corba.sguincha.td2.Message getMessage (String title);
++
++	fr.umlv.ir3.corba.sguincha.td2.Message[] getMessages ();
++
++	boolean removeMessage (String title);
++} // interface ForumOperations
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumPOA.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumPOA.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumPOA.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,116 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/ForumPOA.java . Generated by the IDL-to-Java
++ * compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15 octobre
++ * 2004 14 h 06 CEST
++ */
++
++public abstract class ForumPOA extends org.omg.PortableServer.Servant implements fr.umlv.ir3.corba.sguincha.td2.ForumOperations, org.omg.CORBA.portable.InvokeHandler
++{
++
++	// Constructors
++
++	private static java.util.Hashtable	_methods	= new java.util.Hashtable ();
++	static
++	{
++		_methods.put (&quot;_get_theme&quot; , new java.lang.Integer (0));
++		_methods.put (&quot;_get_moderator&quot; , new java.lang.Integer (1));
++		_methods.put (&quot;postMessage&quot; , new java.lang.Integer (2));
++		_methods.put (&quot;getMessage&quot; , new java.lang.Integer (3));
++		_methods.put (&quot;getMessages&quot; , new java.lang.Integer (4));
++		_methods.put (&quot;removeMessage&quot; , new java.lang.Integer (5));
++	}
++
++	public org.omg.CORBA.portable.OutputStream _invoke (String $method, org.omg.CORBA.portable.InputStream in, org.omg.CORBA.portable.ResponseHandler $rh)
++	{
++		org.omg.CORBA.portable.OutputStream out = null;
++		java.lang.Integer __method = (java.lang.Integer) _methods.get ($method);
++		if (__method == null)
++			throw new org.omg.CORBA.BAD_OPERATION (0, org.omg.CORBA.CompletionStatus.COMPLETED_MAYBE);
++
++		switch (__method.intValue ())
++		{
++			case 0 : // td2/Forum/_get_theme
++			{
++				String $result = null;
++				$result = this.theme ();
++				out = $rh.createReply ();
++				out.write_string ($result);
++				break;
++			}
++
++			case 1 : // td2/Forum/_get_moderator
++			{
++				String $result = null;
++				$result = this.moderator ();
++				out = $rh.createReply ();
++				out.write_string ($result);
++				break;
++			}
++
++			case 2 : // td2/Forum/postMessage
++			{
++				fr.umlv.ir3.corba.sguincha.td2.Message m = fr.umlv.ir3.corba.sguincha.td2.MessageHelper.read (in);
++				boolean $result = false;
++				$result = this.postMessage (m);
++				out = $rh.createReply ();
++				out.write_boolean ($result);
++				break;
++			}
++
++			case 3 : // td2/Forum/getMessage
++			{
++				String title = in.read_string ();
++				fr.umlv.ir3.corba.sguincha.td2.Message $result = null;
++				$result = this.getMessage (title);
++				out = $rh.createReply ();
++				fr.umlv.ir3.corba.sguincha.td2.MessageHelper.write (out , $result);
++				break;
++			}
++
++			case 4 : // td2/Forum/getMessages
++			{
++				fr.umlv.ir3.corba.sguincha.td2.Message $result[] = null;
++				$result = this.getMessages ();
++				out = $rh.createReply ();
++				fr.umlv.ir3.corba.sguincha.td2.MessageSetHelper.write (out , $result);
++				break;
++			}
++
++			case 5 : // td2/Forum/removeMessage
++			{
++				String title = in.read_string ();
++				boolean $result = false;
++				$result = this.removeMessage (title);
++				out = $rh.createReply ();
++				out.write_boolean ($result);
++				break;
++			}
++
++			default :
++				throw new org.omg.CORBA.BAD_OPERATION (0, org.omg.CORBA.CompletionStatus.COMPLETED_MAYBE);
++		}
++
++		return out;
++	} // _invoke
++
++	// Type-specific CORBA::Object operations
++	private static String []	__ids	= {&quot;IDL:td2/Forum:1.0&quot;};
++
++	public String [] _all_interfaces (org.omg.PortableServer.POA poa, byte [] objectId)
++	{
++		return (String []) __ids.clone ();
++	}
++
++	public Forum _this ()
++	{
++		return ForumHelper.narrow (super._this_object ());
++	}
++
++	public Forum _this (org.omg.CORBA.ORB orb)
++	{
++		return ForumHelper.narrow (super._this_object (orb));
++	}
++
++} // class ForumPOA
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Message.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Message.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Message.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,28 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/Message.java . Generated by the IDL-to-Java
++ * compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15 octobre
++ * 2004 14 h 06 CEST
++ */
++
++public final class Message implements org.omg.CORBA.portable.IDLEntity
++{
++	public String	title	= null;
++	public String	author	= null;
++	public String	date	= null;
++	public String	body	= null;
++
++	public Message ()
++	{
++	} // ctor
++
++	public Message (String _title, String _author, String _date, String _body)
++	{
++		title = _title;
++		author = _author;
++		date = _date;
++		body = _body;
++	} // ctor
++
++} // class Message
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHelper.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHelper.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHelper.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,83 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/MessageHelper.java . Generated by the
++ * IDL-to-Java compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15
++ * octobre 2004 14 h 06 CEST
++ */
++
++abstract public class MessageHelper
++{
++	private static String	_id	= &quot;IDL:td2/Message/Message:1.0&quot;;
++
++	public static void insert (org.omg.CORBA.Any a, fr.umlv.ir3.corba.sguincha.td2.Message that)
++	{
++		org.omg.CORBA.portable.OutputStream out = a.create_output_stream ();
++		a.type (type ());
++		write (out , that);
++		a.read_value (out.create_input_stream () , type ());
++	}
++
++	public static fr.umlv.ir3.corba.sguincha.td2.Message extract (org.omg.CORBA.Any a)
++	{
++		return read (a.create_input_stream ());
++	}
++
++	private static org.omg.CORBA.TypeCode	__typeCode	= null;
++	private static boolean					__active	= false;
++
++	synchronized public static org.omg.CORBA.TypeCode type ()
++	{
++		if (__typeCode == null)
++		{
++			synchronized (org.omg.CORBA.TypeCode.class)
++			{
++				if (__typeCode == null)
++				{
++					if (__active)
++					{
++						return org.omg.CORBA.ORB.init ().create_recursive_tc (_id);
++					}
++					__active = true;
++					org.omg.CORBA.StructMember[] _members0 = new org.omg.CORBA.StructMember [4];
++					org.omg.CORBA.TypeCode _tcOf_members0 = null;
++					_tcOf_members0 = org.omg.CORBA.ORB.init ().create_string_tc (0);
++					_members0 [0] = new org.omg.CORBA.StructMember (&quot;title&quot;, _tcOf_members0, null);
++					_tcOf_members0 = org.omg.CORBA.ORB.init ().create_string_tc (0);
++					_members0 [1] = new org.omg.CORBA.StructMember (&quot;author&quot;, _tcOf_members0, null);
++					_tcOf_members0 = org.omg.CORBA.ORB.init ().create_string_tc (0);
++					_members0 [2] = new org.omg.CORBA.StructMember (&quot;date&quot;, _tcOf_members0, null);
++					_tcOf_members0 = org.omg.CORBA.ORB.init ().create_string_tc (0);
++					_members0 [3] = new org.omg.CORBA.StructMember (&quot;body&quot;, _tcOf_members0, null);
++					__typeCode = org.omg.CORBA.ORB.init ().create_struct_tc (fr.umlv.ir3.corba.sguincha.td2.MessageHelper.id () , &quot;Message&quot; , _members0);
++					__active = false;
++				}
++			}
++		}
++		return __typeCode;
++	}
++
++	public static String id ()
++	{
++		return _id;
++	}
++
++	public static fr.umlv.ir3.corba.sguincha.td2.Message read (org.omg.CORBA.portable.InputStream istream)
++	{
++		fr.umlv.ir3.corba.sguincha.td2.Message value = new fr.umlv.ir3.corba.sguincha.td2.Message ();
++		value.title = istream.read_string ();
++		value.author = istream.read_string ();
++		value.date = istream.read_string ();
++		value.body = istream.read_string ();
++		return value;
++	}
++
++	public static void write (org.omg.CORBA.portable.OutputStream ostream, fr.umlv.ir3.corba.sguincha.td2.Message value)
++	{
++		ostream.write_string (value.title);
++		ostream.write_string (value.author);
++		ostream.write_string (value.date);
++		ostream.write_string (value.body);
++	}
++
++}
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHolder.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHolder.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHolder.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,37 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/MessageHolder.java . Generated by the
++ * IDL-to-Java compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15
++ * octobre 2004 14 h 06 CEST
++ */
++
++public final class MessageHolder implements org.omg.CORBA.portable.Streamable
++{
++	public fr.umlv.ir3.corba.sguincha.td2.Message	value	= null;
++
++	public MessageHolder ()
++	{
++	}
++
++	public MessageHolder (fr.umlv.ir3.corba.sguincha.td2.Message initialValue)
++	{
++		value = initialValue;
++	}
++
++	public void _read (org.omg.CORBA.portable.InputStream i)
++	{
++		value = fr.umlv.ir3.corba.sguincha.td2.MessageHelper.read (i);
++	}
++
++	public void _write (org.omg.CORBA.portable.OutputStream o)
++	{
++		fr.umlv.ir3.corba.sguincha.td2.MessageHelper.write (o , value);
++	}
++
++	public org.omg.CORBA.TypeCode _type ()
++	{
++		return fr.umlv.ir3.corba.sguincha.td2.MessageHelper.type ();
++	}
++
++}
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHelper.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHelper.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHelper.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,61 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/MessageSetHelper.java . Generated by the
++ * IDL-to-Java compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15
++ * octobre 2004 14 h 06 CEST
++ */
++
++abstract public class MessageSetHelper
++{
++	private static String	_id	= &quot;IDL:td2/MessageSet:1.0&quot;;
++
++	public static void insert (org.omg.CORBA.Any a, fr.umlv.ir3.corba.sguincha.td2.Message[] that)
++	{
++		org.omg.CORBA.portable.OutputStream out = a.create_output_stream ();
++		a.type (type ());
++		write (out , that);
++		a.read_value (out.create_input_stream () , type ());
++	}
++
++	public static fr.umlv.ir3.corba.sguincha.td2.Message[] extract (org.omg.CORBA.Any a)
++	{
++		return read (a.create_input_stream ());
++	}
++
++	private static org.omg.CORBA.TypeCode	__typeCode	= null;
++
++	synchronized public static org.omg.CORBA.TypeCode type ()
++	{
++		if (__typeCode == null)
++		{
++			__typeCode = fr.umlv.ir3.corba.sguincha.td2.MessageHelper.type ();
++			__typeCode = org.omg.CORBA.ORB.init ().create_sequence_tc (0 , __typeCode);
++			__typeCode = org.omg.CORBA.ORB.init ().create_alias_tc (fr.umlv.ir3.corba.sguincha.td2.MessageSetHelper.id () , &quot;MessageSet&quot; , __typeCode);
++		}
++		return __typeCode;
++	}
++
++	public static String id ()
++	{
++		return _id;
++	}
++
++	public static fr.umlv.ir3.corba.sguincha.td2.Message[] read (org.omg.CORBA.portable.InputStream istream)
++	{
++		fr.umlv.ir3.corba.sguincha.td2.Message value[] = null;
++		int _len0 = istream.read_long ();
++		value = new fr.umlv.ir3.corba.sguincha.td2.Message [_len0];
++		for (int _o1 = 0; _o1 &lt; value.length; ++_o1)
++			value [_o1] = fr.umlv.ir3.corba.sguincha.td2.MessageHelper.read (istream);
++		return value;
++	}
++
++	public static void write (org.omg.CORBA.portable.OutputStream ostream, fr.umlv.ir3.corba.sguincha.td2.Message[] value)
++	{
++		ostream.write_long (value.length);
++		for (int _i0 = 0; _i0 &lt; value.length; ++_i0)
++			fr.umlv.ir3.corba.sguincha.td2.MessageHelper.write (ostream , value [_i0]);
++	}
++
++}
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHolder.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHolder.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHolder.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,37 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/MessageSetHolder.java . Generated by the
++ * IDL-to-Java compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15
++ * octobre 2004 14 h 06 CEST
++ */
++
++public final class MessageSetHolder implements org.omg.CORBA.portable.Streamable
++{
++	public fr.umlv.ir3.corba.sguincha.td2.Message	value[]	= null;
++
++	public MessageSetHolder ()
++	{
++	}
++
++	public MessageSetHolder (fr.umlv.ir3.corba.sguincha.td2.Message[] initialValue)
++	{
++		value = initialValue;
++	}
++
++	public void _read (org.omg.CORBA.portable.InputStream i)
++	{
++		value = fr.umlv.ir3.corba.sguincha.td2.MessageSetHelper.read (i);
++	}
++
++	public void _write (org.omg.CORBA.portable.OutputStream o)
++	{
++		fr.umlv.ir3.corba.sguincha.td2.MessageSetHelper.write (o , value);
++	}
++
++	public org.omg.CORBA.TypeCode _type ()
++	{
++		return fr.umlv.ir3.corba.sguincha.td2.MessageSetHelper.type ();
++	}
++
++}
+
+Added: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/_ForumStub.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/_ForumStub.java	2005-02-18 19:46:43 UTC (rev 11)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/_ForumStub.java	2005-02-18 19:50:55 UTC (rev 12)
+@@ -0,0 +1,196 @@
++package fr.umlv.ir3.corba.sguincha.td2;
++
++/**
++ * fr/umlv/ir3/corba/sguincha/td2/_ForumStub.java . Generated by the IDL-to-Java
++ * compiler (portable), version &quot;3.2&quot; from IDL/Forum.idl vendredi 15 octobre
++ * 2004 14 h 06 CEST
++ */
++
++public class _ForumStub extends org.omg.CORBA.portable.ObjectImpl implements fr.umlv.ir3.corba.sguincha.td2.Forum
++{
++
++	public String theme ()
++	{
++		org.omg.CORBA.portable.InputStream $in = null;
++		try
++		{
++			org.omg.CORBA.portable.OutputStream $out = _request (&quot;_get_theme&quot; , true);
++			$in = _invoke ($out);
++			String $result = $in.read_string ();
++			return $result;
++		}
++		catch (org.omg.CORBA.portable.ApplicationException $ex)
++		{
++			$in = $ex.getInputStream ();
++			String _id = $ex.getId ();
++			throw new org.omg.CORBA.MARSHAL (_id);
++		}
++		catch (org.omg.CORBA.portable.RemarshalException $rm)
++		{
++			return theme ();
++		}
++		finally
++		{
++			_releaseReply ($in);
++		}
++	} // theme
++
++	public String moderator ()
++	{
++		org.omg.CORBA.portable.InputStream $in = null;
++		try
++		{
++			org.omg.CORBA.portable.OutputStream $out = _request (&quot;_get_moderator&quot; , true);
++			$in = _invoke ($out);
++			String $result = $in.read_string ();
++			return $result;
++		}
++		catch (org.omg.CORBA.portable.ApplicationException $ex)
++		{
++			$in = $ex.getInputStream ();
++			String _id = $ex.getId ();
++			throw new org.omg.CORBA.MARSHAL (_id);
++		}
++		catch (org.omg.CORBA.portable.RemarshalException $rm)
++		{
++			return moderator ();
++		}
++		finally
++		{
++			_releaseReply ($in);
++		}
++	} // moderator
++
++	public boolean postMessage (fr.umlv.ir3.corba.sguincha.td2.Message m)
++	{
++		org.omg.CORBA.portable.InputStream $in = null;
++		try
++		{
++			org.omg.CORBA.portable.OutputStream $out = _request (&quot;postMessage&quot; , true);
++			fr.umlv.ir3.corba.sguincha.td2.MessageHelper.write ($out , m);
++			$in = _invoke ($out);
++			boolean $result = $in.read_boolean ();
++			return $result;
++		}
++		catch (org.omg.CORBA.portable.ApplicationException $ex)
++		{
++			$in = $ex.getInputStream ();
++			String _id = $ex.getId ();
++			throw new org.omg.CORBA.MARSHAL (_id);
++		}
++		catch (org.omg.CORBA.portable.RemarshalException $rm)
++		{
++			return postMessage (m);
++		}
++		finally
++		{
++			_releaseReply ($in);
++		}
++	} // postMessage
++
++	public fr.umlv.ir3.corba.sguincha.td2.Message getMessage (String title)
++	{
++		org.omg.CORBA.portable.InputStream $in = null;
++		try
++		{
++			org.omg.CORBA.portable.OutputStream $out = _request (&quot;getMessage&quot; , true);
++			$out.write_string (title);
++			$in = _invoke ($out);
++			fr.umlv.ir3.corba.sguincha.td2.Message $result = fr.umlv.ir3.corba.sguincha.td2.MessageHelper.read ($in);
++			return $result;
++		}
++		catch (org.omg.CORBA.portable.ApplicationException $ex)
++		{
++			$in = $ex.getInputStream ();
++			String _id = $ex.getId ();
++			throw new org.omg.CORBA.MARSHAL (_id);
++		}
++		catch (org.omg.CORBA.portable.RemarshalException $rm)
++		{
++			return getMessage (title);
++		}
++		finally
++		{
++			_releaseReply ($in);
++		}
++	} // getMessage
++
++	public fr.umlv.ir3.corba.sguincha.td2.Message[] getMessages ()
++	{
++		org.omg.CORBA.portable.InputStream $in = null;
++		try
++		{
++			org.omg.CORBA.portable.OutputStream $out = _request (&quot;getMessages&quot; , true);
++			$in = _invoke ($out);
++			fr.umlv.ir3.corba.sguincha.td2.Message $result[] = fr.umlv.ir3.corba.sguincha.td2.MessageSetHelper.read ($in);
++			return $result;
++		}
++		catch (org.omg.CORBA.portable.ApplicationException $ex)
++		{
++			$in = $ex.getInputStream ();
++			String _id = $ex.getId ();
++			throw new org.omg.CORBA.MARSHAL (_id);
++		}
++		catch (org.omg.CORBA.portable.RemarshalException $rm)
++		{
++			return getMessages ();
++		}
++		finally
++		{
++			_releaseReply ($in);
++		}
++	} // getMessages
++
++	public boolean removeMessage (String title)
++	{
++		org.omg.CORBA.portable.InputStream $in = null;
++		try
++		{
++			org.omg.CORBA.portable.OutputStream $out = _request (&quot;removeMessage&quot; , true);
++			$out.write_string (title);
++			$in = _invoke ($out);
++			boolean $result = $in.read_boolean ();
++			return $result;
++		}
++		catch (org.omg.CORBA.portable.ApplicationException $ex)
++		{
++			$in = $ex.getInputStream ();
++			String _id = $ex.getId ();
++			throw new org.omg.CORBA.MARSHAL (_id);
++		}
++		catch (org.omg.CORBA.portable.RemarshalException $rm)
++		{
++			return removeMessage (title);
++		}
++		finally
++		{
++			_releaseReply ($in);
++		}
++	} // removeMessage
++
++	// Type-specific CORBA::Object operations
++	private static String []	__ids	= {&quot;IDL:td2/Forum:1.0&quot;};
++
++	public String [] _ids ()
++	{
++		return (String []) __ids.clone ();
++	}
++
++	private void readObject (java.io.ObjectInputStream s) throws java.io.IOException
++	{
++		String str = s.readUTF ();
++		String [] args = null;
++		java.util.Properties props = null;
++		org.omg.CORBA.Object obj = org.omg.CORBA.ORB.init (args , props).string_to_object (str);
++		org.omg.CORBA.portable.Delegate delegate = ((org.omg.CORBA.portable.ObjectImpl) obj)._get_delegate ();
++		_set_delegate (delegate);
++	}
++
++	private void writeObject (java.io.ObjectOutputStream s) throws java.io.IOException
++	{
++		String [] args = null;
++		java.util.Properties props = null;
++		String str = org.omg.CORBA.ORB.init (args , props).object_to_string (this);
++		s.writeUTF (str);
++	}
++} // class _ForumStub
+
+Added: trunk/lib/javacardframework.jar
+===================================================================
+(Binary files differ)
+
+
+Property changes on: trunk/lib/javacardframework.jar
+___________________________________________________________________
+Name: svn:mime-type
+   + application/octet-stream
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000015.html">[Jmds-svn] r11 - in members/jguers/TestCard/src/de/berlios/jmds: . client client/core ior server server/core
+</A></li>
+	<LI>Next message: <A HREF="000017.html">[Jmds-svn] r13 - members/jguers/TestCard/src/de/berlios/jmds/applet
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

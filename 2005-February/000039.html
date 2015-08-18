@@ -1,0 +1,1289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r27 - in trunk: . generated/fr/umlv/ir3/corba/forum idl lib src/fr/umlv/ir3/corba/forum
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r27%20-%20in%20trunk%3A%20.%20generated/fr/umlv/ir3/corba/forum%20idl%20lib%20src/fr/umlv/ir3/corba/forum&In-Reply-To=%3C200502211652.j1LGq32S031931%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000037.html">
+   <LINK REL="Next"  HREF="000040.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r27 - in trunk: . generated/fr/umlv/ir3/corba/forum idl lib src/fr/umlv/ir3/corba/forum</H1>
+    <B>J&#233;r&#244;me GUERS at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r27%20-%20in%20trunk%3A%20.%20generated/fr/umlv/ir3/corba/forum%20idl%20lib%20src/fr/umlv/ir3/corba/forum&In-Reply-To=%3C200502211652.j1LGq32S031931%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r27 - in trunk: . generated/fr/umlv/ir3/corba/forum idl lib src/fr/umlv/ir3/corba/forum">jguers at sheep.berlios.de
+       </A><BR>
+    <I>Mon Feb 21 17:52:03 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000037.html">[Jmds-svn] r26 - in trunk: . .settings generated generated/fr generated/fr/umlv generated/fr/umlv/ir3 generated/fr/umlv/ir3/corba generated/fr/umlv/ir3/corba/forum idl src src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/ior src/de/berlios/jmds/server src/fr src/fr/umlv src/fr/umlv/ir3 src/fr/umlv/ir3/corba src/fr/umlv/ir3/corba/forum
+</A></li>
+        <LI>Next message: <A HREF="000040.html">[Jmds-svn] r28 - in trunk: . lib src/de/berlios/jmds/client src/de/berlios/jmds/server src/fr/umlv/ir3/corba/forum
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: jguers
+Date: 2005-02-21 17:52:00 +0100 (Mon, 21 Feb 2005)
+New Revision: 27
+
+Added:
+   trunk/lib/openorb-1.3.1.jar
+   trunk/lib/xerces.jar
+Removed:
+   trunk/src/fr/umlv/ir3/corba/forum/ForumDynClient.java
+Modified:
+   trunk/.classpath
+   trunk/generated/fr/umlv/ir3/corba/forum/AudioMessage.java
+   trunk/generated/fr/umlv/ir3/corba/forum/AudioMessageHelper.java
+   trunk/generated/fr/umlv/ir3/corba/forum/AudioMessageHolder.java
+   trunk/generated/fr/umlv/ir3/corba/forum/Forum.java
+   trunk/generated/fr/umlv/ir3/corba/forum/ForumHelper.java
+   trunk/generated/fr/umlv/ir3/corba/forum/ForumHolder.java
+   trunk/generated/fr/umlv/ir3/corba/forum/ForumOperations.java
+   trunk/generated/fr/umlv/ir3/corba/forum/ForumPOA.java
+   trunk/generated/fr/umlv/ir3/corba/forum/MessageSetHelper.java
+   trunk/generated/fr/umlv/ir3/corba/forum/MessageSetHolder.java
+   trunk/generated/fr/umlv/ir3/corba/forum/Reject.java
+   trunk/generated/fr/umlv/ir3/corba/forum/RejectHelper.java
+   trunk/generated/fr/umlv/ir3/corba/forum/RejectHolder.java
+   trunk/generated/fr/umlv/ir3/corba/forum/TextMessage.java
+   trunk/generated/fr/umlv/ir3/corba/forum/TextMessageHelper.java
+   trunk/generated/fr/umlv/ir3/corba/forum/TextMessageHolder.java
+   trunk/generated/fr/umlv/ir3/corba/forum/_ForumStub.java
+   trunk/idl/forum.idl
+   trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java
+   trunk/src/fr/umlv/ir3/corba/forum/ForumImpl.java
+   trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java
+Log:
+Remplacement par notre forum (je comprends pas tout dans celui du prof !!)
+Il reste une erreur pour le serveur que je n'ai pas le temps de corriger
+
+Modified: trunk/.classpath
+===================================================================
+--- trunk/.classpath	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/.classpath	2005-02-21 16:52:00 UTC (rev 27)
+@@ -6,5 +6,7 @@
+ 	&lt;classpathentry kind=&quot;con&quot; path=&quot;org.eclipse.jdt.launching.JRE_CONTAINER&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/javacardframework.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/slbJIop.jar&quot;/&gt;
++	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/openorb-1.3.1.jar&quot;/&gt;
++	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/xerces.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;output&quot; path=&quot;classes&quot;/&gt;
+ &lt;/classpath&gt;
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/AudioMessage.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/AudioMessage.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/AudioMessage.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/AudioMessage.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public final class AudioMessage implements org.omg.CORBA.portable.IDLEntity
+@@ -14,17 +14,19 @@
+   public String author = null;
+   public String date = null;
+   public String body = null;
++  public String paroles = null;
+ 
+   public AudioMessage ()
+   {
+   } // ctor
+ 
+-  public AudioMessage (String _title, String _author, String _date, String _body)
++  public AudioMessage (String _title, String _author, String _date, String _body, String _paroles)
+   {
+     title = _title;
+     author = _author;
+     date = _date;
+     body = _body;
++    paroles = _paroles;
+   } // ctor
+ 
+ } // class AudioMessage
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/AudioMessageHelper.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/AudioMessageHelper.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/AudioMessageHelper.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/AudioMessageHelper.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ abstract public class AudioMessageHelper
+@@ -40,7 +40,7 @@
+             return org.omg.CORBA.ORB.init().create_recursive_tc ( _id );
+           }
+           __active = true;
+-          org.omg.CORBA.StructMember[] _members0 = new org.omg.CORBA.StructMember [4];
++          org.omg.CORBA.StructMember[] _members0 = new org.omg.CORBA.StructMember [5];
+           org.omg.CORBA.TypeCode _tcOf_members0 = null;
+           _tcOf_members0 = org.omg.CORBA.ORB.init ().create_string_tc (0);
+           _members0[0] = new org.omg.CORBA.StructMember (
+@@ -62,6 +62,11 @@
+             &quot;body&quot;,
+             _tcOf_members0,
+             null);
++          _tcOf_members0 = org.omg.CORBA.ORB.init ().create_string_tc (0);
++          _members0[4] = new org.omg.CORBA.StructMember (
++            &quot;paroles&quot;,
++            _tcOf_members0,
++            null);
+           __typeCode = org.omg.CORBA.ORB.init ().create_struct_tc (fr.umlv.ir3.corba.forum.AudioMessageHelper.id (), &quot;AudioMessage&quot;, _members0);
+           __active = false;
+         }
+@@ -82,6 +87,7 @@
+     value.author = istream.read_string ();
+     value.date = istream.read_string ();
+     value.body = istream.read_string ();
++    value.paroles = istream.read_string ();
+     return value;
+   }
+ 
+@@ -91,6 +97,7 @@
+     ostream.write_string (value.author);
+     ostream.write_string (value.date);
+     ostream.write_string (value.body);
++    ostream.write_string (value.paroles);
+   }
+ 
+ }
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/AudioMessageHolder.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/AudioMessageHolder.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/AudioMessageHolder.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -4,7 +4,7 @@
+ * fr/umlv/ir3/corba/forum/AudioMessageHolder.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public final class AudioMessageHolder implements org.omg.CORBA.portable.Streamable
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/Forum.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/Forum.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/Forum.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/Forum.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public interface Forum extends ForumOperations, org.omg.CORBA.Object, org.omg.CORBA.portable.IDLEntity 
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/ForumHelper.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/ForumHelper.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/ForumHelper.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/ForumHelper.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ abstract public class ForumHelper
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/ForumHolder.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/ForumHolder.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/ForumHolder.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -4,7 +4,7 @@
+ * fr/umlv/ir3/corba/forum/ForumHolder.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public final class ForumHolder implements org.omg.CORBA.portable.Streamable
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/ForumOperations.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/ForumOperations.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/ForumOperations.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,16 +5,16 @@
+ * fr/umlv/ir3/corba/forum/ForumOperations.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public interface ForumOperations 
+ {
+   String theme ();
+   String moderator ();
+-  void postMessage (String title, org.omg.CORBA.Any m) throws fr.umlv.ir3.corba.forum.Reject;
++  boolean postMessage (String title, org.omg.CORBA.Any m) throws fr.umlv.ir3.corba.forum.Reject;
+   org.omg.CORBA.Any getMessage (String title) throws fr.umlv.ir3.corba.forum.Reject;
++  org.omg.CORBA.Any[] getMessages ();
+   void removeMessage (String title) throws fr.umlv.ir3.corba.forum.Reject;
+-  org.omg.CORBA.Any[] messageList ();
+   void getInfo (org.omg.CORBA.StringHolder theme, org.omg.CORBA.StringHolder moderator, org.omg.CORBA.IntHolder size);
+ } // interface ForumOperations
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/ForumPOA.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/ForumPOA.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/ForumPOA.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/ForumPOA.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public abstract class ForumPOA extends org.omg.PortableServer.Servant
+@@ -21,8 +21,8 @@
+     _methods.put (&quot;_get_moderator&quot;, new java.lang.Integer (1));
+     _methods.put (&quot;postMessage&quot;, new java.lang.Integer (2));
+     _methods.put (&quot;getMessage&quot;, new java.lang.Integer (3));
+-    _methods.put (&quot;removeMessage&quot;, new java.lang.Integer (4));
+-    _methods.put (&quot;messageList&quot;, new java.lang.Integer (5));
++    _methods.put (&quot;getMessages&quot;, new java.lang.Integer (4));
++    _methods.put (&quot;removeMessage&quot;, new java.lang.Integer (5));
+     _methods.put (&quot;getInfo&quot;, new java.lang.Integer (6));
+   }
+ 
+@@ -60,8 +60,10 @@
+          try {
+            String title = in.read_string ();
+            org.omg.CORBA.Any m = in.read_any ();
+-           this.postMessage (title, m);
++           boolean $result = false;
++           $result = this.postMessage (title, m);
+            out = $rh.createReply();
++           out.write_boolean ($result);
+          } catch (fr.umlv.ir3.corba.forum.Reject $ex) {
+            out = $rh.createExceptionReply ();
+            fr.umlv.ir3.corba.forum.RejectHelper.write (out, $ex);
+@@ -84,8 +86,17 @@
+          break;
+        }
+ 
+-       case 4:  // forum/Forum/removeMessage
++       case 4:  // forum/Forum/getMessages
+        {
++         org.omg.CORBA.Any $result[] = null;
++         $result = this.getMessages ();
++         out = $rh.createReply();
++         fr.umlv.ir3.corba.forum.MessageSetHelper.write (out, $result);
++         break;
++       }
++
++       case 5:  // forum/Forum/removeMessage
++       {
+          try {
+            String title = in.read_string ();
+            this.removeMessage (title);
+@@ -97,15 +108,6 @@
+          break;
+        }
+ 
+-       case 5:  // forum/Forum/messageList
+-       {
+-         org.omg.CORBA.Any $result[] = null;
+-         $result = this.messageList ();
+-         out = $rh.createReply();
+-         fr.umlv.ir3.corba.forum.MessageSetHelper.write (out, $result);
+-         break;
+-       }
+-
+        case 6:  // forum/Forum/getInfo
+        {
+          org.omg.CORBA.StringHolder theme = new org.omg.CORBA.StringHolder ();
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/MessageSetHelper.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/MessageSetHelper.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/MessageSetHelper.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/MessageSetHelper.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ abstract public class MessageSetHelper
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/MessageSetHolder.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/MessageSetHolder.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/MessageSetHolder.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/MessageSetHolder.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public final class MessageSetHolder implements org.omg.CORBA.portable.Streamable
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/Reject.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/Reject.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/Reject.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/Reject.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public final class Reject extends org.omg.CORBA.UserException
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/RejectHelper.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/RejectHelper.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/RejectHelper.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/RejectHelper.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ abstract public class RejectHelper
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/RejectHolder.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/RejectHolder.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/RejectHolder.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -4,7 +4,7 @@
+ * fr/umlv/ir3/corba/forum/RejectHolder.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public final class RejectHolder implements org.omg.CORBA.portable.Streamable
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/TextMessage.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/TextMessage.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/TextMessage.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/TextMessage.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public final class TextMessage implements org.omg.CORBA.portable.IDLEntity
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/TextMessageHelper.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/TextMessageHelper.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/TextMessageHelper.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/TextMessageHelper.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ abstract public class TextMessageHelper
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/TextMessageHolder.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/TextMessageHolder.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/TextMessageHolder.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -4,7 +4,7 @@
+ * fr/umlv/ir3/corba/forum/TextMessageHolder.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public final class TextMessageHolder implements org.omg.CORBA.portable.Streamable
+
+Modified: trunk/generated/fr/umlv/ir3/corba/forum/_ForumStub.java
+===================================================================
+--- trunk/generated/fr/umlv/ir3/corba/forum/_ForumStub.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/generated/fr/umlv/ir3/corba/forum/_ForumStub.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -5,7 +5,7 @@
+ * fr/umlv/ir3/corba/forum/_ForumStub.java .
+ * Generated by the IDL-to-Java compiler (portable), version &quot;3.2&quot;
+ * from forum.idl
+-* lundi 21 f&#233;vrier 2005 16 h 44 CET
++* lundi 21 f&#233;vrier 2005 17 h 35 CET
+ */
+ 
+ public class _ForumStub extends org.omg.CORBA.portable.ObjectImpl implements fr.umlv.ir3.corba.forum.Forum
+@@ -49,7 +49,7 @@
+             }
+   } // moderator
+ 
+-  public void postMessage (String title, org.omg.CORBA.Any m) throws fr.umlv.ir3.corba.forum.Reject
++  public boolean postMessage (String title, org.omg.CORBA.Any m) throws fr.umlv.ir3.corba.forum.Reject
+   {
+             org.omg.CORBA.portable.InputStream $in = null;
+             try {
+@@ -57,7 +57,8 @@
+                 $out.write_string (title);
+                 $out.write_any (m);
+                 $in = _invoke ($out);
+-                return;
++                boolean $result = $in.read_boolean ();
++                return $result;
+             } catch (org.omg.CORBA.portable.ApplicationException $ex) {
+                 $in = $ex.getInputStream ();
+                 String _id = $ex.getId ();
+@@ -66,7 +67,7 @@
+                 else
+                     throw new org.omg.CORBA.MARSHAL (_id);
+             } catch (org.omg.CORBA.portable.RemarshalException $rm) {
+-                postMessage (title, m        );
++                return postMessage (title, m        );
+             } finally {
+                 _releaseReply ($in);
+             }
+@@ -95,46 +96,46 @@
+             }
+   } // getMessage
+ 
+-  public void removeMessage (String title) throws fr.umlv.ir3.corba.forum.Reject
++  public org.omg.CORBA.Any[] getMessages ()
+   {
+             org.omg.CORBA.portable.InputStream $in = null;
+             try {
+-                org.omg.CORBA.portable.OutputStream $out = _request (&quot;removeMessage&quot;, true);
+-                $out.write_string (title);
++                org.omg.CORBA.portable.OutputStream $out = _request (&quot;getMessages&quot;, true);
+                 $in = _invoke ($out);
+-                return;
++                org.omg.CORBA.Any $result[] = fr.umlv.ir3.corba.forum.MessageSetHelper.read ($in);
++                return $result;
+             } catch (org.omg.CORBA.portable.ApplicationException $ex) {
+                 $in = $ex.getInputStream ();
+                 String _id = $ex.getId ();
+-                if (_id.equals (&quot;IDL:forum/Reject:1.0&quot;))
+-                    throw fr.umlv.ir3.corba.forum.RejectHelper.read ($in);
+-                else
+-                    throw new org.omg.CORBA.MARSHAL (_id);
++                throw new org.omg.CORBA.MARSHAL (_id);
+             } catch (org.omg.CORBA.portable.RemarshalException $rm) {
+-                removeMessage (title        );
++                return getMessages (        );
+             } finally {
+                 _releaseReply ($in);
+             }
+-  } // removeMessage
++  } // getMessages
+ 
+-  public org.omg.CORBA.Any[] messageList ()
++  public void removeMessage (String title) throws fr.umlv.ir3.corba.forum.Reject
+   {
+             org.omg.CORBA.portable.InputStream $in = null;
+             try {
+-                org.omg.CORBA.portable.OutputStream $out = _request (&quot;messageList&quot;, true);
++                org.omg.CORBA.portable.OutputStream $out = _request (&quot;removeMessage&quot;, true);
++                $out.write_string (title);
+                 $in = _invoke ($out);
+-                org.omg.CORBA.Any $result[] = fr.umlv.ir3.corba.forum.MessageSetHelper.read ($in);
+-                return $result;
++                return;
+             } catch (org.omg.CORBA.portable.ApplicationException $ex) {
+                 $in = $ex.getInputStream ();
+                 String _id = $ex.getId ();
+-                throw new org.omg.CORBA.MARSHAL (_id);
++                if (_id.equals (&quot;IDL:forum/Reject:1.0&quot;))
++                    throw fr.umlv.ir3.corba.forum.RejectHelper.read ($in);
++                else
++                    throw new org.omg.CORBA.MARSHAL (_id);
+             } catch (org.omg.CORBA.portable.RemarshalException $rm) {
+-                return messageList (        );
++                removeMessage (title        );
+             } finally {
+                 _releaseReply ($in);
+             }
+-  } // messageList
++  } // removeMessage
+ 
+   public void getInfo (org.omg.CORBA.StringHolder theme, org.omg.CORBA.StringHolder moderator, org.omg.CORBA.IntHolder size)
+   {
+
+Modified: trunk/idl/forum.idl
+===================================================================
+--- trunk/idl/forum.idl	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/idl/forum.idl	2005-02-21 16:52:00 UTC (rev 27)
+@@ -1,28 +1,30 @@
+ module forum {
+-  struct TextMessage {
+-    string title;
+-    string author;
+-    string date;
+-    string body;
+-  };
++	struct TextMessage {
++		string title;
++		string author;
++		string date;
++		string body;
++	};
+ 	
+-  struct AudioMessage {
+-    string title;
+-    string author;
+-    string date;
+-    string body;
+-  };
+-  typedef sequence &lt;any&gt; MessageSet;
+-  exception Reject { string message; };
+-	 
+-  interface Forum {
+-    readonly attribute string theme;
+-    readonly attribute string moderator;
+-    void postMessage(in string title,in any m) raises (Reject); 
+-    any getMessage(in string title) raises (Reject);
+-    void removeMessage(in string title) raises (Reject);
+-    MessageSet messageList();
+-    void getInfo(out string theme, out string moderator,
+-                 out long size);
+-  };
++	struct AudioMessage {
++		string title;
++		string author;
++		string date;
++		string body;
++		string paroles;
++	};
++	
++	typedef sequence &lt;any&gt; MessageSet;
++	exception Reject { string message; };
++	
++	interface Forum {
++		readonly attribute string theme;
++		readonly attribute string moderator;
++		boolean postMessage(in string title, in any m) raises (Reject);
++		any getMessage(in string title) raises (Reject);
++		MessageSet getMessages();
++		void removeMessage(in string title) raises (Reject);
++		void getInfo (out string theme, out string moderator, out long size);
++	};
+ };
++
+
+Added: trunk/lib/openorb-1.3.1.jar
+===================================================================
+(Binary files differ)
+
+
+Property changes on: trunk/lib/openorb-1.3.1.jar
+___________________________________________________________________
+Name: svn:mime-type
+   + application/octet-stream
+
+Added: trunk/lib/xerces.jar
+===================================================================
+(Binary files differ)
+
+
+Property changes on: trunk/lib/xerces.jar
+___________________________________________________________________
+Name: svn:mime-type
+   + application/octet-stream
+
+Modified: trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -1,62 +1,203 @@
+-package fr.umlv.ir3.corba.forum;
+-
+-import java.util.Date;
+-import org.omg.CORBA.*;
+-import org.omg.CosNaming.*;
+-
+-public class ForumClient {
+-
+-  public static void printMessage(Any a) throws Reject {
+-    if (a == null) {
+-      System.out.println(a);
+-      return;
+-    }
+-    if (a.type().equal(AudioMessageHelper.type())) {
+-      AudioMessage m = AudioMessageHelper.extract(a);
+-      System.out.println(&quot;Message audio: &quot;);
+-      System.out.println(&quot;\tTitre : &quot;+m.title);
+-      System.out.println(&quot;\tAuteur : &quot;+m.author);
+-      System.out.println(&quot;\tDate : &quot;+m.date);
+-      System.out.println(&quot;\tTexte : &quot;+m.body);
+-      return;
+-    }
+-    if (a.type().equal(TextMessageHelper.type())) {
+-      TextMessage m = TextMessageHelper.extract(a);
+-      System.out.println(&quot;Message texte : &quot;);
+-      System.out.println(&quot;\tTitre : &quot;+m.title);
+-      System.out.println(&quot;\tAuteur : &quot;+m.author);
+-      System.out.println(&quot;\tDate : &quot;+m.date);
+-      System.out.println(&quot;\tTexte : &quot;+m.body);
+-      return;
+-    }
+-    throw new Reject(&quot;Unknown message type.&quot;);
+-  }
+-  public static void main(String[] args) throws Exception { 
+-    try {
+-      ORB orb = ORB.init(args,null);
+-      NamingContextExt context = NamingContextExtHelper.narrow(
+-          orb.resolve_initial_references(&quot;NameService&quot;));
+-      NameComponent[] name = context.to_name(&quot;Forum&quot;);
+-      Forum forum = ForumHelper.narrow(context.resolve(name));
+-     
+-      Any a = orb.create_any();
+-      AudioMessageHelper.insert(a,
+-          new AudioMessage(&quot;Titre1&quot;,&quot;Auteur1&quot;,
+-              (new Date()).toString(),&quot;audio.wav&quot;));
+-      forum.postMessage(&quot;Titre1&quot;,a);
+-
+-      TextMessageHelper.insert(a,
+-          new TextMessage(&quot;Titre2&quot;,&quot;Auteur2&quot;,
+-              (new Date()).toString(),&quot;file.txt&quot;));
+-      forum.postMessage(&quot;Titre2&quot;,a);
+-
+-      System.out.println(&quot;MessageList&quot;);
+-      Any[] messages = forum.messageList();
+-      for(int i = 0; i&lt;messages.length; i++) {
+-        printMessage(messages[i]);
+-      }
+-    } catch (Reject e){
+-      System.out.println(e.message);
+-    }
+-  }
+-}
+\ No newline at end of file
++/*
++ * Created on 1 oct. 2004
++ */
++package fr.umlv.ir3.corba.forum;
++
++import java.io.*;
++import java.util.Date;
++
++import org.omg.CORBA.*;
++import org.omg.CORBA.Object;
++import org.omg.CORBA.UnknownUserException;
++import org.omg.CosNaming.*;
++
++/**
++ * @author jguers
++ */
++public class ForumClient {
++
++	public static void main(String[] args) throws Exception {
++		ORB orb = ORB.init(args, null);
++        
++        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
++        
++        //Cr&#233;ation du service d'annuaire
++        Object ns = orb.resolve_initial_references(&quot;NameService&quot;);
++        NamingContextExt nc = NamingContextExtHelper.narrow(ns) ;
++        
++        NameComponent[] name=null;
++        try {
++            name = nc.to_name(&quot;forumGG&quot;);
++        } catch (org.omg.CosNaming.NamingContextPackage.InvalidName e2) {e2.printStackTrace();}
++        
++        Object objProxy = nc.resolve(name);
++        
++        Forum forumProxy = ForumHelper.narrow(objProxy);
++
++		while(true)
++		{
++			System.out.println(&quot;Que voulez-vous faire ?&quot;);
++			System.out.println(&quot;a - ajouter un message&quot;);
++			System.out.println(&quot;v - voir les messages&quot;);
++			System.out.println(&quot;l - lire un message&quot;);
++			System.out.println(&quot;r - retirer un message&quot;);
++			
++			int choix = System.in.read();
++			in.readLine();
++			switch(choix)
++			{
++				case 'a' :
++				{
++					System.out.println(&quot;Quel type de message voulez-vous poster ?\n1: Texte\n2: Audio&quot;);
++					int type = Integer.parseInt(in.readLine());					
++					System.out.print(&quot;Votre nom: &quot;);
++					String auth = in.readLine();
++					System.out.print(&quot;Titre du message: &quot;);
++					String title = in.readLine();
++					System.out.print(&quot;Message: &quot;);
++					String mess = in.readLine();
++					
++					Any any = orb.create_any();
++					
++					if(type == 1)
++					{
++						TextMessage message = new TextMessage(title, auth, (new Date()).toString(), mess);
++						TextMessageHelper.insert(any, message);
++					}else
++					{
++						System.out.print(&quot;Parole: &quot;);
++						String paroles = in.readLine();
++						AudioMessage message =  new AudioMessage(title, auth, (new Date()).toString(), mess, paroles);
++						AudioMessageHelper.insert(any, message);
++					}
++					try {
++						forumProxy.postMessage(title, any);
++					} catch (Reject e) {
++						System.out.println(&quot;Message non ajout&#233; pour cette raison:\n&quot; + e.message);
++					}
++					
++				}
++					break;
++					
++				case 'l' :
++				{
++					System.out.print(&quot;Titre du message: &quot;);
++					String title = in.readLine();
++					
++					Any lany;
++					/*V1
++					try {
++						lany = forumProxy.getMessage(title);
++						
++						TypeCode tc = lany.type();
++						
++						if(tc.equal(AudioMessageHelper.type()))
++						{
++							AudioMessage m = AudioMessageHelper.extract(lany);
++							System.out.println(&quot;Message Audio&quot;);
++							System.out.println(m.author + &quot; a &#233;crit &#224; &quot; + m.date.toString());
++							System.out.println(&quot;Titre: &quot; + m.title);
++							System.out.println(m.body);
++							System.out.println(m.paroles + &quot;\n&quot;);
++						}
++						else
++						{
++							TextMessage m = TextMessageHelper.extract(lany);
++							System.out.println(&quot;Message Texte&quot;);
++							System.out.println(m.author + &quot; a &#233;crit &#224; &quot; + m.date.toString());
++							System.out.println(&quot;Titre: &quot; + m.title);
++							System.out.println(m.body + &quot;\n&quot;);
++						}
++					} catch (Reject e) {
++						System.out.println(&quot;Message non trouv&#233; pour cette raison:\n&quot; + e.message);
++					}*/
++						
++					//V2
++					// Construction d'un objet requ&#234;te vide
++				    Request request = forumProxy._request(&quot;getMessage&quot;);
++				    // Sp&#233;cification du type de retour de la requ&#234;te
++				    request.set_return_type(orb.get_primitive_tc(TCKind.tk_any));
++				    // Sp&#233;cification de l'argument
++				    Any arg = request.add_named_in_arg(&quot;title&quot;);
++				    arg.insert_string(title);
++				    // Sp&#233;cification du type de l'exception
++				    ExceptionList exceptionList = request.exceptions();
++				    exceptionList.add(RejectHelper.type());
++				    // Appel synchrone de la requ&#234;te
++				    request.invoke();
++				    
++				    // R&#233;cup&#233;ration de l'environnement
++				    Environment env = request.env();
++				    // Si pas d'exception
++				    if (env.exception() == null) {
++				    	// R&#233;cup&#233;ration du r&#233;sultat
++				    	lany = request.return_value().extract_any();
++				    	TypeCode tc = lany.type();
++						
++						if(tc.equal(AudioMessageHelper.type()))
++						{
++							AudioMessage m = AudioMessageHelper.extract(lany);
++							System.out.println(&quot;Message Audio&quot;);
++							System.out.println(m.author + &quot; a &#233;crit &#224; &quot; + m.date.toString());
++							System.out.println(&quot;Titre: &quot; + m.title);
++							System.out.println(m.body);
++							System.out.println(m.paroles + &quot;\n&quot;);
++						}
++						else
++						{
++							TextMessage m = TextMessageHelper.extract(lany);
++							System.out.println(&quot;Message Texte&quot;);
++							System.out.println(m.author + &quot; a &#233;crit &#224; &quot; + m.date.toString());
++							System.out.println(&quot;Titre: &quot; + m.title);
++							System.out.println(m.body + &quot;\n&quot;);
++						}
++				    }else
++				    {
++					    // Extraction des exceptions
++					    Any ex = ((UnknownUserException)env.exception()).except;
++					    if (ex.type().equals(RejectHelper.type())) {
++					    	System.out.println(&quot;Message non trouv&#233; pour cette raison:\n&quot; + RejectHelper.extract(ex).message);
++					    } else {
++					      throw env.exception();
++					  	}
++				    }
++				}
++					break;
++					
++				case 'r' :
++				{
++					System.out.print(&quot;Titre du message: &quot;);
++					String title = in.readLine();
++					try {
++						forumProxy.removeMessage(title);
++					} catch (Reject e) {
++						System.out.println(&quot;Message non retir&#233; pour cette raison:\n&quot; + e.message);
++					}
++				}
++					break;
++					
++				case 'v' :
++				{
++					Any[] tab = forumProxy.getMessages();
++					
++					TypeCode tc = null;
++					
++					for (int i = 0; i &lt; tab.length; i++) {
++						tc = tab[i].type();
++						
++						if(tc.equal(AudioMessageHelper.type()))
++						{
++							AudioMessage m = AudioMessageHelper.extract(tab[i]);
++							System.out.println(&quot;Message audio: &quot; + m.author + &quot;\t&quot; + m.date + &quot;\t&quot; + m.title + &quot;\n&quot;);
++						}
++						else
++						{
++							TextMessage m = TextMessageHelper.extract(tab[i]);
++							System.out.println(&quot;Message texte: &quot; + m.author + &quot;\t&quot; + m.date + &quot;\t&quot; + m.title + &quot;\n&quot;);
++						} 
++					}
++				}
++			}
++		}
++	}
++}
+
+Deleted: trunk/src/fr/umlv/ir3/corba/forum/ForumDynClient.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/ForumDynClient.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/src/fr/umlv/ir3/corba/forum/ForumDynClient.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -1,77 +0,0 @@
+-package fr.umlv.ir3.corba.forum;
+-
+-import org.omg.CORBA.*;
+-import org.omg.CORBA.Object;
+-import org.omg.CosNaming.*;
+-
+-public class ForumDynClient {
+-  public static void main(String[] args) throws Exception {
+-    // Initialisation de l'ORB
+-    ORB orb = ORB.init(args, null);
+-    // R&#233;cup&#233;ration du service de nommage
+-    NamingContextExt context = NamingContextExtHelper.narrow(orb
+-        .resolve_initial_references(&quot;NameService&quot;));
+-    // R&#233;cup&#233;ration de l'objet forum
+-    Object o = context.resolve_str(&quot;Forum&quot;);
+-    // Construction d'un objet requ&#234;te vide
+-    Request request = o._request(&quot;getMessage&quot;);
+-    // Sp&#233;cification du type de retour de la requ&#234;te
+-    request.set_return_type(orb.get_primitive_tc(TCKind.tk_any));
+-    // Sp&#233;cification de l'argument
+-    Any arg = request.add_named_in_arg(&quot;title&quot;);
+-    arg.insert_string(&quot;Titre1&quot;);
+-    // Sp&#233;cification du type de l'exception
+-    ExceptionList exceptionList = request.exceptions();
+-    exceptionList.add(RejectHelper.type());
+-    // Appel synchrone de la requ&#234;te
+-    request.invoke();
+-//    // Appel synchrone diff&#233;r&#233;
+-//    request.send_deferred();
+-//    while (!request.poll_response()) {
+-//      Thread.sleep(1000);
+-//    }
+-//    request.get_response();
+-    // R&#233;cup&#233;ration de l'environnement
+-    Environment env = request.env();
+-    // Si pas d'exception
+-    if (env.exception() == null) {
+-      // R&#233;cup&#233;ration du r&#233;sultat
+-      Any result = request.return_value();
+-      printMessage(result.extract_any());
+-      return;
+-    }    
+-    // Extraction des exceptions
+-    Any ex = ((UnknownUserException)env.exception()).except;
+-    if (ex.type().equals(RejectHelper.type())) {
+-      throw RejectHelper.extract(ex);
+-    } else {
+-      throw env.exception();
+-  	}
+-  }
+-
+-  public static void printMessage(Any a) throws Reject {
+-    if (a == null) {
+-      System.out.println(a);
+-      return;
+-    }
+-    if (a.type().equal(AudioMessageHelper.type())) {
+-      AudioMessage m = AudioMessageHelper.extract(a);
+-      System.out.println(&quot;Message audio: &quot;);
+-      System.out.println(&quot;\tTitre : &quot;+m.title);
+-      System.out.println(&quot;\tAuteur : &quot;+m.author);
+-      System.out.println(&quot;\tDate : &quot;+m.date);
+-      System.out.println(&quot;\tTexte : &quot;+m.body);
+-      return;
+-    }
+-    if (a.type().equal(TextMessageHelper.type())) {
+-      TextMessage m = TextMessageHelper.extract(a);
+-      System.out.println(&quot;Message texte : &quot;);
+-      System.out.println(&quot;\tTitre : &quot;+m.title);
+-      System.out.println(&quot;\tAuteur : &quot;+m.author);
+-      System.out.println(&quot;\tDate : &quot;+m.date);
+-      System.out.println(&quot;\tTexte : &quot;+m.body);
+-      return;
+-    }
+-    throw new Reject(&quot;Unknown message type.&quot;);
+-  }
+-}
+\ No newline at end of file
+
+Modified: trunk/src/fr/umlv/ir3/corba/forum/ForumImpl.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/ForumImpl.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/src/fr/umlv/ir3/corba/forum/ForumImpl.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -1,99 +1,61 @@
+-package fr.umlv.ir3.corba.forum;
+-
+-import java.util.concurrent.ConcurrentHashMap;
+-
+-import org.omg.CORBA.*;
+-
+-public class ForumImpl extends ForumPOA {
+-  /**
+-   * Table de hachage contenant l'assocication entre un nom
+-   * et un message.
+-   * L'acc&#232;s concurrent &#224; la table est permis.
+-   */
+-  private ConcurrentHashMap messages = new ConcurrentHashMap();
+-  /** Th&#232;me du forum */
+-  private String theme;
+-  /** Nom de l'administrateur */
+-  private String moderator;
+-  
+-  /** 
+-   * Constructeur d'un forum appel&#233; par la fabrique.
+-   * @param name nom du forum cr&#233;&#233;.
+-   * @param theme th&#232;me du forum.
+-   * @param moderator nom de l'administrateur du forum.
+-   */
+-  ForumImpl(String theme, String moderator) {
+-    this.theme = theme;
+-    this.moderator = moderator;
+-  }
+-  
+-  /** 
+-   * Retourne le th&#232;me du forum.
+-   */
+-  public String theme() {
+-    return theme;
+-  }
+-
+-  /** 
+-   * Retourne le nom de l'administrateur du forum.
+-   */
+-  public String moderator() {
+-    return moderator;
+-  }
+-  /**
+-   * Poste un message dans le forum.
+-   * @param m le message &#224; poster.
+-   * @return false s'il y a d&#233;j&#224; un message avec le m&#234;me titre.
+-   */
+-  public void postMessage(String title, Any m) throws Reject {
+-    Any mInMap = (Any)messages.putIfAbsent(title,m);
+-    if (mInMap != null) {
+-      throw new Reject(&quot;PostMessage : message with title &quot;+
+-		       title + &quot; already exists!&quot;);
+-    }
+-  }
+-  /** 
+-   * R&#233;cup&#232;re le message dont le titre est pass&#233; en argument.
+-   * @param title le titre du message &#224; r&#233;cup&#233;rer.
+-   * @return le message ou null s'il n'existe pas de message
+-   * ayant ce titre.
+-   */
+-  public Any getMessage(String title) throws Reject{
+-    Any m = (Any)messages.get(title);
+-    if (m == null) {
+-      throw new Reject(&quot;GetMessage : message with title &quot;+title+
+-		       &quot; does not exist!&quot;);
+-    }
+-    return m;
+-  }
+-  
+-  /** 
+-   * Supprime un message du forum.
+-   * @param title le titre du message &#224; retirer du forum.
+-   * @return false si le message n'est pas pr&#233;sent dans le forum.
+-   */
+-  public void removeMessage(String title) throws Reject {
+-    if (messages.remove(title) == null) {
+-      throw new Reject(&quot;RemoveMessage : message &quot; + title +
+-		       &quot; does not exist!&quot;);
+-    }
+-  }
+-    
+-  /**
+-   * Retourne la liste des messages du forum.
+-   * @return la liste des messages
+-   */
+-  public Any[] messageList() {
+-    return (Any[]) messages.values().toArray(new Any[messages.size()]);
+-  }
+-  
+-  /**
+-   * Retourne dans les arguments les informations sur le forum.
+-   */
+-  public void getInfo(StringHolder theme, StringHolder moderator,
+-		      IntHolder size) {
+-    theme.value = this.theme;
+-    moderator.value = this.moderator;
+-    size.value = messages.size();
+-  }
+-}
++/*
++ * Created on 1 oct. 2004
++ */
++package fr.umlv.ir3.corba.forum;
++
++import java.util.concurrent.ConcurrentHashMap;
++import org.omg.CORBA.*;
++
++/**
++ * @author jguers
++ */
++public class ForumImpl extends ForumPOA {
++
++	private String theme;
++	private String moderator;
++	private ConcurrentHashMap discussion;
++	
++	public ForumImpl(String theme, String moderator)
++	{
++		this.theme = theme;
++		this.moderator = moderator;
++		discussion = new ConcurrentHashMap();
++	}
++	
++	public String theme() {
++		return theme;
++	}
++
++	public String moderator() {
++		return moderator;
++	}
++
++	public boolean postMessage(String title, org.omg.CORBA.Any m) throws Reject{
++		if(discussion.putIfAbsent(title, m) == null)
++			return true;
++		return false;
++	}
++
++	public Any getMessage(String title)  throws Reject{
++		if(!discussion.containsKey(title))
++			throw new Reject(&quot;Title unknow&quot;, &quot;Pas de message ayant ce titre: &quot; + title);
++		return (Any) discussion.get(title);
++	}
++
++	public void removeMessage(String title) throws Reject {
++		if(discussion.containsKey(title))
++		{
++			discussion.remove(title);
++		}
++	}
++	
++	 public Any[] getMessages () {
++	 	return (Any[]) discussion.values().toArray(new Any[discussion.size()]);
++	 }
++	 
++	 public void getInfo (StringHolder theme, StringHolder moderator, IntHolder size) {
++	 	theme.value = this.theme;
++	 	moderator.value = this.moderator;
++	 	size.value = discussion.size();
++	 }
++}
+
+Modified: trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java	2005-02-21 15:59:53 UTC (rev 26)
++++ trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java	2005-02-21 16:52:00 UTC (rev 27)
+@@ -1,49 +1,64 @@
+-package fr.umlv.ir3.corba.forum;
+-
+-import java.io.FileNotFoundException;
+-
+-import org.omg.CORBA.ORB;
+-import org.omg.CosNaming.*;
+-import org.omg.CosNaming.NamingContextPackage.*;
+-import org.omg.PortableServer.*;
+-import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
+-import org.omg.PortableServer.POAPackage.*;
+-
+-public class ForumServer {
+-  public static void main(String args[]) throws ServantAlreadyActive,
+-      ObjectNotActive, WrongPolicy, FileNotFoundException,
+-      AdapterInactive, org.omg.CORBA.ORBPackage.InvalidName, 
+-      NotFound, CannotProceed, InvalidName {
+-
+-    //  Initialisation de l'ORB
+-    ORB orb = ORB.init(args, null);
+-
+-    // R&#233;cup&#233;ration de r&#233;f&#233;rence de l'adaptateur d'objets racine
+-    POA rootPOA = POAHelper.narrow(
+-        orb.resolve_initial_references(&quot;RootPOA&quot;));
+-
+-    // Initialisation de l'objet servant
+-    ForumImpl servant = new ForumImpl(&quot;java&quot;,&quot;forax&quot;);
+-
+-    // Enregistrement du servant
+-    byte[] servantId = rootPOA.activate_object(servant);
+-
+-    // R&#233;cup&#233;ration de la r&#233;f&#233;rence du servant
+-    Forum forum = ForumHelper.narrow(
+-        rootPOA.id_to_reference(servantId));
+-    
+-    // Enregistrement dans le service de nommage
+-    NamingContextExt context = NamingContextExtHelper.narrow(
+-        orb.resolve_initial_references(&quot;NameService&quot;));
+-    NameComponent[] name = context.to_name(&quot;Forum&quot;);
+-    context.rebind(name,forum);
+-    
+-    // Activation des servants
+-    rootPOA.the_POAManager().activate();
+-
+-    System.out.println(&quot;Server is ready&quot;);
+-
+-    // Mise en attente des requ&#232;tes
+-    orb.run();
+-  }
+-}
++/*
++ * Created on 1 oct. 2004
++ */
++package fr.umlv.ir3.corba.forum;
++
++import java.io.*;
++
++import org.omg.CORBA.*;
++import org.omg.CORBA.Object;
++import org.omg.CORBA.ORBPackage.InvalidName;
++import org.omg.CosNaming.*;
++import org.omg.CosNaming.NamingContextPackage.*;
++import org.omg.PortableServer.*;
++import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
++import org.omg.PortableServer.POAPackage.*;
++
++/**
++ * @author jguers
++ */
++public class ForumServer {
++
++	public static void main(String[] args) throws InvalidName, ServantAlreadyActive, ObjectNotActive, WrongPolicy, IOException, AdapterInactive, NotFound, AlreadyBound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName {
++		ORB orb = ORB.init(args, null);
++		POA rootPOA = POAHelper.narrow(orb.resolve_initial_references(&quot;RootPOA&quot;));
++		
++		ForumImpl forum = new ForumImpl(&quot;Forum de Test&quot;, &quot;GG&quot;);
++		
++		byte [] objectID = rootPOA.activate_object(forum);
++		Object obj = rootPOA.id_to_reference(objectID);
++		
++        //Cr&#233;ation du service d'annuaire
++        Object ns = orb.resolve_initial_references(&quot;NameService&quot;);
++        NamingContextExt nc = NamingContextExtHelper.narrow(ns) ;
++        
++        NameComponent[] name=null;
++        NamingContext ctxNC = null;
++        
++        try
++        {
++             ctxNC = nc.bind_new_context(nc.to_name(&quot;CTX&quot;));
++        }
++        catch (AlreadyBound e) {
++            Object objTemp = nc.resolve(nc.to_name(&quot;CTX&quot;));
++            if (objTemp instanceof NamingContext) {
++                nc.rebind(nc.to_name(&quot;CTX&quot;), objTemp);
++            }
++            else throw e;
++        }
++        name = nc.to_name(&quot;CTX/forumGG&quot;);
++        
++        try {
++            nc.bind(name,obj);
++        } 
++        catch (AlreadyBound e) {
++            e.printStackTrace();
++            nc.rebind(name,obj);
++        }
++        
++		rootPOA.the_POAManager().activate();
++		orb.run();
++        
++        System.out.println(&quot;Server ready&quot;);
++	}
++}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000037.html">[Jmds-svn] r26 - in trunk: . .settings generated generated/fr generated/fr/umlv generated/fr/umlv/ir3 generated/fr/umlv/ir3/corba generated/fr/umlv/ir3/corba/forum idl src src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/ior src/de/berlios/jmds/server src/fr src/fr/umlv src/fr/umlv/ir3 src/fr/umlv/ir3/corba src/fr/umlv/ir3/corba/forum
+</A></li>
+	<LI>Next message: <A HREF="000040.html">[Jmds-svn] r28 - in trunk: . lib src/de/berlios/jmds/client src/de/berlios/jmds/server src/fr/umlv/ir3/corba/forum
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

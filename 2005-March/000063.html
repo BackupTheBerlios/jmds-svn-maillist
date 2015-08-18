@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r49 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/server fr/umlv/ir3/corba/forum
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r49%20-%20in%20trunk/src%3A%20de/berlios/jmds/client%20de/berlios/jmds/server%20fr/umlv/ir3/corba/forum&In-Reply-To=%3C200503022339.j22Ndeo8013162%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000062.html">
+   <LINK REL="Next"  HREF="000064.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r49 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/server fr/umlv/ir3/corba/forum</H1>
+    <B>Denis BARDIN at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r49%20-%20in%20trunk/src%3A%20de/berlios/jmds/client%20de/berlios/jmds/server%20fr/umlv/ir3/corba/forum&In-Reply-To=%3C200503022339.j22Ndeo8013162%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r49 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/server fr/umlv/ir3/corba/forum">dbardin at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar  3 00:39:40 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000062.html">[Jmds-svn] r48 - in trunk/src: de/berlios/jmds/client fr/umlv/ir3/corba/forum
+</A></li>
+        <LI>Next message: <A HREF="000064.html">[Jmds-svn] r50 - in trunk/src: de/berlios/jmds/server fr/umlv/ir3/corba/forum
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#63">[ date ]</a>
+              <a href="thread.html#63">[ thread ]</a>
+              <a href="subject.html#63">[ subject ]</a>
+              <a href="author.html#63">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: dbardin
+Date: 2005-03-03 00:39:25 +0100 (Thu, 03 Mar 2005)
+New Revision: 49
+
+Added:
+   trunk/src/fr/umlv/ir3/corba/forum/SlimForumClient.java
+Modified:
+   trunk/src/de/berlios/jmds/client/ClientInter.java
+   trunk/src/de/berlios/jmds/server/ServerInter.java
+   trunk/src/fr/umlv/ir3/corba/forum/FindObject.java
+Log:
+
+
+Modified: trunk/src/de/berlios/jmds/client/ClientInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/ClientInter.java	2005-03-02 17:10:52 UTC (rev 48)
++++ trunk/src/de/berlios/jmds/client/ClientInter.java	2005-03-02 23:39:25 UTC (rev 49)
+@@ -43,8 +43,7 @@
+ 
+         try {
+             byte[] tabByteSC = SCAppletClient.code(tabId);
+-            
+-            ServiceContext sc = new ServiceContext ();
++        	ServiceContext sc = new ServiceContext ();
+             sc.context_data = tabByteSC;
+             ri.add_request_service_context(sc,true);
+         } catch (slbException e) {
+
+Modified: trunk/src/de/berlios/jmds/server/ServerInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/ServerInter.java	2005-03-02 17:10:52 UTC (rev 48)
++++ trunk/src/de/berlios/jmds/server/ServerInter.java	2005-03-02 23:39:25 UTC (rev 49)
+@@ -7,11 +7,19 @@
+ package de.berlios.jmds.server;
+ 
+ import org.omg.IOP.ServiceContext;
++import org.omg.PortableInterceptor.AdapterManagerIdHelper;
++import org.omg.PortableInterceptor.AdapterNameHelper;
+ import org.omg.PortableInterceptor.ForwardRequest;
+ import org.omg.PortableInterceptor.ServerRequestInfo;
+ import org.omg.PortableInterceptor.ServerRequestInterceptor;
++import org.omg.PortableServer.AdapterActivator;
++import org.omg.PortableServer.AdapterActivatorOperations;
+ 
++import com.sun.corba.se.impl.protocol.giopmsgheaders.TargetAddress;
++import com.sun.corba.se.impl.protocol.giopmsgheaders.TargetAddressHelper;
++import com.sun.org.apache.xalan.internal.xsltc.runtime.Parameter;
+ 
++
+ /**
+  * @author S&#233;bastien GUINCHARD
+  */
+@@ -33,7 +41,7 @@
+ 	 */
+ 	public void receive_request_service_contexts (ServerRequestInfo ri) throws ForwardRequest
+ 	{
+-		System.out.println (&quot;ServerInter.receive request_SC: &quot; + ri.operation ());
++		System.out.println (&quot;ServerInter.receive request_SC: &quot; + ri.operation());
+ 		ServiceContext sc = ri.get_request_service_context (0);
+ 		SCManager scManager = SCManager.getInstance ();
+ 		userID = scManager.decode (sc.context_data);
+@@ -45,7 +53,8 @@
+ 	 */
+ 	public void receive_request (ServerRequestInfo ri) throws ForwardRequest
+ 	{
+-		System.out.println (&quot;ServerInter.receive request: &quot; + ri.operation ());
++		System.out.println (&quot;ServerInter.receive request: &quot; + new String (ri.object_id()));
++		System.out.println (&quot;####&quot; + ri.target_most_derived_interface() + &quot;####&quot;);
+ 		if (!RightsManager.getInstance ().canUse (userID + &quot;&quot; , new String (ri.object_id ()) , ri.operation ()))
+ 		{
+ 			//throw new SecurityException(&quot;User can not access to this object&quot;); 
+
+Modified: trunk/src/fr/umlv/ir3/corba/forum/FindObject.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/FindObject.java	2005-03-02 17:10:52 UTC (rev 48)
++++ trunk/src/fr/umlv/ir3/corba/forum/FindObject.java	2005-03-02 23:39:25 UTC (rev 49)
+@@ -90,11 +90,12 @@
+     			{
+     				System.out.println(binding[i].binding_name[j].id + &quot; : &quot;+ binding[i].binding_name[j].kind +  &quot; : &quot; + binding[i].binding_name[j]);
+     				Object objProxy = context.resolve(binding[i].binding_name);
++    				System.out.println(objProxy.toString());
+     			}  
+     			if ( binding[i].binding_type.equals (BindingType.ncontext))
+     			{
+     				NamingContext newContext =	NamingContextHelper.narrow (context.resolve(binding[i].binding_name));
+-    				//createConfig(newContext);
++    				createConfig(orb, newContext);
+     			}
+     		}
+     	} while( iteratorHolder.value != null &amp;&amp; iteratorHolder.value.next_n (10, listHolder));
+
+Added: trunk/src/fr/umlv/ir3/corba/forum/SlimForumClient.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/SlimForumClient.java	2005-03-02 17:10:52 UTC (rev 48)
++++ trunk/src/fr/umlv/ir3/corba/forum/SlimForumClient.java	2005-03-02 23:39:25 UTC (rev 49)
+@@ -0,0 +1,63 @@
++/*
++ * Created on 1 oct. 2004
++ */
++package fr.umlv.ir3.corba.forum;
++
++import java.io.BufferedReader;
++import java.io.InputStreamReader;
++import java.util.Date;
++
++import org.omg.CORBA.Any;
++import org.omg.CORBA.ORB;
++import org.omg.CORBA.Object;
++import org.omg.CosNaming.NameComponent;
++import org.omg.CosNaming.NamingContextExt;
++import org.omg.CosNaming.NamingContextExtHelper;
++
++/**
++ * @author jguers
++ */
++public class SlimForumClient {
++
++    /**
++     * @param args
++     * @throws Exception
++     */
++    public static void main(String[] args) throws Exception {
++        java.util.Properties props = System.getProperties();
++        // props.put( &quot;org.omg.CORBA.ORBClass&quot;, &quot;org.openorb.CORBA.ORB&quot; );
++        // props.put(&quot;org.omg.CORBA.ORBSingletonClass&quot;,&quot;org.openorb.CORBA.ORBSingleton&quot; );
++        // props.put( &quot;verbose&quot;, &quot;5&quot; );
++        props.put(&quot;org.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.client.ClientORBInitializer&quot;, &quot;&quot;);
++        props.put(&quot;org.omg.CORBA.ORBInitialPort&quot; , &quot;1234&quot;);
++        
++        ORB orb = ORB.init(args, props);
++
++        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
++
++        // Cr&#233;ation du service d'annuaire
++        Object ns = orb.resolve_initial_references(&quot;NameService&quot;);
++        NamingContextExt nc = NamingContextExtHelper.narrow(ns);
++
++        NameComponent[] name = null;
++        try {
++            name = nc.to_name(&quot;jmdsForum&quot;);
++        } catch (org.omg.CosNaming.NamingContextPackage.InvalidName e2) {
++            e2.printStackTrace();
++        }
++
++        Object objProxy = nc.resolve(name);
++        
++        Forum forumProxy = ForumHelper.narrow(objProxy);
++
++        Any any = orb.create_any();
++        TextMessage message = new TextMessage(&quot;titi&quot;, &quot;toto&quot;,(new Date()).toString(), &quot;tutu&quot;);
++        TextMessageHelper.insert(any, message);
++        try {
++        	forumProxy.postMessage(&quot;titi&quot;, any);
++        } catch (Reject e) {
++            System.out.println(&quot;Message non ajout&#233; pour cette raison:\n&quot; + e.message);
++        }
++        
++    }
++}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000062.html">[Jmds-svn] r48 - in trunk/src: de/berlios/jmds/client fr/umlv/ir3/corba/forum
+</A></li>
+	<LI>Next message: <A HREF="000064.html">[Jmds-svn] r50 - in trunk/src: de/berlios/jmds/server fr/umlv/ir3/corba/forum
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#63">[ date ]</a>
+              <a href="thread.html#63">[ thread ]</a>
+              <a href="subject.html#63">[ subject ]</a>
+              <a href="author.html#63">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

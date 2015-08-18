@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r25 - in trunk/src/de/berlios/jmds: client client/core server server/core
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r25%20-%20in%20trunk/src/de/berlios/jmds%3A%20client%20client/core%20server%20server/core&In-Reply-To=%3C200502192009.j1JK9YDT006203%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000033.html">
+   <LINK REL="Next"  HREF="000035.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r25 - in trunk/src/de/berlios/jmds: client client/core server server/core</H1>
+    <B>S&#233;bastien Guinchard at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r25%20-%20in%20trunk/src/de/berlios/jmds%3A%20client%20client/core%20server%20server/core&In-Reply-To=%3C200502192009.j1JK9YDT006203%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r25 - in trunk/src/de/berlios/jmds: client client/core server server/core">sguincha at sheep.berlios.de
+       </A><BR>
+    <I>Sat Feb 19 21:09:34 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000033.html">[Jmds-svn] r24 - in trunk: applet/de/berlios/jmds/applet/javacard generator src/de/berlios/jmds/applet
+</A></li>
+        <LI>Next message: <A HREF="000035.html">[Jmds-svn] Blocage du r&#233;f&#233;rentiel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: sguincha
+Date: 2005-02-19 21:09:30 +0100 (Sat, 19 Feb 2005)
+New Revision: 25
+
+Modified:
+   trunk/src/de/berlios/jmds/client/ForumClient.java
+   trunk/src/de/berlios/jmds/client/core/ClientInter.java
+   trunk/src/de/berlios/jmds/server/ForumServer.java
+   trunk/src/de/berlios/jmds/server/core/ServerInter.java
+Log:
+Mise en place de JacORB pour corrige un bug.. il est toujours la :-(
+
+Modified: trunk/src/de/berlios/jmds/client/ForumClient.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/ForumClient.java	2005-02-19 18:56:06 UTC (rev 24)
++++ trunk/src/de/berlios/jmds/client/ForumClient.java	2005-02-19 20:09:30 UTC (rev 25)
+@@ -29,9 +29,16 @@
+ 	{
+ 
+ 		/* initialisation de l'ORB */
+-		Properties prop = new Properties ();
++/*		Properties prop = new Properties ();
+ 		prop.put (&quot;org.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.client.core.ClientORBInitializer&quot; , &quot;&quot;);
+ 		ORB orb = ORB.init (args , prop);
++*/
++		/*Initilisation de JAC ORB*/
++		java.util.Properties props = new java.util.Properties();
++		props.put (&quot;org.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.client.core.ClientORBInitializer&quot; , &quot;&quot;);
++		props.put(&quot;jacorb.implname&quot;,&quot;StandardNS&quot;);
++		ORB orb = org.omg.CORBA.ORB.init(args, props);
++		
+ 		/* R&#233;cup&#233;ration de l'id de l'objet servant */
+ 		BufferedReader buffer = new BufferedReader (new FileReader (&quot;ObjectRef&quot;));
+ 		String ior = buffer.readLine ();
+
+Modified: trunk/src/de/berlios/jmds/client/core/ClientInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/core/ClientInter.java	2005-02-19 18:56:06 UTC (rev 24)
++++ trunk/src/de/berlios/jmds/client/core/ClientInter.java	2005-02-19 20:09:30 UTC (rev 25)
+@@ -27,10 +27,10 @@
+ 	 */
+ 	public void send_request (ClientRequestInfo ri) throws ForwardRequest
+ 	{
+-		ServiceContext sc = new ServiceContext ();
+-		byte[] scData = &quot;toto&quot;.getBytes();
+-		sc.context_data = scData;
+-		ri.add_request_service_context (sc, true);
++//		ServiceContext sc = new ServiceContext ();
++//		byte[] scData = &quot;toto&quot;.getBytes();
++//		sc.context_data = scData;
++//		ri.add_request_service_context (null, true);
+ 		System.out.println (&quot;ClientInter.send request: &quot; + ri.operation ());
+ 	}
+ 
+@@ -47,10 +47,9 @@
+ 	 */
+ 	public void receive_reply (ClientRequestInfo ri)
+ 	{
+-		ServiceContext sc = ri.get_reply_service_context(0);
+-		String sData = new String(sc.context_data);
+-		System.out.println (&quot;ClientInter.receive reply: &quot; + sData);
+-		
++		System.out.println (&quot;ClientInter.receive reply: &quot; + ri.operation ());
++//		ServiceContext sc = ri.get_reply_service_context(0);
++//		String sData = new String(sc.context_data);		
+ 	}
+ 
+ 	/**
+@@ -58,7 +57,7 @@
+ 	 */
+ 	public void receive_exception (ClientRequestInfo ri) throws ForwardRequest
+ 	{
+-		System.out.println (&quot;ClientInter.receive exception: &quot; + ri.operation ());
++		System.out.println (&quot;ClientInter.receive exception: &quot; );
+ 	}
+ 
+ 	/**
+
+Modified: trunk/src/de/berlios/jmds/server/ForumServer.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/ForumServer.java	2005-02-19 18:56:06 UTC (rev 24)
++++ trunk/src/de/berlios/jmds/server/ForumServer.java	2005-02-19 20:09:30 UTC (rev 25)
+@@ -35,10 +35,16 @@
+ 	public static void main (String [] args) throws InvalidName, ServantAlreadyActive, ObjectNotActive, WrongPolicy, IOException, AdapterInactive
+ 	{
+ 		/* Initialisation de l'ORB */
+-		Properties prop = new Properties ();
++/*		Properties prop = new Properties ();
+ 		prop.put (&quot;org.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.server.core.ServerORBInitializer&quot; , &quot;&quot;);
+ 		ORB orb = ORB.init (args , prop);
+-
++*/
++		/*Initilisation de JAC ORB*/
++		java.util.Properties props = new java.util.Properties();
++		props.put (&quot;org.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.server.core.ServerORBInitializer&quot; , &quot;&quot;);
++		props.put(&quot;jacorb.implname&quot;,&quot;StandardNS&quot;);
++		ORB orb = org.omg.CORBA.ORB.init(args, props);
++		
+ 		/* R&#233;cup&#233;ration de r&#233;f&#233;rence de l'adaptateur d'objet racine */
+ 		POA rootPOA = POAHelper.narrow (orb.resolve_initial_references (&quot;RootPOA&quot;));
+ 
+
+Modified: trunk/src/de/berlios/jmds/server/core/ServerInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/core/ServerInter.java	2005-02-19 18:56:06 UTC (rev 24)
++++ trunk/src/de/berlios/jmds/server/core/ServerInter.java	2005-02-19 20:09:30 UTC (rev 25)
+@@ -27,12 +27,21 @@
+ 	 */
+ 	public void receive_request_service_contexts (ServerRequestInfo ri) throws ForwardRequest
+ 	{
+-		ServiceContext sc = ri.get_request_service_context (0);
+-		String sData = new String (sc.context_data);
+-		System.out.println (&quot;ServerInter.receive request_SC: &quot; + sData);
+-		sc.context_data = &quot;titi&quot;.getBytes ();
+-		ri.add_reply_service_context (sc , true);
+-
++		String sData;
++		System.out.println (&quot;ServerInter.receive request_SC: &quot; + ri.operation ());
++		System.out.println (&quot;RI : &quot; + ri);
++//		if(ri.contexts() != null) {
++//			
++//			ServiceContext  sc = ri.get_request_service_context (0);			
++//			if(sc.context_data != null || sc.context_data.length == 0) { 
++//				sData = new String (sc.context_data);
++//			}
++//			else {
++//				System.out.println (&quot;ServerInter.receive request_SC: send Exception&quot;);
++//				//send_exception(ri);
++//			}
++//		}
++		
+ 	}
+ 
+ 	/**
+@@ -41,6 +50,16 @@
+ 	public void receive_request (ServerRequestInfo ri) throws ForwardRequest
+ 	{
+ 		System.out.println (&quot;ServerInter.receive request: &quot; + ri.operation ());
++		/*System.out.println (&quot;RI : &quot; + ri);
++		String sData;
++		ServiceContext  sc = ri.get_request_service_context (0);			
++		if(sc.context_data != null || sc.context_data.length == 0) { 
++			sData = new String (sc.context_data);
++		}
++		else {
++			System.out.println (&quot;ServerInter.receive request_SC: send Exception&quot;);
++			send_exception(ri);
++		}*/
+ 	}
+ 
+ 	/**
+@@ -48,9 +67,9 @@
+ 	 */
+ 	public void send_reply (ServerRequestInfo ri)
+ 	{
+-		ServiceContext sc = ri.get_request_service_context (0);
++		/*ServiceContext sc = ri.get_request_service_context (0);
+ 		sc.context_data = &quot;titi&quot;.getBytes ();
+-		ri.add_reply_service_context (sc , true);
++		ri.add_reply_service_context (sc , true);*/
+ 		System.out.println (&quot;ServerInter.send_reply: &quot; + ri.operation ());
+ 
+ 	}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000033.html">[Jmds-svn] r24 - in trunk: applet/de/berlios/jmds/applet/javacard generator src/de/berlios/jmds/applet
+</A></li>
+	<LI>Next message: <A HREF="000035.html">[Jmds-svn] Blocage du r&#233;f&#233;rentiel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

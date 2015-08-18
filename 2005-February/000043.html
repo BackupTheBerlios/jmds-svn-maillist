@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r31 - trunk
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r31%20-%20trunk&In-Reply-To=%3C200502232045.j1NKjb67030558%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000042.html">
+   <LINK REL="Next"  HREF="000044.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r31 - trunk</H1>
+    <B>Denis BARDIN at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r31%20-%20trunk&In-Reply-To=%3C200502232045.j1NKjb67030558%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r31 - trunk">dbardin at sheep.berlios.de
+       </A><BR>
+    <I>Wed Feb 23 21:45:37 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000042.html">[Jmds-svn] r30 - in trunk: . src/de/berlios/jmds/client src/de/berlios/jmds/server test/de/berlios/jmds/test/clients
+</A></li>
+        <LI>Next message: <A HREF="000044.html">[Jmds-svn] r32 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/server de/berlios/jmds/tools fr/umlv/ir3/corba/forum
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#43">[ date ]</a>
+              <a href="thread.html#43">[ thread ]</a>
+              <a href="subject.html#43">[ subject ]</a>
+              <a href="author.html#43">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: dbardin
+Date: 2005-02-23 21:45:36 +0100 (Wed, 23 Feb 2005)
+New Revision: 31
+
+Modified:
+   trunk/codeServeur.gif
+   trunk/codeServeur.usd
+   trunk/decodeServeur.gif
+   trunk/decodeServeur.usd
+Log:
+dsl j avais oublie des getInstance() ;-)
+
+Modified: trunk/codeServeur.gif
+===================================================================
+(Binary files differ)
+
+Modified: trunk/codeServeur.usd
+===================================================================
+--- trunk/codeServeur.usd	2005-02-23 20:38:55 UTC (rev 30)
++++ trunk/codeServeur.usd	2005-02-23 20:45:36 UTC (rev 31)
+@@ -1,7 +1,7 @@
+ &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+ &lt;editmodel:SequenceDiagramEditModel xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;<A HREF="http://www.omg.org/XMI">http://www.omg.org/XMI</A>&quot; xmlns:xsi=&quot;<A HREF="http://www.w3.org/2001/XMLSchema-instance">http://www.w3.org/2001/XMLSchema-instance</A>&quot; xmlns:editmodel=&quot;editmodel.xmi&quot; xmlns:options=&quot;options.xmi&quot; name=&quot;codeServeur&quot; metadata=&quot;uml2-1.0&quot; initialized=&quot;true&quot; tag=&quot;1000&quot; key=&quot;3230303431303236204A4D44532F44656E6973&quot;&gt;
+-  &lt;children xsi:type=&quot;editmodel:ActorEditModel&quot; location=&quot;30,20&quot; size=&quot;100,378&quot; itemName=&quot;orb&quot;&gt;
+-    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; location=&quot;42,152&quot; size=&quot;16,106&quot; sequenceItemContainer=&quot;//@children.0&quot; length=&quot;106&quot;&gt;
++  &lt;children xsi:type=&quot;editmodel:ActorEditModel&quot; location=&quot;30,20&quot; size=&quot;100,411&quot; itemName=&quot;orb&quot;&gt;
++    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; location=&quot;42,152&quot; size=&quot;16,139&quot; sequenceItemContainer=&quot;//@children.0&quot; length=&quot;139&quot;&gt;
+       &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; source=&quot;//@children.0/@children.0&quot; target=&quot;//@children.1/@children.0&quot; targetEnd=&quot;//@children.0/@children.0/@sourceConnections.0/@children.1&quot; sourceEnd=&quot;//@children.0/@children.0/@sourceConnections.0/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;send_reply (ri:ServerRequestInfo)&quot; associatedSequenceNumber=&quot;1&quot;&gt;
+         &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.0/@children.0/@sourceConnections.0/@children.0/@children.0&quot; methodLabel=&quot;//@children.0/@children.0/@sourceConnections.0/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.0/@children.0/@sourceConnections.0/@children.0/@children.2&quot; statementExpression=&quot;//@children.0/@children.0/@sourceConnections.0/@children.0/@children.3&quot;&gt;
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+@@ -18,13 +18,13 @@
+       &lt;/sourceConnections&gt;
+     &lt;/children&gt;
+   &lt;/children&gt;
+-  &lt;children xsi:type=&quot;editmodel:InstanceEditModel&quot; name=&quot;ServerInter&quot; location=&quot;267,20&quot; size=&quot;100,378&quot; id=&quot;de.berlios.jmds.server/ServerInter&quot;&gt;
+-    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.0/@children.0/@sourceConnections.0&quot; location=&quot;42,152&quot; size=&quot;16,106&quot; sequenceItemContainer=&quot;//@children.1&quot; length=&quot;106&quot;&gt;
+-      &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; source=&quot;//@children.1/@children.0&quot; target=&quot;//@children.2/@children.0&quot; targetEnd=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1&quot; sourceEnd=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;code(RequestID:byte[]): byte[]&quot; associatedSequenceNumber=&quot;1.1&quot;&gt;
+-        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; location=&quot;0,22&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.3&quot;&gt;
++  &lt;children xsi:type=&quot;editmodel:InstanceEditModel&quot; name=&quot;ServerInter&quot; location=&quot;267,20&quot; size=&quot;100,411&quot; id=&quot;de.berlios.jmds.server/ServerInter&quot;&gt;
++    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.0/@children.0/@sourceConnections.0&quot; location=&quot;42,152&quot; size=&quot;16,139&quot; sequenceItemContainer=&quot;//@children.1&quot; length=&quot;139&quot;&gt;
++      &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; source=&quot;//@children.1/@children.0&quot; target=&quot;//@children.2/@children.1&quot; targetEnd=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1&quot; sourceEnd=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;code(RequestID:byte[]): byte[]&quot; associatedSequenceNumber=&quot;1.2&quot;&gt;
++        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; location=&quot;0,72&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.3&quot;&gt;
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+           &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;code(RequestID:byte[]): byte[]&quot; size=&quot;145,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+-          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;1.1&quot; size=&quot;16,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;1.2&quot; size=&quot;16,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+         &lt;/children&gt;
+         &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; anchorKind=&quot;FixedAtEdge&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1/@children.3&quot;&gt;
+@@ -34,12 +34,27 @@
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+         &lt;/children&gt;
+       &lt;/sourceConnections&gt;
++      &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; name=&quot;getInstance&quot; id=&quot;de.berlios.jmds.server/SCManager#getInstance()&quot; source=&quot;//@children.1/@children.0&quot; target=&quot;//@children.2/@children.0&quot; targetEnd=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1&quot; sourceEnd=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;getInstance(): SCManager&quot; associatedSequenceNumber=&quot;1.1&quot;&gt;
++        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; location=&quot;0,12&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.3&quot;&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;getInstance(): SCManager&quot; size=&quot;127,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;1.1&quot; size=&quot;16,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++        &lt;/children&gt;
++        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; anchorKind=&quot;FixedAtEdge&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1/@children.3&quot;&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++        &lt;/children&gt;
++      &lt;/sourceConnections&gt;
+     &lt;/children&gt;
+   &lt;/children&gt;
+-  &lt;children xsi:type=&quot;editmodel:InstanceEditModel&quot; name=&quot;SCManager&quot; location=&quot;536,20&quot; size=&quot;100,378&quot; id=&quot;de.berlios.jmds.server/SCManager&quot;&gt;
+-    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.0/@sourceConnections.0&quot; location=&quot;42,174&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.2&quot;/&gt;
++  &lt;children xsi:type=&quot;editmodel:InstanceEditModel&quot; name=&quot;SCManager&quot; location=&quot;536,20&quot; size=&quot;100,411&quot; id=&quot;de.berlios.jmds.server/SCManager&quot;&gt;
++    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.0/@sourceConnections.1&quot; location=&quot;42,164&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.2&quot;/&gt;
++    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.0/@sourceConnections.0&quot; location=&quot;42,224&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.2&quot;/&gt;
+   &lt;/children&gt;
+-  &lt;children xsi:type=&quot;editmodel:LabelObjectEditModel&quot; name=&quot;initialise le SC&quot; location=&quot;350,250&quot; size=&quot;66,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++  &lt;children xsi:type=&quot;editmodel:LabelObjectEditModel&quot; name=&quot;initialise le SC&quot; location=&quot;340,280&quot; size=&quot;66,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+   &lt;diagramOptions xsi:type=&quot;options:SequenceDiagramOptions&quot; level=&quot;0&quot; autoName=&quot;false&quot;/&gt;
+   &lt;boardSetting snapToGeometry=&quot;true&quot; gridEnabled=&quot;true&quot; gridSpacing=&quot;10,10&quot; gridOrigin=&quot;0,0&quot; rulerUnit=&quot;pixel&quot;&gt;
+     &lt;leftRuler/&gt;
+
+Modified: trunk/decodeServeur.gif
+===================================================================
+(Binary files differ)
+
+Modified: trunk/decodeServeur.usd
+===================================================================
+--- trunk/decodeServeur.usd	2005-02-23 20:38:55 UTC (rev 30)
++++ trunk/decodeServeur.usd	2005-02-23 20:45:36 UTC (rev 31)
+@@ -1,7 +1,7 @@
+ &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+-&lt;editmodel:SequenceDiagramEditModel xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;<A HREF="http://www.omg.org/XMI">http://www.omg.org/XMI</A>&quot; xmlns:xsi=&quot;<A HREF="http://www.w3.org/2001/XMLSchema-instance">http://www.w3.org/2001/XMLSchema-instance</A>&quot; xmlns:editmodel=&quot;editmodel.xmi&quot; xmlns:options=&quot;options.xmi&quot; name=&quot;decodeServeur&quot; size=&quot;922,535&quot; metadata=&quot;uml2-1.0&quot; initialized=&quot;true&quot; scrolledY=&quot;72&quot; tag=&quot;1000&quot; key=&quot;3230303431303236204A4D44532F44656E6973&quot;&gt;
+-  &lt;children xsi:type=&quot;editmodel:ActorEditModel&quot; location=&quot;40,20&quot; size=&quot;101,449&quot; itemName=&quot;orb&quot;&gt;
+-    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; location=&quot;42,140&quot; size=&quot;16,189&quot; sequenceItemContainer=&quot;//@children.0&quot; length=&quot;189&quot;&gt;
++&lt;editmodel:SequenceDiagramEditModel xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;<A HREF="http://www.omg.org/XMI">http://www.omg.org/XMI</A>&quot; xmlns:xsi=&quot;<A HREF="http://www.w3.org/2001/XMLSchema-instance">http://www.w3.org/2001/XMLSchema-instance</A>&quot; xmlns:editmodel=&quot;editmodel.xmi&quot; xmlns:options=&quot;options.xmi&quot; name=&quot;decodeServeur&quot; size=&quot;922,535&quot; metadata=&quot;uml2-1.0&quot; initialized=&quot;true&quot; tag=&quot;1000&quot; key=&quot;3230303431303236204A4D44532F44656E6973&quot;&gt;
++  &lt;children xsi:type=&quot;editmodel:ActorEditModel&quot; location=&quot;40,20&quot; size=&quot;101,582&quot; itemName=&quot;orb&quot;&gt;
++    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; location=&quot;42,140&quot; size=&quot;16,322&quot; sequenceItemContainer=&quot;//@children.0&quot; length=&quot;322&quot;&gt;
+       &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; source=&quot;//@children.0/@children.0&quot; target=&quot;//@children.1/@children.0&quot; targetEnd=&quot;//@children.0/@children.0/@sourceConnections.0/@children.1&quot; sourceEnd=&quot;//@children.0/@children.0/@sourceConnections.0/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;receive_request_service_contexts (ri:ServerRequestInfo)&quot; associatedSequenceNumber=&quot;1&quot;&gt;
+         &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.0/@children.0/@sourceConnections.0/@children.0/@children.0&quot; methodLabel=&quot;//@children.0/@children.0/@sourceConnections.0/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.0/@children.0/@sourceConnections.0/@children.0/@children.2&quot; statementExpression=&quot;//@children.0/@children.0/@sourceConnections.0/@children.0/@children.3&quot;&gt;
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+@@ -18,13 +18,13 @@
+       &lt;/sourceConnections&gt;
+     &lt;/children&gt;
+   &lt;/children&gt;
+-  &lt;children xsi:type=&quot;editmodel:InstanceEditModel&quot; name=&quot;ServerInter&quot; location=&quot;340,20&quot; size=&quot;100,449&quot; id=&quot;de.berlios.jmds.server/ServerInter&quot;&gt;
+-    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.0/@children.0/@sourceConnections.0&quot; location=&quot;42,140&quot; size=&quot;16,189&quot; sequenceItemContainer=&quot;//@children.1&quot; recursiveChildren=&quot;//@children.1/@children.1&quot; length=&quot;189&quot;&gt;
+-      &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; source=&quot;//@children.1/@children.0&quot; target=&quot;//@children.2/@children.0&quot; targetEnd=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1&quot; sourceEnd=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;decode(SC:byte[]): int&quot; associatedSequenceNumber=&quot;1.1&quot;&gt;
+-        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; location=&quot;0,15&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.3&quot;&gt;
++  &lt;children xsi:type=&quot;editmodel:InstanceEditModel&quot; name=&quot;ServerInter&quot; location=&quot;340,20&quot; size=&quot;100,582&quot; id=&quot;de.berlios.jmds.server/ServerInter&quot;&gt;
++    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.0/@children.0/@sourceConnections.0&quot; location=&quot;42,140&quot; size=&quot;16,322&quot; sequenceItemContainer=&quot;//@children.1&quot; recursiveChildren=&quot;//@children.1/@children.1&quot; length=&quot;322&quot;&gt;
++      &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; source=&quot;//@children.1/@children.0&quot; target=&quot;//@children.2/@children.1&quot; targetEnd=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1&quot; sourceEnd=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;decode(SC:byte[]): int&quot; associatedSequenceNumber=&quot;1.2&quot;&gt;
++        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; location=&quot;0,85&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.0/@children.0/@children.3&quot;&gt;
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+           &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;decode(SC:byte[]): int&quot; size=&quot;106,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+-          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;1.1&quot; size=&quot;16,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;1.2&quot; size=&quot;16,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+         &lt;/children&gt;
+         &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; anchorKind=&quot;FixedAtEdge&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.0/@children.1/@children.3&quot;&gt;
+@@ -34,11 +34,11 @@
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+         &lt;/children&gt;
+       &lt;/sourceConnections&gt;
+-      &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; source=&quot;//@children.1/@children.0&quot; target=&quot;//@children.3/@children.0&quot; targetEnd=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1&quot; sourceEnd=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;canUse(szUserId:String, szIOR:String, szFonction:String): boolean&quot; associatedSequenceNumber=&quot;1.2&quot;&gt;
+-        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; location=&quot;0,79&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.3&quot;&gt;
++      &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; source=&quot;//@children.1/@children.0&quot; target=&quot;//@children.3/@children.1&quot; targetEnd=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1&quot; sourceEnd=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;canUse(szUserId:String, szIOR:String, szFonction:String): boolean&quot; associatedSequenceNumber=&quot;1.4&quot;&gt;
++        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; location=&quot;0,212&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.1/@children.0/@children.3&quot;&gt;
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+           &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;canUse(szUserId:String, szIOR:String, szFonction:String): boolean&quot; size=&quot;320,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+-          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;1.2&quot; size=&quot;16,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;1.4&quot; size=&quot;16,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+         &lt;/children&gt;
+         &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; anchorKind=&quot;FixedAtEdge&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.1/@children.1/@children.3&quot;&gt;
+@@ -48,8 +48,36 @@
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+         &lt;/children&gt;
+       &lt;/sourceConnections&gt;
++      &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; name=&quot;getInstance&quot; id=&quot;de.berlios.jmds.server/SCManager#getInstance()&quot; source=&quot;//@children.1/@children.0&quot; target=&quot;//@children.2/@children.0&quot; targetEnd=&quot;//@children.1/@children.0/@sourceConnections.2/@children.1&quot; sourceEnd=&quot;//@children.1/@children.0/@sourceConnections.2/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;getInstance(): SCManager&quot; associatedSequenceNumber=&quot;1.1&quot;&gt;
++        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; location=&quot;0,25&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.2/@children.0/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.2/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.2/@children.0/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.2/@children.0/@children.3&quot;&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;getInstance(): SCManager&quot; size=&quot;127,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;1.1&quot; size=&quot;16,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++        &lt;/children&gt;
++        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; anchorKind=&quot;FixedAtEdge&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.2/@children.1/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.2/@children.1/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.2/@children.1/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.2/@children.1/@children.3&quot;&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++        &lt;/children&gt;
++      &lt;/sourceConnections&gt;
++      &lt;sourceConnections xsi:type=&quot;editmodel:SequenceMessageEditModel&quot; name=&quot;getInstance&quot; id=&quot;de.berlios.jmds.server/RightsManager#getInstance()&quot; source=&quot;//@children.1/@children.0&quot; target=&quot;//@children.3/@children.0&quot; targetEnd=&quot;//@children.1/@children.0/@sourceConnections.3/@children.1&quot; sourceEnd=&quot;//@children.1/@children.0/@sourceConnections.3/@children.0&quot; connectionRouterKind=&quot;Manual&quot; associatedMethod=&quot;getInstance(): RightsManager&quot; associatedSequenceNumber=&quot;1.3&quot;&gt;
++        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; location=&quot;0,152&quot; anchorKind=&quot;FixedAtEdge&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.3/@children.0/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.3/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.3/@children.0/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.3/@children.0/@children.3&quot;&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;getInstance(): RightsManager&quot; size=&quot;143,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; name=&quot;1.3&quot; size=&quot;16,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++        &lt;/children&gt;
++        &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; anchorKind=&quot;FixedAtEdge&quot; userLabel=&quot;//@children.1/@children.0/@sourceConnections.3/@children.1/@children.0&quot; methodLabel=&quot;//@children.1/@children.0/@sourceConnections.3/@children.1/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.0/@sourceConnections.3/@children.1/@children.2&quot; statementExpression=&quot;//@children.1/@children.0/@sourceConnections.3/@children.1/@children.3&quot;&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:LabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++          &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++        &lt;/children&gt;
++      &lt;/sourceConnections&gt;
+     &lt;/children&gt;
+-    &lt;children xsi:type=&quot;editmodel:StatementActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.1/@sourceConnections.0&quot; backgroundRGB=&quot;128,128,128&quot; location=&quot;50,279&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.1&quot; associatedActivation=&quot;//@children.1/@children.0&quot; relativeLocation=&quot;8,132&quot;&gt;
++    &lt;children xsi:type=&quot;editmodel:StatementActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.1/@sourceConnections.0&quot; backgroundRGB=&quot;128,128,128&quot; location=&quot;50,412&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.1&quot; associatedActivation=&quot;//@children.1/@children.0&quot; relativeLocation=&quot;8,132&quot;&gt;
+       &lt;sourceConnections xsi:type=&quot;editmodel:StatementWireEditModel&quot; source=&quot;//@children.1/@children.1&quot; target=&quot;//@children.1/@children.1&quot; targetEnd=&quot;//@children.1/@children.1/@sourceConnections.0/@children.1&quot; label=&quot;//@children.1/@children.1/@sourceConnections.0/@children.2&quot; sourceEnd=&quot;//@children.1/@children.1/@sourceConnections.0/@children.0&quot; connectionRouterKind=&quot;Manual&quot; statement=&quot;if&quot; condition=&quot;le user n'a pas acces a la fonction de l'objet&quot;&gt;
+         &lt;children xsi:type=&quot;editmodel:SequenceEndEditModel&quot; attachSource=&quot;true&quot; userLabel=&quot;//@children.1/@children.1/@sourceConnections.0/@children.0/@children.0&quot; methodLabel=&quot;//@children.1/@children.1/@sourceConnections.0/@children.0/@children.1&quot; sequenceNumberLabel=&quot;//@children.1/@children.1/@sourceConnections.0/@children.0/@children.2&quot; statementExpression=&quot;//@children.1/@children.1/@sourceConnections.0/@children.0/@children.3&quot;&gt;
+           &lt;children xsi:type=&quot;editmodel:MessageLabelEditModel&quot; size=&quot;1,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+@@ -67,13 +95,15 @@
+       &lt;/sourceConnections&gt;
+     &lt;/children&gt;
+   &lt;/children&gt;
+-  &lt;children xsi:type=&quot;editmodel:InstanceEditModel&quot; name=&quot;SCManager&quot; location=&quot;536,20&quot; size=&quot;100,449&quot; id=&quot;de.berlios.jmds.server/SCManager&quot;&gt;
+-    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.0/@sourceConnections.0&quot; location=&quot;42,155&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.2&quot;/&gt;
++  &lt;children xsi:type=&quot;editmodel:InstanceEditModel&quot; name=&quot;SCManager&quot; location=&quot;536,20&quot; size=&quot;100,582&quot; id=&quot;de.berlios.jmds.server/SCManager&quot;&gt;
++    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.0/@sourceConnections.2&quot; location=&quot;42,165&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.2&quot;/&gt;
++    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.0/@sourceConnections.0&quot; location=&quot;42,225&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.2&quot;/&gt;
+   &lt;/children&gt;
+-  &lt;children xsi:type=&quot;editmodel:InstanceEditModel&quot; name=&quot;RightsManager&quot; location=&quot;690,20&quot; size=&quot;100,449&quot; id=&quot;de.berlios.jmds.server/RightsManager&quot;&gt;
+-    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.0/@sourceConnections.1&quot; location=&quot;42,219&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.3&quot;/&gt;
++  &lt;children xsi:type=&quot;editmodel:InstanceEditModel&quot; name=&quot;RightsManager&quot; location=&quot;690,20&quot; size=&quot;100,582&quot; id=&quot;de.berlios.jmds.server/RightsManager&quot;&gt;
++    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.0/@sourceConnections.3&quot; location=&quot;42,292&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.3&quot;/&gt;
++    &lt;children xsi:type=&quot;editmodel:ActivationEditModel&quot; targetConnections=&quot;//@children.1/@children.0/@sourceConnections.1&quot; location=&quot;42,352&quot; size=&quot;16,40&quot; sequenceItemContainer=&quot;//@children.3&quot;/&gt;
+   &lt;/children&gt;
+-  &lt;children xsi:type=&quot;editmodel:LabelObjectEditModel&quot; name=&quot;l&#232;ve une exception&quot; location=&quot;420,310&quot; size=&quot;92,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
++  &lt;children xsi:type=&quot;editmodel:LabelObjectEditModel&quot; name=&quot;l&#232;ve une exception&quot; location=&quot;420,440&quot; size=&quot;92,14&quot; fontInfo=&quot;Arial-8-0&quot;/&gt;
+   &lt;diagramOptions xsi:type=&quot;options:SequenceDiagramOptions&quot; level=&quot;0&quot; autoName=&quot;false&quot;/&gt;
+   &lt;boardSetting snapToGeometry=&quot;true&quot; gridEnabled=&quot;true&quot; gridSpacing=&quot;10,10&quot; gridOrigin=&quot;0,0&quot; rulerUnit=&quot;pixel&quot;&gt;
+     &lt;leftRuler/&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000042.html">[Jmds-svn] r30 - in trunk: . src/de/berlios/jmds/client src/de/berlios/jmds/server test/de/berlios/jmds/test/clients
+</A></li>
+	<LI>Next message: <A HREF="000044.html">[Jmds-svn] r32 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/server de/berlios/jmds/tools fr/umlv/ir3/corba/forum
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#43">[ date ]</a>
+              <a href="thread.html#43">[ thread ]</a>
+              <a href="subject.html#43">[ subject ]</a>
+              <a href="author.html#43">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

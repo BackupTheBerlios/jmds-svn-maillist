@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] Petit bilan
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20Petit%20bilan&In-Reply-To=%3C20050304151259.8D93514B6F4%40huva.hittite.isp.9tel.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000068.html">
+   <LINK REL="Next"  HREF="000070.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] Petit bilan</H1>
+    <B>GUERS J&#233;r&#244;me</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20Petit%20bilan&In-Reply-To=%3C20050304151259.8D93514B6F4%40huva.hittite.isp.9tel.net%3E"
+       TITLE="[Jmds-svn] Petit bilan">jguers at free.fr
+       </A><BR>
+    <I>Fri Mar  4 14:47:12 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000068.html">[Jmds-svn] r54 - trunk
+</A></li>
+        <LI>Next message: <A HREF="000070.html">[Jmds-svn] JMDS : DEV
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#69">[ date ]</a>
+              <a href="thread.html#69">[ thread ]</a>
+              <a href="subject.html#69">[ subject ]</a>
+              <a href="author.html#69">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Salut les gens
+ 
+Comme il semble que Denis veuille absolument finir et comme cela me fait un
+peu chier aussi d'arr&#234;ter en route (j'ai &#233;t&#233; nomin&#233; Geek qd m&#234;me... ;-) ),
+j'ai fait vite fait un applet ce matin qui fait un cryptage de merde (et
+oui, retour au XOR dans les deux sens...) avant de faire mes cartons. Je
+vous fais donc un petit bilan pour que Denis et Seb puisse finir le code et
+Mat faire la doc.
+ 
+Le service contexte g&#233;n&#233;r&#233; par la carte est un tableau contenant 5 bits non
+initialis&#233;s (normalement pour la cl&#233; de session que j'ai aussi abandonn&#233;),
+10 bits pour l'ID utilisateur et la fin avec le request ID. Le tout est
+crypt&#233; par un XOR avec une cl&#233; commune &#224; tout le monde (y compris le
+serveur). La s&#233;cu est donc pas terrible, mais le prof nous avait dit d&#232;s le
+d&#233;part de ne pas se prendre la t&#234;te ac &#231;a =&gt; tt pis !
+ 
+Il n'y a donc plus de cl&#233; client. Je ne voulais pas me faire chier ac un
+double cryptage m&#234;me si ca aurait &#233;t&#233; int&#233;ressant : j'ai plus le temps
+Cryptage simple car d&#233;cryptage impossible en dehors de la carte (enfin, j'ai
+pas r&#233;ussi &#224; le faire fonctionner)
+La cl&#233; de session est mise en commentaire dans le code (=&gt; pas prise en
+compte), car il faudrait g&#233;rer une table d'association entre les
+utilisateurs et les cl&#233;s de sessions sur le serveur, mais surtout g&#233;rer des
+timers pour d&#233;truire ces cl&#233;s qd elles ne sont plus utilis&#233;es.
+ 
+Normalement, tout est pr&#234;t pour le cryptage et le d&#233;cryptage sur le client
+et le serveur, mais comme je n'ai plus de carte, j'ai pas pu tester.
+ 
+Pour le listage des IOR, je t'ai dit une connerie hier Denis. J'avais boss&#233;
+sur le ClientRequestInfo au lieu du ServerRequestInfo, mais il semble que la
+m&#233;thode orb_id() fasse ce qu'on veut (contrairement &#224; ce que son nom peut
+faire croire, cette m&#233;thode ne semble pas retourner l'ID de l'orb, mais l'ID
+avec lequel l'objet target s'est enregsitr&#233; sur l'ORB (une chaine du genre
+IOR:......)
+ 
+Pour le rendu, il faut fournir tout notre r&#233;pertoire trunk je pense, en
+indiquant que l'applet de la carte se trouve dans le r&#233;pertoire applet et
+qu'il doit &#234;te charg&#233; ainsi :
+package AID : 112233445566
+applet AID : 11223344556677
+taille de chargement : 1800
+ 
+Un fichier est pr&#233;sent dans le r&#233;pertoire generator pour aider &#224; la
+g&#233;n&#233;ration de l'applet par le SDK.
+Le fichier SCApplet.fcn &#224; la racine de trunk permet de lancer nos fonctions
+sur la carte &#224; l'aide de l'APDU Manager.
+ 
+Pour finir, voici les points qu'il faudrait d&#233;tailler dans la doc du prof
+sur ce que j'ai fait. A voir ce que Denis a &#224; ajouter :
+- src\de\berlios\jmds\common\AppletManager.java : m&#233;thode findCard permet de
+trouver la carte parmis les diff&#233;rents lecteurs pouvant &#234;tre branch&#233;s
+contenant notre applet d'instanci&#233;e (en fonction de l'applet AID
+11223344556677)
+- src\de\berlios\jmds\applet\SCAppletWithKey.java : utilise les cl&#233;s et un
+cryptage pris en compte par la carte. N'a pas pu &#234;tre utilis&#233;, car pas de
+carte sur le serveur pour d&#233;crypter et d&#233;cryptage non r&#233;ussi en dehors de la
+carte
+ 
+Il faut &#233;galement lui dire que notre programme fonctionne avec tous les
+client-serveur Corba du moment que les ORBInitializer sont pris en compte.
+En java, il faut passer des param&#232;tres &#224; la JVM (voir pour leur syntaxe, je
+ne suis pas s&#251;r) :
+- client :
+-Dorg.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.client.Cli
+entORBInitializer
+- serveur :
+-Dorg.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.server.Ser
+verORBInitializer
+ 
+Voili, voilou
+Maintenant, je vais me mettre aux cartons, sinon, je vais pas r&#233;ussir &#224;
+d&#233;m&#233;nager &#224; temps !
+@+ les grosses et bon courage pour ce retour en &quot;vacances&quot; ...
+GG
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/jmds-svn/attachments/20050304/da15b1be/attachment.html">https://lists.berlios.de/pipermail/jmds-svn/attachments/20050304/da15b1be/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000068.html">[Jmds-svn] r54 - trunk
+</A></li>
+	<LI>Next message: <A HREF="000070.html">[Jmds-svn] JMDS : DEV
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#69">[ date ]</a>
+              <a href="thread.html#69">[ thread ]</a>
+              <a href="subject.html#69">[ subject ]</a>
+              <a href="author.html#69">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r51 - in trunk/src/de/berlios/jmds: client server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r51%20-%20in%20trunk/src/de/berlios/jmds%3A%20client%20server&In-Reply-To=%3C200503031049.j23An7Uq011453%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000064.html">
+   <LINK REL="Next"  HREF="000066.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r51 - in trunk/src/de/berlios/jmds: client server</H1>
+    <B>J&#233;r&#244;me GUERS at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r51%20-%20in%20trunk/src/de/berlios/jmds%3A%20client%20server&In-Reply-To=%3C200503031049.j23An7Uq011453%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r51 - in trunk/src/de/berlios/jmds: client server">jguers at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar  3 11:49:07 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000064.html">[Jmds-svn] r50 - in trunk/src: de/berlios/jmds/server fr/umlv/ir3/corba/forum
+</A></li>
+        <LI>Next message: <A HREF="000066.html">[Jmds-svn] r52 - trunk/test/de/berlios/jmds/clients
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#65">[ date ]</a>
+              <a href="thread.html#65">[ thread ]</a>
+              <a href="subject.html#65">[ subject ]</a>
+              <a href="author.html#65">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: jguers
+Date: 2005-03-03 11:49:06 +0100 (Thu, 03 Mar 2005)
+New Revision: 51
+
+Modified:
+   trunk/src/de/berlios/jmds/client/ClientInter.java
+   trunk/src/de/berlios/jmds/server/FindObject.java
+Log:
+Trouve la methode qui permet de retrouver les IOR. Mais il faudra accorder les droits a tout le monde pour les references initiiales (notament Name Service)
+
+Modified: trunk/src/de/berlios/jmds/client/ClientInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/ClientInter.java	2005-03-03 10:22:20 UTC (rev 50)
++++ trunk/src/de/berlios/jmds/client/ClientInter.java	2005-03-03 10:49:06 UTC (rev 51)
+@@ -40,6 +40,9 @@
+     public void send_request(ClientRequestInfo ri) throws ForwardRequest, SecurityException{
+         int id = ri.request_id();
+         byte[] tabId = Integer.toString(id).getBytes();
++        
++        // La m&#233;thode magique !!
++        System.out.println(&quot;Target= &quot;+ ri.target());
+ 
+         try {
+             byte[] tabByteSC = SCAppletClient.code(tabId);
+@@ -92,5 +95,7 @@
+     /**
+      * @see org.omg.PortableInterceptor.InterceptorOperations#destroy()
+      */
+-    public void destroy() {}
++    public void destroy() {
++        System.out.println(&quot;Security Interceptor killed !!&quot;);
++    }
+ }
+
+Modified: trunk/src/de/berlios/jmds/server/FindObject.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/FindObject.java	2005-03-03 10:22:20 UTC (rev 50)
++++ trunk/src/de/berlios/jmds/server/FindObject.java	2005-03-03 10:49:06 UTC (rev 51)
+@@ -1,12 +1,11 @@
+ /*
+  * Created on 1 oct. 2004
+  */
+-package fr.umlv.ir3.corba.forum;
++package de.berlios.jmds.server;
+ 
+ import org.omg.CORBA.ORB;
+ import org.omg.CORBA.Object;
+ import org.omg.CosNaming.Binding;
+-import org.omg.CosNaming.BindingIterator;
+ import org.omg.CosNaming.BindingIteratorHolder;
+ import org.omg.CosNaming.BindingListHolder;
+ import org.omg.CosNaming.BindingType;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000064.html">[Jmds-svn] r50 - in trunk/src: de/berlios/jmds/server fr/umlv/ir3/corba/forum
+</A></li>
+	<LI>Next message: <A HREF="000066.html">[Jmds-svn] r52 - trunk/test/de/berlios/jmds/clients
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#65">[ date ]</a>
+              <a href="thread.html#65">[ thread ]</a>
+              <a href="subject.html#65">[ subject ]</a>
+              <a href="author.html#65">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

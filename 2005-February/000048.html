@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] JMDS : DEV
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20JMDS%20%3A%20DEV&In-Reply-To=%3C20050224184742.33EBA29B7F3%40postfix4-1.free.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000047.html">
+   <LINK REL="Next"  HREF="000049.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] JMDS : DEV</H1>
+    <B>bardin</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20JMDS%20%3A%20DEV&In-Reply-To=%3C20050224184742.33EBA29B7F3%40postfix4-1.free.fr%3E"
+       TITLE="[Jmds-svn] JMDS : DEV">denis.bardin at tiscali.fr
+       </A><BR>
+    <I>Thu Feb 24 19:48:27 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000047.html">[Jmds-svn] r35 - in trunk: . lib src src/de/berlios/jmds/tools test/de/berlios/jmds test/de/berlios/jmds/tools
+</A></li>
+        <LI>Next message: <A HREF="000049.html">[Jmds-svn] r36 - in trunk: applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds/applet test/de/berlios/jmds test/de/berlios/jmds/applet
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ouep les gros !!!!
+
+ 
+
+COMMENT CA SE FAIT QUE JE NE VOIS AUCUN COMMIT ?!?
+
+ 
+
+Je ne sais pas si vous &#234;tes au courant mais normalement on devait avoir une
+version beta pour demain en CORBA
+.
+
+J&#146;ai l&#146;impression que vous l&#146;avez oubli&#233; et &#231;a commence &#224; presser !!!
+
+ 
+
+Alors les gros il va falloir se mettre au boulot car j&#146;ai pas envie de me
+prendre la t&#234;te la semaine prochaine
+ elle sera d&#233;j&#224; assez bien charg&#233; comme
+cela. En plus, moi ce WE je ne serait pas dispo donc &#231;a va &#234;tre la looz si
+rien n&#146;a avanc&#233; avant demain.
+
+ 
+
+Moi j&#146;ai avanc&#233; ma partie
+ J&#146;ai cr&#233;&#233; deux objets qui r&#233;cup&#232;rent la
+configuration contenue dans les fichiers Security.xml et Rights.xml.
+
+ 
+
+-  SecurityConfiguration permet la r&#233;cup&#233;ration des informations de
+configuration (une m&#233;thode pour chaque info : key serveur, key client et
+group client).
+
+ 
+
+-  RightsConfiguration permet :            - de valider les droits d&#146;acc&#232;s a
+un group sur un fonction d&#146;un objet (boolean checkFonctionGroupAccess(String
+szGroup, String szIOR, String szFonction))
+
+                                                           - d&#146;ajouter un
+objet &#224; la configuration (boolean addIOR (String szIOR)) pour les objets
+sans methodes
+ pas souvent je pense ;o)
+
+                                                           - d&#146;ajouter un
+fonction &#224; un objet (boolean addIORFonction (String szIOR, String
+szFonction). Notons que si l&#146;objet n&#146;existe pas dans la conf il est cr&#233;&#233;
+
+                                                           - de sauvegarder
+la configuration lorsque des m&#233;thodes ou objets ont &#233;t&#233; ajout&#233;s
+
+ 
+
+Gros Math appuie toi sur l&#146;objet RightsConfiguration pour stocker le listage
+des objet et m&#233;thode que tu auras faite sur le serveur
+
+ 
+
+Gros Seb, tu verras j&#146;ai d&#233;j&#224; cr&#233;e l&#146;objet SCAppletClient faisant le lien
+entre l&#146;intercepteur client et la carte. J&#146;y est ajout&#233; les fonctions dont
+on avait parl&#233; la derni&#232;re fois mais elle ne sont pas implant&#233;es.
+
+ 
+
+Donc voila rien de plus
+.
+
+ 
+
+A vos clavier les gros et bonne soir&#233;e!!!!!
+
+ 
+
+Denis
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/jmds-svn/attachments/20050224/489db52f/attachment.html">https://lists.berlios.de/pipermail/jmds-svn/attachments/20050224/489db52f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000047.html">[Jmds-svn] r35 - in trunk: . lib src src/de/berlios/jmds/tools test/de/berlios/jmds test/de/berlios/jmds/tools
+</A></li>
+	<LI>Next message: <A HREF="000049.html">[Jmds-svn] r36 - in trunk: applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds/applet test/de/berlios/jmds test/de/berlios/jmds/applet
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

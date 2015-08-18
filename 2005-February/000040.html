@@ -1,0 +1,659 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r28 - in trunk: . lib src/de/berlios/jmds/client src/de/berlios/jmds/server src/fr/umlv/ir3/corba/forum
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r28%20-%20in%20trunk%3A%20.%20lib%20src/de/berlios/jmds/client%20src/de/berlios/jmds/server%20src/fr/umlv/ir3/corba/forum&In-Reply-To=%3C200502220041.j1M0fYBA017060%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000039.html">
+   <LINK REL="Next"  HREF="000041.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r28 - in trunk: . lib src/de/berlios/jmds/client src/de/berlios/jmds/server src/fr/umlv/ir3/corba/forum</H1>
+    <B>J&#233;r&#244;me GUERS at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r28%20-%20in%20trunk%3A%20.%20lib%20src/de/berlios/jmds/client%20src/de/berlios/jmds/server%20src/fr/umlv/ir3/corba/forum&In-Reply-To=%3C200502220041.j1M0fYBA017060%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r28 - in trunk: . lib src/de/berlios/jmds/client src/de/berlios/jmds/server src/fr/umlv/ir3/corba/forum">jguers at sheep.berlios.de
+       </A><BR>
+    <I>Tue Feb 22 01:41:34 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000039.html">[Jmds-svn] r27 - in trunk: . generated/fr/umlv/ir3/corba/forum idl lib src/fr/umlv/ir3/corba/forum
+</A></li>
+        <LI>Next message: <A HREF="000041.html">[Jmds-svn] r29 - in trunk: . lib src src/de/berlios/jmds/client src/de/berlios/jmds/server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: jguers
+Date: 2005-02-22 01:41:31 +0100 (Tue, 22 Feb 2005)
+New Revision: 28
+
+Removed:
+   trunk/lib/openorb-1.3.1.jar
+   trunk/lib/xerces.jar
+Modified:
+   trunk/.classpath
+   trunk/src/de/berlios/jmds/client/ClientInter.java
+   trunk/src/de/berlios/jmds/server/ServerInter.java
+   trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java
+   trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java
+Log:
+Pb du service contexte vide regle
+Identifiant de la trame trouv?\195?\169 (ce ne sera pas l'heure qui n'est en fait pas transmise)
+En revanche : AUCUNE IDEE de comment d?\195?\169truire une requete qui n'est pas bonne ...
+
+Modified: trunk/.classpath
+===================================================================
+--- trunk/.classpath	2005-02-21 16:52:00 UTC (rev 27)
++++ trunk/.classpath	2005-02-22 00:41:31 UTC (rev 28)
+@@ -6,7 +6,5 @@
+ 	&lt;classpathentry kind=&quot;con&quot; path=&quot;org.eclipse.jdt.launching.JRE_CONTAINER&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/javacardframework.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/slbJIop.jar&quot;/&gt;
+-	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/openorb-1.3.1.jar&quot;/&gt;
+-	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/xerces.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;output&quot; path=&quot;classes&quot;/&gt;
+ &lt;/classpath&gt;
+
+Deleted: trunk/lib/openorb-1.3.1.jar
+===================================================================
+(Binary files differ)
+
+Deleted: trunk/lib/xerces.jar
+===================================================================
+(Binary files differ)
+
+Modified: trunk/src/de/berlios/jmds/client/ClientInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/ClientInter.java	2005-02-21 16:52:00 UTC (rev 27)
++++ trunk/src/de/berlios/jmds/client/ClientInter.java	2005-02-22 00:41:31 UTC (rev 28)
+@@ -5,6 +5,7 @@
+  */
+ package de.berlios.jmds.client;
+ 
++import org.omg.IOP.ServiceContext;
+ import org.omg.PortableInterceptor.*;
+ 
+ /**
+@@ -20,7 +21,7 @@
+     /**
+      * Comment for &lt;code&gt;serialVersionUID&lt;/code&gt;
+      */
+-    private static final long serialVersionUID = 1L;
++    private static final long serialVersionUID = 3618417146430765111L;
+ 
+     /**
+      * @see org.omg.PortableInterceptor.ClientRequestInterceptorOperations#send_request(org.omg.PortableInterceptor.ClientRequestInfo)
+@@ -29,8 +30,9 @@
+         // ServiceContext sc = new ServiceContext ();
+         // byte[] scData = &quot;toto&quot;.getBytes();
+         // sc.context_data = scData;
+-        // ri.add_request_service_context (null, true);
+-        System.out.println(&quot;ClientInter.send request: &quot; + ri.operation());
++        // ri.add_request_service_context (sc, true);
++        System.out.println(&quot;ClientInter.send request: &quot; + ri.operation()
++                + &quot; number: &quot; + ri.request_id());
+     }
+ 
+     /**
+@@ -44,7 +46,8 @@
+      * @see org.omg.PortableInterceptor.ClientRequestInterceptorOperations#receive_reply(org.omg.PortableInterceptor.ClientRequestInfo)
+      */
+     public void receive_reply(ClientRequestInfo ri) {
+-        System.out.println(&quot;ClientInter.receive reply: &quot; + ri.operation());
++        System.out.println(&quot;ClientInter.receive reply: &quot; + ri.operation()
++                + &quot; number: &quot; + ri.request_id());
+         // ServiceContext sc = ri.get_reply_service_context(0);
+         // String sData = new String(sc.context_data);
+     }
+
+Modified: trunk/src/de/berlios/jmds/server/ServerInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/ServerInter.java	2005-02-21 16:52:00 UTC (rev 27)
++++ trunk/src/de/berlios/jmds/server/ServerInter.java	2005-02-22 00:41:31 UTC (rev 28)
+@@ -5,9 +5,9 @@
+  */
+ package de.berlios.jmds.server;
+ 
++import org.omg.IOP.ServiceContext;
+ import org.omg.PortableInterceptor.*;
+ 
+-
+ /**
+  * DOCME
+  * 
+@@ -18,31 +18,27 @@
+ public class ServerInter extends org.omg.CORBA.LocalObject implements ServerRequestInterceptor
+ {
+ 
+-	/**
+-	 * Comment for &lt;code&gt;serialVersionUID&lt;/code&gt;
+-	 */
+-	private static final long	serialVersionUID	= 1L;
++    /**
++     * Comment for &lt;code&gt;serialVersionUID&lt;/code&gt;
++     */
++    private static final long serialVersionUID = 3689630311277277232L;
+ 
+-	/**
++    /**
+ 	 * @see org.omg.PortableInterceptor.ServerRequestInterceptorOperations#receive_request_service_contexts(org.omg.PortableInterceptor.ServerRequestInfo)
+ 	 */
+ 	public void receive_request_service_contexts (ServerRequestInfo ri) throws ForwardRequest
+ 	{
+ 		String sData;
+-		System.out.println (&quot;ServerInter.receive request_SC: &quot; + ri.operation ());
+-		System.out.println (&quot;RI : &quot; + ri);
+-//		if(ri.contexts() != null) {
+-//			
+-//			ServiceContext  sc = ri.get_request_service_context (0);			
+-//			if(sc.context_data != null || sc.context_data.length == 0) { 
+-//				sData = new String (sc.context_data);
+-//			}
+-//			else {
+-//				System.out.println (&quot;ServerInter.receive request_SC: send Exception&quot;);
+-//				//send_exception(ri);
+-//			}
+-//		}
+-		
++        System.out.println (&quot;ServerInter.receive request_SC: &quot; + ri.operation ());
++        try
++        {
++            ServiceContext sc = ri.get_request_service_context (0);
++            sData = new String (sc.context_data);
++            System.out.println(sData);
++        }catch (org.omg.CORBA.BAD_PARAM bad_param)
++        {
++            System.err.println(&quot;Pas de service contexte&quot;);
++        }
+ 	}
+ 
+ 	/**
+@@ -51,16 +47,6 @@
+ 	public void receive_request (ServerRequestInfo ri) throws ForwardRequest
+ 	{
+ 		System.out.println (&quot;ServerInter.receive request: &quot; + ri.operation ());
+-		/*System.out.println (&quot;RI : &quot; + ri);
+-		String sData;
+-		ServiceContext  sc = ri.get_request_service_context (0);			
+-		if(sc.context_data != null || sc.context_data.length == 0) { 
+-			sData = new String (sc.context_data);
+-		}
+-		else {
+-			System.out.println (&quot;ServerInter.receive request_SC: send Exception&quot;);
+-			send_exception(ri);
+-		}*/
+ 	}
+ 
+ 	/**
+@@ -106,5 +92,4 @@
+ 	public void destroy ()
+ 	{
+ 	}
+-
+ }
+
+Modified: trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java	2005-02-21 16:52:00 UTC (rev 27)
++++ trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java	2005-02-22 00:41:31 UTC (rev 28)
+@@ -16,188 +16,186 @@
+  */
+ public class ForumClient {
+ 
+-	public static void main(String[] args) throws Exception {
+-		ORB orb = ORB.init(args, null);
+-        
++    public static void main(String[] args) throws Exception {
++        java.util.Properties props = System.getProperties();
++        // props.put( &quot;org.omg.CORBA.ORBClass&quot;, &quot;org.openorb.CORBA.ORB&quot; );
++        // props.put(&quot;org.omg.CORBA.ORBSingletonClass&quot;,&quot;org.openorb.CORBA.ORBSingleton&quot; );
++        // props.put( &quot;verbose&quot;, &quot;5&quot; );
++        props.put(&quot;org.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.client.ClientORBInitializer&quot;, &quot;&quot;);
++
++        ORB orb = ORB.init(args, props);
++
+         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+-        
+-        //Cr&#233;ation du service d'annuaire
++
++        // Cr&#233;ation du service d'annuaire
+         Object ns = orb.resolve_initial_references(&quot;NameService&quot;);
+-        NamingContextExt nc = NamingContextExtHelper.narrow(ns) ;
+-        
+-        NameComponent[] name=null;
++        NamingContextExt nc = NamingContextExtHelper.narrow(ns);
++
++        NameComponent[] name = null;
+         try {
+-            name = nc.to_name(&quot;forumGG&quot;);
+-        } catch (org.omg.CosNaming.NamingContextPackage.InvalidName e2) {e2.printStackTrace();}
+-        
++            name = nc.to_name(&quot;jmdsForum&quot;);
++        } catch (org.omg.CosNaming.NamingContextPackage.InvalidName e2) {
++            e2.printStackTrace();
++        }
++
+         Object objProxy = nc.resolve(name);
+-        
++
+         Forum forumProxy = ForumHelper.narrow(objProxy);
+ 
+-		while(true)
+-		{
+-			System.out.println(&quot;Que voulez-vous faire ?&quot;);
+-			System.out.println(&quot;a - ajouter un message&quot;);
+-			System.out.println(&quot;v - voir les messages&quot;);
+-			System.out.println(&quot;l - lire un message&quot;);
+-			System.out.println(&quot;r - retirer un message&quot;);
+-			
+-			int choix = System.in.read();
+-			in.readLine();
+-			switch(choix)
+-			{
+-				case 'a' :
+-				{
+-					System.out.println(&quot;Quel type de message voulez-vous poster ?\n1: Texte\n2: Audio&quot;);
+-					int type = Integer.parseInt(in.readLine());					
+-					System.out.print(&quot;Votre nom: &quot;);
+-					String auth = in.readLine();
+-					System.out.print(&quot;Titre du message: &quot;);
+-					String title = in.readLine();
+-					System.out.print(&quot;Message: &quot;);
+-					String mess = in.readLine();
+-					
+-					Any any = orb.create_any();
+-					
+-					if(type == 1)
+-					{
+-						TextMessage message = new TextMessage(title, auth, (new Date()).toString(), mess);
+-						TextMessageHelper.insert(any, message);
+-					}else
+-					{
+-						System.out.print(&quot;Parole: &quot;);
+-						String paroles = in.readLine();
+-						AudioMessage message =  new AudioMessage(title, auth, (new Date()).toString(), mess, paroles);
+-						AudioMessageHelper.insert(any, message);
+-					}
+-					try {
+-						forumProxy.postMessage(title, any);
+-					} catch (Reject e) {
+-						System.out.println(&quot;Message non ajout&#233; pour cette raison:\n&quot; + e.message);
+-					}
+-					
+-				}
+-					break;
+-					
+-				case 'l' :
+-				{
+-					System.out.print(&quot;Titre du message: &quot;);
+-					String title = in.readLine();
+-					
+-					Any lany;
+-					/*V1
+-					try {
+-						lany = forumProxy.getMessage(title);
+-						
+-						TypeCode tc = lany.type();
+-						
+-						if(tc.equal(AudioMessageHelper.type()))
+-						{
+-							AudioMessage m = AudioMessageHelper.extract(lany);
+-							System.out.println(&quot;Message Audio&quot;);
+-							System.out.println(m.author + &quot; a &#233;crit &#224; &quot; + m.date.toString());
+-							System.out.println(&quot;Titre: &quot; + m.title);
+-							System.out.println(m.body);
+-							System.out.println(m.paroles + &quot;\n&quot;);
+-						}
+-						else
+-						{
+-							TextMessage m = TextMessageHelper.extract(lany);
+-							System.out.println(&quot;Message Texte&quot;);
+-							System.out.println(m.author + &quot; a &#233;crit &#224; &quot; + m.date.toString());
+-							System.out.println(&quot;Titre: &quot; + m.title);
+-							System.out.println(m.body + &quot;\n&quot;);
+-						}
+-					} catch (Reject e) {
+-						System.out.println(&quot;Message non trouv&#233; pour cette raison:\n&quot; + e.message);
+-					}*/
+-						
+-					//V2
+-					// Construction d'un objet requ&#234;te vide
+-				    Request request = forumProxy._request(&quot;getMessage&quot;);
+-				    // Sp&#233;cification du type de retour de la requ&#234;te
+-				    request.set_return_type(orb.get_primitive_tc(TCKind.tk_any));
+-				    // Sp&#233;cification de l'argument
+-				    Any arg = request.add_named_in_arg(&quot;title&quot;);
+-				    arg.insert_string(title);
+-				    // Sp&#233;cification du type de l'exception
+-				    ExceptionList exceptionList = request.exceptions();
+-				    exceptionList.add(RejectHelper.type());
+-				    // Appel synchrone de la requ&#234;te
+-				    request.invoke();
+-				    
+-				    // R&#233;cup&#233;ration de l'environnement
+-				    Environment env = request.env();
+-				    // Si pas d'exception
+-				    if (env.exception() == null) {
+-				    	// R&#233;cup&#233;ration du r&#233;sultat
+-				    	lany = request.return_value().extract_any();
+-				    	TypeCode tc = lany.type();
+-						
+-						if(tc.equal(AudioMessageHelper.type()))
+-						{
+-							AudioMessage m = AudioMessageHelper.extract(lany);
+-							System.out.println(&quot;Message Audio&quot;);
+-							System.out.println(m.author + &quot; a &#233;crit &#224; &quot; + m.date.toString());
+-							System.out.println(&quot;Titre: &quot; + m.title);
+-							System.out.println(m.body);
+-							System.out.println(m.paroles + &quot;\n&quot;);
+-						}
+-						else
+-						{
+-							TextMessage m = TextMessageHelper.extract(lany);
+-							System.out.println(&quot;Message Texte&quot;);
+-							System.out.println(m.author + &quot; a &#233;crit &#224; &quot; + m.date.toString());
+-							System.out.println(&quot;Titre: &quot; + m.title);
+-							System.out.println(m.body + &quot;\n&quot;);
+-						}
+-				    }else
+-				    {
+-					    // Extraction des exceptions
+-					    Any ex = ((UnknownUserException)env.exception()).except;
+-					    if (ex.type().equals(RejectHelper.type())) {
+-					    	System.out.println(&quot;Message non trouv&#233; pour cette raison:\n&quot; + RejectHelper.extract(ex).message);
+-					    } else {
+-					      throw env.exception();
+-					  	}
+-				    }
+-				}
+-					break;
+-					
+-				case 'r' :
+-				{
+-					System.out.print(&quot;Titre du message: &quot;);
+-					String title = in.readLine();
+-					try {
+-						forumProxy.removeMessage(title);
+-					} catch (Reject e) {
+-						System.out.println(&quot;Message non retir&#233; pour cette raison:\n&quot; + e.message);
+-					}
+-				}
+-					break;
+-					
+-				case 'v' :
+-				{
+-					Any[] tab = forumProxy.getMessages();
+-					
+-					TypeCode tc = null;
+-					
+-					for (int i = 0; i &lt; tab.length; i++) {
+-						tc = tab[i].type();
+-						
+-						if(tc.equal(AudioMessageHelper.type()))
+-						{
+-							AudioMessage m = AudioMessageHelper.extract(tab[i]);
+-							System.out.println(&quot;Message audio: &quot; + m.author + &quot;\t&quot; + m.date + &quot;\t&quot; + m.title + &quot;\n&quot;);
+-						}
+-						else
+-						{
+-							TextMessage m = TextMessageHelper.extract(tab[i]);
+-							System.out.println(&quot;Message texte: &quot; + m.author + &quot;\t&quot; + m.date + &quot;\t&quot; + m.title + &quot;\n&quot;);
+-						} 
+-					}
+-				}
+-			}
+-		}
+-	}
++        while (true) {
++            System.out.println(&quot;Que voulez-vous faire ?&quot;);
++            System.out.println(&quot;a - ajouter un message&quot;);
++            System.out.println(&quot;v - voir les messages&quot;);
++            System.out.println(&quot;l - lire un message&quot;);
++            System.out.println(&quot;r - retirer un message&quot;);
++
++            int choix = System.in.read();
++            in.readLine();
++            switch (choix) {
++            case 'a': {
++                System.out
++                        .println(&quot;Quel type de message voulez-vous poster ?\n1: Texte\n2: Audio&quot;);
++                int type = Integer.parseInt(in.readLine());
++                System.out.print(&quot;Votre nom: &quot;);
++                String auth = in.readLine();
++                System.out.print(&quot;Titre du message: &quot;);
++                String title = in.readLine();
++                System.out.print(&quot;Message: &quot;);
++                String mess = in.readLine();
++
++                Any any = orb.create_any();
++
++                if (type == 1) {
++                    TextMessage message = new TextMessage(title, auth,
++                            (new Date()).toString(), mess);
++                    TextMessageHelper.insert(any, message);
++                } else {
++                    System.out.print(&quot;Parole: &quot;);
++                    String paroles = in.readLine();
++                    AudioMessage message = new AudioMessage(title, auth,
++                            (new Date()).toString(), mess, paroles);
++                    AudioMessageHelper.insert(any, message);
++                }
++                try {
++                    forumProxy.postMessage(title, any);
++                } catch (Reject e) {
++                    System.out
++                            .println(&quot;Message non ajout&#233; pour cette raison:\n&quot;
++                                    + e.message);
++                }
++
++            }
++                break;
++
++            case 'l': {
++                System.out.print(&quot;Titre du message: &quot;);
++                String title = in.readLine();
++
++                Any lany;
++                /*
++                 * V1 try { lany = forumProxy.getMessage(title);
++                 * 
++                 * TypeCode tc = lany.type();
++                 * 
++                 * if(tc.equal(AudioMessageHelper.type())) { AudioMessage m =
++                 * AudioMessageHelper.extract(lany); System.out.println(&quot;Message
++                 * Audio&quot;); System.out.println(m.author + &quot; a &#233;crit &#224; &quot; +
++                 * m.date.toString()); System.out.println(&quot;Titre: &quot; + m.title);
++                 * System.out.println(m.body); System.out.println(m.paroles +
++                 * &quot;\n&quot;); } else { TextMessage m =
++                 * TextMessageHelper.extract(lany); System.out.println(&quot;Message
++                 * Texte&quot;); System.out.println(m.author + &quot; a &#233;crit &#224; &quot; +
++                 * m.date.toString()); System.out.println(&quot;Titre: &quot; + m.title);
++                 * System.out.println(m.body + &quot;\n&quot;); } } catch (Reject e) {
++                 * System.out.println(&quot;Message non trouv&#233; pour cette raison:\n&quot; +
++                 * e.message); }
++                 */
++
++                // V2
++                // Construction d'un objet requ&#234;te vide
++                Request request = forumProxy._request(&quot;getMessage&quot;);
++                // Sp&#233;cification du type de retour de la requ&#234;te
++                request.set_return_type(orb.get_primitive_tc(TCKind.tk_any));
++                // Sp&#233;cification de l'argument
++                Any arg = request.add_named_in_arg(&quot;title&quot;);
++                arg.insert_string(title);
++                // Sp&#233;cification du type de l'exception
++                ExceptionList exceptionList = request.exceptions();
++                exceptionList.add(RejectHelper.type());
++                // Appel synchrone de la requ&#234;te
++                request.invoke();
++
++                // R&#233;cup&#233;ration de l'environnement
++                Environment env = request.env();
++                // Si pas d'exception
++                if (env.exception() == null) {
++                    // R&#233;cup&#233;ration du r&#233;sultat
++                    lany = request.return_value().extract_any();
++                    TypeCode tc = lany.type();
++
++                    if (tc.equal(AudioMessageHelper.type())) {
++                        AudioMessage m = AudioMessageHelper.extract(lany);
++                        System.out.println(&quot;Message Audio&quot;);
++                        System.out.println(m.author + &quot; a &#233;crit &#224; &quot;
++                                + m.date.toString());
++                        System.out.println(&quot;Titre: &quot; + m.title);
++                        System.out.println(m.body);
++                        System.out.println(m.paroles + &quot;\n&quot;);
++                    } else {
++                        TextMessage m = TextMessageHelper.extract(lany);
++                        System.out.println(&quot;Message Texte&quot;);
++                        System.out.println(m.author + &quot; a &#233;crit &#224; &quot;
++                                + m.date.toString());
++                        System.out.println(&quot;Titre: &quot; + m.title);
++                        System.out.println(m.body + &quot;\n&quot;);
++                    }
++                } else {
++                    // Extraction des exceptions
++                    Any ex = ((UnknownUserException) env.exception()).except;
++                    if (ex.type().equals(RejectHelper.type())) {
++                        System.out
++                                .println(&quot;Message non trouv&#233; pour cette raison:\n&quot;
++                                        + RejectHelper.extract(ex).message);
++                    } else {
++                        throw env.exception();
++                    }
++                }
++            }
++                break;
++
++            case 'r': {
++                System.out.print(&quot;Titre du message: &quot;);
++                String title = in.readLine();
++                try {
++                    forumProxy.removeMessage(title);
++                } catch (Reject e) {
++                    System.out
++                            .println(&quot;Message non retir&#233; pour cette raison:\n&quot;
++                                    + e.message);
++                }
++            }
++                break;
++
++            case 'v': {
++                Any[] tab = forumProxy.getMessages();
++
++                TypeCode tc = null;
++
++                for (int i = 0; i &lt; tab.length; i++) {
++                    tc = tab[i].type();
++
++                    if (tc.equal(AudioMessageHelper.type())) {
++                        AudioMessage m = AudioMessageHelper.extract(tab[i]);
++                        System.out.println(&quot;Message audio: &quot; + m.author + &quot;\t&quot;
++                                + m.date + &quot;\t&quot; + m.title + &quot;\n&quot;);
++                    } else {
++                        TextMessage m = TextMessageHelper.extract(tab[i]);
++                        System.out.println(&quot;Message texte: &quot; + m.author + &quot;\t&quot;
++                                + m.date + &quot;\t&quot; + m.title + &quot;\n&quot;);
++                    }
++                }
++            }
++            }
++        }
++    }
+ }
+
+Modified: trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java	2005-02-21 16:52:00 UTC (rev 27)
++++ trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java	2005-02-22 00:41:31 UTC (rev 28)
+@@ -20,7 +20,14 @@
+ public class ForumServer {
+ 
+ 	public static void main(String[] args) throws InvalidName, ServantAlreadyActive, ObjectNotActive, WrongPolicy, IOException, AdapterInactive, NotFound, AlreadyBound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName {
+-		ORB orb = ORB.init(args, null);
++        
++        java.util.Properties props = System.getProperties();
++//        props.put( &quot;org.omg.CORBA.ORBClass&quot;, &quot;org.openorb.CORBA.ORB&quot; );
++//        props.put( &quot;org.omg.CORBA.ORBSingletonClass&quot;, &quot;org.openorb.CORBA.ORBSingleton&quot; );
++//        props.put( &quot;verbose&quot;, &quot;5&quot; );
++        props.put (&quot;org.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.server.ServerORBInitializer&quot; , &quot;&quot;);
++
++		ORB orb = ORB.init(args, props);
+ 		POA rootPOA = POAHelper.narrow(orb.resolve_initial_references(&quot;RootPOA&quot;));
+ 		
+ 		ForumImpl forum = new ForumImpl(&quot;Forum de Test&quot;, &quot;GG&quot;);
+@@ -32,33 +39,14 @@
+         Object ns = orb.resolve_initial_references(&quot;NameService&quot;);
+         NamingContextExt nc = NamingContextExtHelper.narrow(ns) ;
+         
+-        NameComponent[] name=null;
+-        NamingContext ctxNC = null;
++        NameComponent[] name = nc.to_name(&quot;jmdsForum&quot;);
+         
+-        try
+-        {
+-             ctxNC = nc.bind_new_context(nc.to_name(&quot;CTX&quot;));
+-        }
+-        catch (AlreadyBound e) {
+-            Object objTemp = nc.resolve(nc.to_name(&quot;CTX&quot;));
+-            if (objTemp instanceof NamingContext) {
+-                nc.rebind(nc.to_name(&quot;CTX&quot;), objTemp);
+-            }
+-            else throw e;
+-        }
+-        name = nc.to_name(&quot;CTX/forumGG&quot;);
++        nc.rebind(name,obj);
+         
+-        try {
+-            nc.bind(name,obj);
+-        } 
+-        catch (AlreadyBound e) {
+-            e.printStackTrace();
+-            nc.rebind(name,obj);
+-        }
+-        
+ 		rootPOA.the_POAManager().activate();
+-		orb.run();
+         
+         System.out.println(&quot;Server ready&quot;);
++        
++		orb.run();
+ 	}
+ }
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000039.html">[Jmds-svn] r27 - in trunk: . generated/fr/umlv/ir3/corba/forum idl lib src/fr/umlv/ir3/corba/forum
+</A></li>
+	<LI>Next message: <A HREF="000041.html">[Jmds-svn] r29 - in trunk: . lib src src/de/berlios/jmds/client src/de/berlios/jmds/server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

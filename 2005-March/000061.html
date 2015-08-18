@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] Applet fini, mais c'est le d&#233;sert en dehors de la carte !!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20%3D%3Fiso-8859-1%3FQ%3FApplet_fini%3D2C_mais_c%27est_le_d%3DE9sert_en_dehors_de_la_cart%3F%3D%0A%20%3D%3Fiso-8859-1%3FQ%3Fe_%21%21%3F%3D&In-Reply-To=%3C20050302013754.E4DA2157559%40hourri.hittite.isp.9tel.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000060.html">
+   <LINK REL="Next"  HREF="000062.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] Applet fini, mais c'est le d&#233;sert en dehors de la carte !!</H1>
+    <B>GUERS J&#233;r&#244;me</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20%3D%3Fiso-8859-1%3FQ%3FApplet_fini%3D2C_mais_c%27est_le_d%3DE9sert_en_dehors_de_la_cart%3F%3D%0A%20%3D%3Fiso-8859-1%3FQ%3Fe_%21%21%3F%3D&In-Reply-To=%3C20050302013754.E4DA2157559%40hourri.hittite.isp.9tel.net%3E"
+       TITLE="[Jmds-svn] Applet fini, mais c'est le d&#233;sert en dehors de la carte !!">jguers at free.fr
+       </A><BR>
+    <I>Wed Mar  2 01:45:54 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000060.html">[Jmds-svn] r47 - in trunk: .settings applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/common src/de/berlios/jmds/server src/de/berlios/jmds/tools test/de/berlios/jmds/clients
+</A></li>
+        <LI>Next message: <A HREF="000062.html">[Jmds-svn] r48 - in trunk/src: de/berlios/jmds/client fr/umlv/ir3/corba/forum
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Salut les gars
+ 
+Voici une petit mail de bilan. Apr&#232;s avoir fini mon boulot et repris des
+trucs bancales par ci par l&#224; pour les rendre fonctionnel, je vais arr&#234;ter
+pour ce soir. Cet arr&#234;t signifie la fin du dev pour moi sur ce projet
+puisque je ne pourrais plus coder jusqu'au 15/03 !
+ 
+L'applet avec prise en compte des cl&#233;s est termin&#233;. Pour simplifier, le
+cryptage de session (serveur -&gt; client) sera sym&#233;trique.
+ 
+En revanche, j'ai voulu faire le d&#233;codage dans TestSCApllet, mais les
+m&#233;thodes ne sont pas les m&#234;mes =&gt; il faut refaire des expertises comme j'ai
+d&#233;j&#224; fait pour la carte. Je suis un peu fatigue de me taper tous les points
+techniques de ce projet (et d'&#234;tre un peu le seul &#224; le faire avancer !!) =&gt;
+je laisse &#224; qui de droit de s'occuper de faire les recherches pour faire
+marcher le d&#233;cryptage !
+Qq infos pour aider :
+- un site web qui pr&#233;sente pas mal le truc :
+<A HREF="http://nyal.developpez.com/tutoriel/java/bouncycastle/">http://nyal.developpez.com/tutoriel/java/bouncycastle/</A>
+- Prasad a bosse la dessus
+ 
+Il reste &#233;galement &#224; finir les intercepteurs puiqu'ils ont des valeurs
+d'appel rentrer en dur.
+La gestion des IOR n'a pas avancer depuis vendredi. Il faut revoir &#233;galement
+les fichiers de conf puisqu'il n'y a plus de cl&#233; utilisateur (j'ai compris
+ce soir le fonctionnement des cl&#233;s publiques / cl&#233;s priv&#233;es...)
+ 
+Je rend ma carte &amp; lecteur jeudi a chrystel (Seb, il faudrait que tu en
+fasses de m&#234;me. C'est mon nom qui est inscrit ...) =&gt; il ne reste plus que
+demain pour faire le d&#233;cryptage et qu'on puisse le tester jeudi !
+ 
+Il reste aussi la doc &#224; faire pour le prof. Matt s'est propos&#233; de la faire.
+Je compte sur toi pour b&#233;tonner le truc.
+Comme vous le voyez avec la liste (tr&#232;s globale) des choses qui reste &#224;
+faire, on aura jamais une appli qui marche =&gt; il faut mettre en avant tous
+les points techniques qui ont &#233;t&#233; soulev&#233;s et r&#233;solus !
+ 
+@demain, dans la joie et la bonne humeur
+GG
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/jmds-svn/attachments/20050302/299c7c33/attachment.html">https://lists.berlios.de/pipermail/jmds-svn/attachments/20050302/299c7c33/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000060.html">[Jmds-svn] r47 - in trunk: .settings applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/common src/de/berlios/jmds/server src/de/berlios/jmds/tools test/de/berlios/jmds/clients
+</A></li>
+	<LI>Next message: <A HREF="000062.html">[Jmds-svn] r48 - in trunk/src: de/berlios/jmds/client fr/umlv/ir3/corba/forum
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

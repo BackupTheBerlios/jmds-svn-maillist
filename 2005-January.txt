@@ -1,0 +1,537 @@
+From jguers at free.fr  Wed Jan 12 17:01:48 2005
+From: jguers at free.fr (=?iso-8859-1?Q?GUERS_J=E9r=F4me?=)
+Date: Wed, 12 Jan 2005 17:01:48 +0100
+Subject: [Jmds-svn] Infos sur les services actifs
+Message-ID: <20050112164343.86FD4157565@hourri.hittite.isp.9tel.net>
+
+Juste un petit mail pour vous dire les choses que j'ai fait pour la comm :
+- mise en place de l'arbo pour le SVN (pour rappel : adresse de connexion :
+svn+ssh://username at svn.berlios.de/svnroot/repos/jmds)
+- Ajout de docs ds cette arbo
+- mise en place du wiki (il est ouvert avec rien dessus. A voir ce que vous
+voulez mettre)
+- inscription de tous ? la liste cr??e par Denis. Vous pouvez donc ?crire ?
+jmds-svn at lists.berlios.de. On recoit tous et une copie est gard?e sur le
+serveur.
+ 
+Denis : il faudra pt qu'on se revoit un de ses quatres puisque le prof
+attend qu'on lui rende un CDC assez rapidement
+ 
+Bonne recherche ? tous
+GG
+ 
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/jmds-svn/attachments/20050112/fa3aba74/attachment.html>
+
+From denis.bardin at tiscali.fr  Wed Jan 12 17:43:41 2005
+From: denis.bardin at tiscali.fr (bardin)
+Date: Wed, 12 Jan 2005 17:43:41 +0100
+Subject: [Jmds-svn] Infos sur les services actifs
+In-Reply-To: <20050112164343.86FD4157565@hourri.hittite.isp.9tel.net>
+Message-ID: <20050112164350.446772645C6@postfix4-1.free.fr>
+
+Gros travail de notre ami GG !!!
+
+ 
+
+Concernant le CDC je n??tait pas au courant mais ton id?e de se rencontrer
+est bonne. En effet il serait bine pour math et moi que nous ayons toute les
+info glan?es vendredi aprem et que l(on parle du CDC.
+
+ 
+
+Je propose donc une r?union sandwich demain aprem apr?s le TP (pour avoir
+une partie de l?aprem de libre)
+.
+
+ 
+
+Renvoyez moi s?il vous plait un mail de confirmation
+
+
+ 
+
+Bonne fin de journ?e,
+
+ 
+
+Denis
+
+ 
+
+  _____  
+
+De : jmds-svn-admin at berlios.de [mailto:jmds-svn-admin at berlios.de] De la part
+de GUERS J?r?me
+Envoy? : mercredi 12 janvier 2005 17:02
+? : jmds-svn at lists.berlios.de
+Objet : [Norton AntiSpam] [Jmds-svn] Infos sur les services actifs
+
+ 
+
+Juste un petit mail pour vous dire les choses que j'ai fait pour la comm :
+
+- mise en place de l'arbo pour le SVN (pour rappel : adresse de connexion :
+svn+ssh://username at svn.berlios.de/svnroot/repos/jmds)
+
+- Ajout de docs ds cette arbo
+
+- mise en place du wiki (il est ouvert avec rien dessus. A voir ce que vous
+voulez mettre)
+
+- inscription de tous ? la liste cr??e par Denis. Vous pouvez donc ?crire ?
+jmds-svn at lists.berlios.de. On recoit tous et une copie est gard?e sur le
+serveur.
+
+ 
+
+Denis : il faudra pt qu'on se revoit un de ses quatres puisque le prof
+attend qu'on lui rende un CDC assez rapidement
+
+ 
+
+Bonne recherche ? tous
+
+GG
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/jmds-svn/attachments/20050112/9d3b3a7c/attachment.html>
+
+From jguers at free.fr  Wed Jan 12 17:52:02 2005
+From: jguers at free.fr (=?iso-8859-1?Q?GUERS_J=E9r=F4me?=)
+Date: Wed, 12 Jan 2005 17:52:02 +0100
+Subject: [Jmds-svn] Drivers JavaCard
+Message-ID: <20050112173358.082C7157730@hourri.hittite.isp.9tel.net>
+
+J'ai r?cup?r? les drivers JavaCard, mais c'est trop gros pour uploader sur
+le SVN => pensez ? me les demander si vous prenez la carte !
+GG
+ 
+ 
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/jmds-svn/attachments/20050112/6e57a63e/attachment.html>
+
+From seb_guin at hotmail.com  Wed Jan 12 19:59:42 2005
+From: seb_guin at hotmail.com (=?iso-8859-1?Q?S=E9bastien_Guinchard?=)
+Date: Wed, 12 Jan 2005 19:59:42 +0100
+Subject: [Jmds-svn] Infos sur les services actifs
+In-Reply-To: <20050112164350.446772645C6@postfix4-1.free.fr>
+Message-ID: <BAY102-DAV44FC5375039C3AC3E46CBF1890@phx.gbl>
+
+Pas de probl?me pour moi!!
+Juste une chose...  demain matin...... ON N'A PAS COURS
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+euhh pardon, juste GG et moi ;)
+ 
+A demain si tout va bien...
+ 
+Seb
+ 
+ 
+ 
+ 
+ De : jmds-svn-admin at berlios.de [mailto:jmds-svn-admin at berlios.de] De la
+part de bardin
+Envoy? : mercredi 12 janvier 2005 17:44
+? : jmds-svn at lists.berlios.de
+Objet : RE: [Jmds-svn] Infos sur les services actifs
+
+
+
+Gros travail de notre ami GG !!!
+
+ 
+
+Concernant le CDC je n??tait pas au courant mais ton id?e de se rencontrer
+est bonne. En effet il serait bine pour math et moi que nous ayons toute les
+info glan?es vendredi aprem et que l(on parle du CDC.
+
+ 
+
+Je propose donc une r?union sandwich demain aprem apr?s le TP (pour avoir
+une partie de l?aprem de libre)
+.
+
+ 
+
+Renvoyez moi s?il vous plait un mail de confirmation
+
+
+ 
+
+Bonne fin de journ?e,
+
+ 
+
+Denis
+
+ 
+
+  _____  
+
+De : jmds-svn-admin at berlios.de [mailto:jmds-svn-admin at berlios.de] De la part
+de GUERS J?r?me
+Envoy? : mercredi 12 janvier 2005 17:02
+? : jmds-svn at lists.berlios.de
+Objet : [Norton AntiSpam] [Jmds-svn] Infos sur les services actifs
+
+ 
+
+Juste un petit mail pour vous dire les choses que j'ai fait pour la comm :
+
+- mise en place de l'arbo pour le SVN (pour rappel : adresse de connexion :
+svn+ssh://username at svn.berlios.de/svnroot/repos/jmds)
+
+- Ajout de docs ds cette arbo
+
+- mise en place du wiki (il est ouvert avec rien dessus. A voir ce que vous
+voulez mettre)
+
+- inscription de tous ? la liste cr??e par Denis. Vous pouvez donc ?crire ?
+jmds-svn at lists.berlios.de. On recoit tous et une copie est gard?e sur le
+serveur.
+
+ 
+
+Denis : il faudra pt qu'on se revoit un de ses quatres puisque le prof
+attend qu'on lui rende un CDC assez rapidement
+
+ 
+
+Bonne recherche ? tous
+
+GG
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/jmds-svn/attachments/20050112/156a85de/attachment.html>
+
+From denis.bardin at tiscali.fr  Thu Jan 13 23:09:54 2005
+From: denis.bardin at tiscali.fr (bardin)
+Date: Thu, 13 Jan 2005 23:09:54 +0100
+Subject: [Jmds-svn] Wiki
+Message-ID: <20050113221013.C67081734DD@postfix3-1.free.fr>
+
+Bonsoir les gros !!!!
+
+ 
+
+J?ai mis quelques infos sur le WIKI que vous pouvez consulter
+ Si vous voyez
+d?autre choses ? ajouter n?h?sitez pas ? me le remonter.
+
+ 
+
+Vous verrez que j?ai mis les informations personnelles de chacun des membres
+de l??quipe afin que tout le monde puisse se joindre. Est-ce que chacun de
+vous pourrez v?rifier de la coh?rence de ces donn?es ???
+
+http://jmds.berlios.de/index.php/Infos_personnelles_sur_les_membres_de_l%27%
+E9quipe
+
+ 
+
+J?ai ?galement mis une page concernant les t?ches allou?es ? chacun
+ C
+encore succinct mais vous inqui?tez pas ?a va gonfler
+ ;-)
+
+http://jmds.berlios.de/index.php/Taches
+
+ 
+
+Voila rien de plus rien de moins
+
+
+Bonne fin et soir?e et ? demain,
+
+ 
+
+Denis
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/jmds-svn/attachments/20050113/ab56ec48/attachment.html>
+
+From denis.bardin at tiscali.fr  Fri Jan 14 01:47:40 2005
+From: denis.bardin at tiscali.fr (bardin)
+Date: Fri, 14 Jan 2005 01:47:40 +0100
+Subject: [Jmds-svn] JMDS : C parti!!!!
+Message-ID: <20050114004745.CFDA6263F5F@postfix4-1.free.fr>
+
+Bonsoir tout le monde !!!
+
+ 
+
+J?ai ?t? nomm? Chef de projet pour cette exp?rience CORBA un peu par la
+force des choses mais croyez bien que je prends ce r?le tr?s au s?rieux !!!
+Je suis donc pr?t ? faire de nombreux efforts afin que tous ce passe bien
+.
+
+ 
+
+Pour autant, je compte sur chacun de vous pour apporter vos remarques sur le
+gestion du projet afin que cette exp?rience se passe pour le mieux. Je ne
+suis encore qu?un apprenti Chef de projet et je suis conscient que je ferai
+des erreurs (Ne dit on pas : ? l?erreur est humaine ? ;-) ). Je compte sur
+vos pour me remettre dans le droit chemin s?il le faut
+
+
+ 
+
+Je pense que ce projet doit partir sur de bonnes bases et donc avoir une
+gestion de projet b?ton
+ Etant ouvert ? toutes propositions, iI vous est
+possible ? tout moment de la remettre en cause.
+
+ 
+
+Mais d?s maintenant j?ai quelques pr?rogatives ? exprimer :
+
+-          maintenez ? jour le mieux possible les taches sous le WIKI (elles
+permettent de mieux suivre l?avancement du projet et d?assurer une
+r?organisation optimis?e)
+
+-          lorsque que vous ?crivez un mail assurez vous que votre sujet
+commence bien par ? JMDS : ? (c plus facile pour les cibler et les
+organiser)
+
+-          lorsque qu?une t?che a effectu? se trouve ?tre trop lourde par
+rapport aux pr?visions (d?lai qui vont d?passer) remonter l?info le plus
+rapidement possible (d?s que vous le sentez)
+
+-          lorsque que des t?ches vous sont allou?es et que vous les
+accept?es, n?oubliez pas que vous devez int?grer ? votre planning les
+soir?es entre amis, les sorties au cin? et les bisous ? la copine
+ Le
+d?passement des d?lais est toujours gal?re ? r?organiser.
+
+-          N?h?sitez pas ? faire circuler l?information surtout sur moi
+ Je
+voudrez ?tre en copie de tous les mails concernant le projet JMDS (et m?me
+pour les petites blagues entre amis ;-) )
+
+-          Et enfin bonne humeur et convivialit? obligatoire
+ Je pense m?me
+? des petites r?unions ap?ros mais ?a je vois que vous l?avez d?j? int?gr?
+!!!
+
+ 
+
+Petit proverbe perso :
+
+Une petite blessure vite soign?e vaut mieux qu?une jambe compl?ment
+gangren?e
+
+
+ 
+
+Petit proverbe plus connu :
+
+Mieux vaut pr?venir que gu?rir
+
+
+ 
+
+Voil? je vois rien de plus pour le moment
+ Moi je vois rien mais vous pt ;-)
+
+ 
+
+Bonne nuit ? vous,
+
+ 
+
+Denis JMDS BOSS
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/jmds-svn/attachments/20050114/6a36f1ab/attachment.html>
+
+From denis.bardin at tiscali.fr  Sat Jan 15 17:23:40 2005
+From: denis.bardin at tiscali.fr (bardin)
+Date: Sat, 15 Jan 2005 17:23:40 +0100
+Subject: [Jmds-svn] JMDS : CDC
+Message-ID: <20050115162351.BE64D2643EB@postfix4-1.free.fr>
+
+Boujour ? les JMDS !!!!
+
+ 
+
+Petit contre temps sur la r?daction du CDC
+ Mais pourkoi ?!?
+
+ 
+
+En fait El Securizator (alias GG) a ?tudi? un peu plus en profondeur le
+concept Kerberos qui s?av?re en r?alit? plus compliqu? que pr?vu
+
+
+ 
+
+GG nous propose donc (et je pense que c une bonne id?e), de nous pr?senter
+ce concept Lundi ? 13h30 !!!
+
+ 
+
+D?roulement de la r?union :
+
+-          10 mn : pr?sentation de Kerberos par GG
+
+-          10 mn : d?bat sur : ? L?utilisation de Kerberos est-elle
+judicieuse ??? ?
+
+ 
+
+*      D?sol? pour les 5mn de retard pour le cours de GL
+ Mais je pense tout
+de m?me que nous arriverons avant notre DR national. De plus cela permettra
+? tout le monde d??viter une overdose de sandwich.
+
+ 
+
+Voila envoy? moi vos r?ponse afin de savoir si tout le monde est dispo
+
+
+Bonne aprem,
+
+ 
+
+Denis
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/jmds-svn/attachments/20050115/293088d6/attachment.html>
+
+From denis.bardin at tiscali.fr  Tue Jan 18 02:50:48 2005
+From: denis.bardin at tiscali.fr (bardin)
+Date: Tue, 18 Jan 2005 02:50:48 +0100
+Subject: [Jmds-svn] JMDS : Reunion
+Message-ID: <20050118015053.8BD76C023@postfix3-2.free.fr>
+
+Bonsoir tout le monde !!!!
+
+ 
+
+Je sais il est un peu tard et s?rement beaucoup d?entre vous ne verront pas
+ce mail ? temps mais normalement tout le monde est d?j? au courant :
+
+ 
+
+R?union cet aprem suite au cours de BDD
+
+Ordre du jour :
+
+            - R?flexion sur les concepts de s?curit? applicable ? notre
+projet CORBA
+
+ 
+
+ 
+
+Je dois vous quitter ? 17h car je dois aller chercher nini chez le kin?
+(pour son bras)
+ La r?union ne devrait donc pas exc?der une heure.
+
+ 
+
+Une autre petite info de GG :
+
+- Bien lire la doc d?intall avant d?installer les drivers
+ Les suivanteurs
+fr?n?tiques auront des surprises !!!
+
+ 
+
+Bonne nuit ? tous,
+
+ 
+
+Denis
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/jmds-svn/attachments/20050118/3655953c/attachment.html>
+
+From jguers at free.fr  Fri Jan 21 19:28:46 2005
+From: jguers at free.fr (=?iso-8859-1?Q?GUERS_J=E9r=F4me?=)
+Date: Fri, 21 Jan 2005 19:28:46 +0100
+Subject: [Jmds-svn] Bonne nouvelle
+Message-ID: <20050121191239.2687B14C645@ioskeha.hittite.isp.9tel.net>
+
+Salut les gens
+ 
+Juste un petit mail pour une bonne nouvelle : j'ai VAINCU les cartes !!
+J'arrive ? me connecter (avec l'appli, pas encore en java) et ? utiliser les
+cartes !!
+ 
+Et oui, en plus, je dis LES cartes puisque j'ai pu en r?cup?rer une en plus
+aujourd'hui (avec lecteur). Il faudra voir si d'autres en besoin, mais
+sinon, pas de souci : on a deux cartes et deux lecteurs qui fonctionnent !!
+ 
+Bon we ? tous
+GG
+ 
+PS : Seb, peux-tu me confirmer que tu as r?cup?r? les drivers ??
+ 
+ 
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/jmds-svn/attachments/20050121/2d801b30/attachment.html>
+
+From denis.bardin at tiscali.fr  Tue Jan 25 20:02:13 2005
+From: denis.bardin at tiscali.fr (bardin)
+Date: Tue, 25 Jan 2005 20:02:13 +0100
+Subject: [Jmds-svn] JMDS : Reunion
+Message-ID: <20050125190222.230C42711E5@postfix4-1.free.fr>
+
+Bonsoir tout le monde !!!!
+
+ 
+
+Je sais qu?en ce moment c un peu la folie avec le GL mais il faut tout de
+m?me peser au CORBA.
+
+ 
+
+Je vous convie donc jeudi 27 janvier 2004 le midi pour une sandwich r?union
+(pour changer) afin que tout le monde est la m?me base de connaissance sur
+le projet et que le contenu du CDC soit valide.
+
+ 
+
+Pour info cette r?union pourrait se prolonger le vendredi midi s?il faut
+
+
+ 
+
+Bonne soir?e et bon codage
+ Je veux du 100lignes/mn durant les coding party
+de CORBA alors entra?nez vous ;-)
+
+ 
+
+Denis
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/jmds-svn/attachments/20050125/9c41f6b6/attachment.html>
+

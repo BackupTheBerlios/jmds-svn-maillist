@@ -1,0 +1,918 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r46 - in trunk: applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/tools test/de/berlios/jmds/clients
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r46%20-%20in%20trunk%3A%20applet/de/berlios/jmds/applet/javacard%20src/de/berlios/jmds/applet%20src/de/berlios/jmds/client%20src/de/berlios/jmds/tools%20test/de/berlios/jmds/clients&In-Reply-To=%3C200503011111.j21BBNkK001993%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000058.html">
+   <LINK REL="Next"  HREF="000060.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r46 - in trunk: applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/tools test/de/berlios/jmds/clients</H1>
+    <B>J&#233;r&#244;me GUERS at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r46%20-%20in%20trunk%3A%20applet/de/berlios/jmds/applet/javacard%20src/de/berlios/jmds/applet%20src/de/berlios/jmds/client%20src/de/berlios/jmds/tools%20test/de/berlios/jmds/clients&In-Reply-To=%3C200503011111.j21BBNkK001993%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r46 - in trunk: applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/tools test/de/berlios/jmds/clients">jguers at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar  1 12:11:23 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000058.html">[Jmds-svn] r45 - in trunk: applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds/applet
+</A></li>
+        <LI>Next message: <A HREF="000060.html">[Jmds-svn] r47 - in trunk: .settings applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/common src/de/berlios/jmds/server src/de/berlios/jmds/tools test/de/berlios/jmds/clients
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: jguers
+Date: 2005-03-01 12:11:22 +0100 (Tue, 01 Mar 2005)
+New Revision: 46
+
+Modified:
+   trunk/applet/de/berlios/jmds/applet/javacard/applet.ijc
+   trunk/applet/de/berlios/jmds/applet/javacard/applet.jar
+   trunk/applet/de/berlios/jmds/applet/javacard/applet.jca
+   trunk/src/de/berlios/jmds/applet/SCAppletWithKey.java
+   trunk/src/de/berlios/jmds/client/SCAppletClient.java
+   trunk/src/de/berlios/jmds/tools/Convertor.java
+   trunk/test/de/berlios/jmds/clients/TestSCApllet.java
+Log:
+Applet de cryptage operationnel. Reste plus qu'a finir l'algo !
+Qq pb de choix de la carte regle. Cela fonctionne a merveille !
+
+Heu, dites moi si je me trompe, mais j'ai l'impression d'etre le seul a bosser sur le corba ! Vous etes capable de filtrer ac un SC bidon en fonction de la methode demandee et des fichiers de droits ?? Ou en est la gestion des IOR ??
+
+Par ailleurs, il faut faire une doc pour dire ce qu'on a fait au prof et comment ca marche. Qui s'en charge ? On a eu une rallonge de temps, mais moi, je sui en vacances vendredi et jusqu'au 15/03 =&gt; cela ne change rien pour moi. Merci de reagir !!
+
+Modified: trunk/applet/de/berlios/jmds/applet/javacard/applet.ijc
+===================================================================
+(Binary files differ)
+
+Modified: trunk/applet/de/berlios/jmds/applet/javacard/applet.jar
+===================================================================
+(Binary files differ)
+
+Modified: trunk/applet/de/berlios/jmds/applet/javacard/applet.jca
+===================================================================
+--- trunk/applet/de/berlios/jmds/applet/javacard/applet.jca	2005-03-01 00:31:37 UTC (rev 45)
++++ trunk/applet/de/berlios/jmds/applet/javacard/applet.jca	2005-03-01 11:11:22 UTC (rev 46)
+@@ -1,5 +1,5 @@
+ // converted by version 1.3
+-// on Tue Mar 01 01:27:35 CET 2005
++// on Tue Mar 01 10:47:35 CET 2005
+ 
+ .package de/berlios/jmds/applet {
+ 	.aid 0x11:0x22:0x33:0x44:0x55:0x66;
+@@ -13,6 +13,7 @@
+ 
+ 	.applet {
+ 		0x11:0x22:0x33:0x44:0x55:0x66:0x77 SCAppletWithKey;
++		0x11:0x22:0x33:0x44:0x55:0x66:0x88 SCApplet;
+ 	}
+ 
+ 	.constantPool {
+@@ -35,7 +36,7 @@
+ 		// 8
+ 		instanceFieldRef 2.1 SCAppletWithKey/cipher;
+ 		// 9
+-		instanceFieldRef byte[] SCAppletWithKey/buffer;
++		virtualMethodRef 0.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
+ 		// 10
+ 		staticMethodRef SCApplet/encode(Ljavacard/framework/APDU;)V;
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+@@ -85,40 +86,36 @@
+ 		// 29
+ 		staticMethodRef SCAppletWithKey/&lt;init&gt;()V;
+ 		// 30
+-		virtualMethodRef 0.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
+-		// 31
+ 		staticMethodRef SCAppletWithKey/encode(Ljavacard/framework/APDU;)V;
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+-		// 32
++		// 31
+ 		staticMethodRef SCAppletWithKey/getPubKeyExponentSize(Ljavacard/framework/APDU;)V;
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+-		// 33
++		// 32
+ 		staticMethodRef SCAppletWithKey/getPubKeyExponent(Ljavacard/framework/APDU;)V;
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+-		// 34
++		// 33
+ 		staticMethodRef SCAppletWithKey/getPubKeyModulusSize(Ljavacard/framework/APDU;)V;
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+-		// 35
++		// 34
+ 		staticMethodRef SCAppletWithKey/getPubKeyModulus(Ljavacard/framework/APDU;)V;
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+-		// 36
+-		superMethodRef SCAppletWithKey/select()Z;
+-		// 37
++		// 35
+ 		virtualMethodRef 1.16.2()Ljavacard/security/PrivateKey;;		// javacard/security/KeyPair.getPrivate()Ljavacard/security/PrivateKey;
+ 			.descriptor	Ljavacard/security/PrivateKey;	1.2;
+ 
+-		// 38
++		// 36
+ 		virtualMethodRef 2.1.3(Ljavacard/security/Key;B)V;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
+ 			.descriptor	Ljavacard/security/Key;	1.0;
+ 
+-		// 39
++		// 37
+ 		virtualMethodRef 2.1.1([BSS[BS)S;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
+-		// 40
++		// 38
+ 		virtualMethodRef 1.16.3()Ljavacard/security/PublicKey;;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
+ 			.descriptor	Ljavacard/security/PublicKey;	1.3;
+ 
+@@ -197,7 +194,7 @@
+ 
+ 				L0:	aload_0;
+ 					aload_1;
+-					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
++					invokevirtual 9;		// javacard/framework/APDU.getBuffer()[B
+ 					putfield_a 0;		// reference de/berlios/jmds/applet/SCApplet.buffer
+ 					getfield_a_this 0;		// reference de/berlios/jmds/applet/SCApplet.buffer
+ 					sconst_0;
+@@ -277,12 +274,11 @@
+ 	.class public SCAppletWithKey 1 extends 0.3 {		// extends javacard/framework/Applet
+ 
+ 		.fields {
+-			private byte[] buffer 0;		// [B
+-			private byte[] tmpBuff 1;		// [B
+-			private 1.16 userKeyPair 2;		// Ljavacard/security/KeyPair;
+-			private 1.9 serverKey 3;		// Ljavacard/security/RSAPublicKey;
+-			private 1.8 sessionKey 4;		// Ljavacard/security/RSAPrivateKey;
+-			private 2.1 cipher 5;		// Ljavacardx/crypto/Cipher;
++			private byte[] tmpBuff 0;		// [B
++			private 1.16 userKeyPair 1;		// Ljavacard/security/KeyPair;
++			private 1.9 serverKey 2;		// Ljavacard/security/RSAPublicKey;
++			private 1.8 sessionKey 3;		// Ljavacard/security/RSAPrivateKey;
++			private 2.1 cipher 4;		// Ljavacardx/crypto/Cipher;
+ 			private static final byte CLA_SECURITY = 105;		// B
+ 			private static final byte INS_CODE = 16;		// B
+ 			private static final byte INS_DECODE = 32;		// B
+@@ -293,7 +289,7 @@
+ 			private static final short BUFFER_LENGTH = 255;		// S
+ 		}
+ 
+-		.publicMethodTable 6 {
++		.publicMethodTable 7 {
+ 			equals(Ljava/lang/Object;)Z;
+ 			register()V;
+ 			register([BSB)V;
+@@ -357,129 +353,128 @@
+ 
+ 		.method public process(Ljavacard/framework/APDU;)V 7 {
+ 			.stack 2;
+-			.locals 0;
++			.locals 1;
+ 
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+-				L0:	aload_0;
+-					aload_1;
+-					invokevirtual 30;		// javacard/framework/APDU.getBuffer()[B
+-					putfield_a 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
+-					getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++				L0:	aload_1;
++					invokevirtual 9;		// javacard/framework/APDU.getBuffer()[B
++					astore_2;
++					aload_2;
+ 					sconst_0;
+ 					baload;
+ 					bspush 105;
+ 					if_scmpne L8;
+-				L1:	getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++				L1:	aload_2;
+ 					sconst_1;
+ 					baload;
+ 					slookupswitch L8 6 16 L2 32 L3 64 L7 65 L6 66 L5 67 L4;
+ 				L2:	aload_0;
+ 					aload_1;
+-					invokespecial 31;		// de/berlios/jmds/applet/SCAppletWithKey.encode(Ljavacard/framework/APDU;)V
++					invokespecial 30;		// de/berlios/jmds/applet/SCAppletWithKey.encode(Ljavacard/framework/APDU;)V
+ 					goto L8;
+ 				L3:	goto L8;
+ 				L4:	aload_0;
+ 					aload_1;
+-					invokespecial 32;		// de/berlios/jmds/applet/SCAppletWithKey.getPubKeyExponentSize(Ljavacard/framework/APDU;)V
++					invokespecial 31;		// de/berlios/jmds/applet/SCAppletWithKey.getPubKeyExponentSize(Ljavacard/framework/APDU;)V
+ 					goto L8;
+ 				L5:	aload_0;
+ 					aload_1;
+-					invokespecial 33;		// de/berlios/jmds/applet/SCAppletWithKey.getPubKeyExponent(Ljavacard/framework/APDU;)V
++					invokespecial 32;		// de/berlios/jmds/applet/SCAppletWithKey.getPubKeyExponent(Ljavacard/framework/APDU;)V
+ 					goto L8;
+ 				L6:	aload_0;
+ 					aload_1;
+-					invokespecial 34;		// de/berlios/jmds/applet/SCAppletWithKey.getPubKeyModulusSize(Ljavacard/framework/APDU;)V
++					invokespecial 33;		// de/berlios/jmds/applet/SCAppletWithKey.getPubKeyModulusSize(Ljavacard/framework/APDU;)V
+ 					goto L8;
+ 				L7:	aload_0;
+ 					aload_1;
+-					invokespecial 35;		// de/berlios/jmds/applet/SCAppletWithKey.getPubKeyModulus(Ljavacard/framework/APDU;)V
++					invokespecial 34;		// de/berlios/jmds/applet/SCAppletWithKey.getPubKeyModulus(Ljavacard/framework/APDU;)V
+ 				L8:	return;
+ 		}
+ 
+-		.method public select()Z 6 {
+-			.stack 1;
+-			.locals 0;
+-
+-				L0:	aload_0;
+-					invokespecial 36;		// de/berlios/jmds/applet/SCAppletWithKey.select()Z
+-					sreturn;
+-		}
+-
+ 		.method private encode(Ljavacard/framework/APDU;)V {
+ 			.stack 6;
+-			.locals 3;
++			.locals 4;
+ 
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+ 				L0:	aload_1;
+ 					invokevirtual 12;		// javacard/framework/APDU.setIncomingAndReceive()S
+ 					sstore_2;
++					aload_1;
++					invokevirtual 9;		// javacard/framework/APDU.getBuffer()[B
++					astore_3;
+ 					getfield_a_this 8;		// reference de/berlios/jmds/applet/SCAppletWithKey.cipher
+ 					getfield_a_this 6;		// reference de/berlios/jmds/applet/SCAppletWithKey.userKeyPair
+-					invokevirtual 37;		// javacard/security/KeyPair.getPrivate()Ljavacard/security/PrivateKey;
++					invokevirtual 35;		// javacard/security/KeyPair.getPrivate()Ljavacard/security/PrivateKey;
+ 					sconst_2;
+-					invokevirtual 38;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
++					invokevirtual 36;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
+ 					getfield_a_this 8;		// reference de/berlios/jmds/applet/SCAppletWithKey.cipher
+-					getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++					aload_3;
+ 					sconst_5;
+ 					sload_2;
+-					getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++					aload_3;
+ 					sconst_5;
+-					invokevirtual 39;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
+-					sstore_3;
++					invokevirtual 37;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
++					sstore 4;
+ 					aload_1;
+ 					invokevirtual 14;		// javacard/framework/APDU.setOutgoing()S
+-					sstore 4;
++					sstore 5;
++					sload 5;
+ 					sload 4;
+-					sload_3;
+ 					if_scmpge L2;
+ 				L1:	sspush 26368;
+ 					invokestatic 11;		// javacard/framework/ISOException.throwIt(S)V
+ 				L2:	aload_1;
+-					sload_3;
++					sload 4;
+ 					invokevirtual 15;		// javacard/framework/APDU.setOutgoingLength(S)V
+ 					aload_1;
+-					getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++					aload_3;
+ 					sconst_5;
+-					sload_3;
++					sload 4;
+ 					invokevirtual 16;		// javacard/framework/APDU.sendBytesLong([BSS)V
+ 					return;
+ 		}
+ 
+ 		.method private getPubKeyModulusSize(Ljavacard/framework/APDU;)V {
+ 			.stack 4;
+-			.locals 3;
++			.locals 4;
+ 
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+ 				L0:	aload_1;
++					invokevirtual 12;		// javacard/framework/APDU.setIncomingAndReceive()S
++					pop;
++					aload_1;
++					invokevirtual 9;		// javacard/framework/APDU.getBuffer()[B
++					astore_2;
++					aload_1;
+ 					invokevirtual 14;		// javacard/framework/APDU.setOutgoing()S
+-					sstore_2;
+-					sload_2;
++					sstore_3;
++					sload_3;
+ 					sconst_2;
+ 					if_scmpge L2;
+ 				L1:	sspush 26368;
+ 					invokestatic 11;		// javacard/framework/ISOException.throwIt(S)V
+ 				L2:	getfield_a_this 6;		// reference de/berlios/jmds/applet/SCAppletWithKey.userKeyPair
+-					invokevirtual 40;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
++					invokevirtual 38;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
+ 					checkcast 0 24;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+-					astore_3;
+-					aload_3;
++					astore 4;
++					aload 4;
+ 					getfield_a_this 5;		// reference de/berlios/jmds/applet/SCAppletWithKey.tmpBuff
+ 					sconst_0;
+ 					invokeinterface 3 24 5;		// javacard/security/RSAPublicKey
+-					sstore 4;
+-					getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++					sstore 5;
++					aload_2;
+ 					sconst_0;
+-					sload 4;
++					sload 5;
+ 					sspush 256;
+ 					sdiv;
+ 					s2b;
+ 					bastore;
+-					getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++					aload_2;
+ 					sconst_1;
+-					sload 4;
++					sload 5;
+ 					sspush 256;
+ 					srem;
+ 					s2b;
+@@ -491,7 +486,7 @@
+ 					sconst_2;
+ 					invokevirtual 15;		// javacard/framework/APDU.setOutgoingLength(S)V
+ 					aload_1;
+-					getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++					aload_2;
+ 					sconst_0;
+ 					sconst_2;
+ 					invokevirtual 16;		// javacard/framework/APDU.sendBytesLong([BSS)V
+@@ -505,7 +500,7 @@
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+ 				L0:	getfield_a_this 6;		// reference de/berlios/jmds/applet/SCAppletWithKey.userKeyPair
+-					invokevirtual 40;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
++					invokevirtual 38;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
+ 					checkcast 0 24;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+ 					astore_2;
+ 					aload_2;
+@@ -537,37 +532,43 @@
+ 
+ 		.method private getPubKeyExponentSize(Ljavacard/framework/APDU;)V {
+ 			.stack 4;
+-			.locals 3;
++			.locals 4;
+ 
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+ 				L0:	aload_1;
++					invokevirtual 12;		// javacard/framework/APDU.setIncomingAndReceive()S
++					pop;
++					aload_1;
++					invokevirtual 9;		// javacard/framework/APDU.getBuffer()[B
++					astore_2;
++					aload_1;
+ 					invokevirtual 14;		// javacard/framework/APDU.setOutgoing()S
+-					sstore_2;
+-					sload_2;
++					sstore_3;
++					sload_3;
+ 					sconst_2;
+ 					if_scmpge L2;
+ 				L1:	sspush 26368;
+ 					invokestatic 11;		// javacard/framework/ISOException.throwIt(S)V
+ 				L2:	getfield_a_this 6;		// reference de/berlios/jmds/applet/SCAppletWithKey.userKeyPair
+-					invokevirtual 40;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
++					invokevirtual 38;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
+ 					checkcast 0 24;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+-					astore_3;
+-					aload_3;
++					astore 4;
++					aload 4;
+ 					getfield_a_this 5;		// reference de/berlios/jmds/applet/SCAppletWithKey.tmpBuff
+ 					sconst_0;
+ 					invokeinterface 3 24 4;		// javacard/security/RSAPublicKey
+-					sstore 4;
+-					getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++					sstore 5;
++					aload_2;
+ 					sconst_0;
+-					sload 4;
++					sload 5;
+ 					sspush 256;
+ 					sdiv;
+ 					s2b;
+ 					bastore;
+-					getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++					aload_2;
+ 					sconst_1;
+-					sload 4;
++					sload 5;
+ 					sspush 256;
+ 					srem;
+ 					s2b;
+@@ -579,7 +580,7 @@
+ 					sconst_2;
+ 					invokevirtual 15;		// javacard/framework/APDU.setOutgoingLength(S)V
+ 					aload_1;
+-					getfield_a_this 9;		// reference de/berlios/jmds/applet/SCAppletWithKey.buffer
++					aload_2;
+ 					sconst_0;
+ 					sconst_2;
+ 					invokevirtual 16;		// javacard/framework/APDU.sendBytesLong([BSS)V
+@@ -593,7 +594,7 @@
+ 			.descriptor	Ljavacard/framework/APDU;	0.10;
+ 
+ 				L0:	getfield_a_this 6;		// reference de/berlios/jmds/applet/SCAppletWithKey.userKeyPair
+-					invokevirtual 40;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
++					invokevirtual 38;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
+ 					checkcast 0 24;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+ 					astore_2;
+ 					aload_2;
+
+Modified: trunk/src/de/berlios/jmds/applet/SCAppletWithKey.java
+===================================================================
+--- trunk/src/de/berlios/jmds/applet/SCAppletWithKey.java	2005-03-01 00:31:37 UTC (rev 45)
++++ trunk/src/de/berlios/jmds/applet/SCAppletWithKey.java	2005-03-01 11:11:22 UTC (rev 46)
+@@ -13,7 +13,7 @@
+ import javacard.security.KeyPair;
+ import javacard.security.RSAPrivateKey;
+ import javacard.security.RSAPublicKey;
+-import javacardx.crypto.*;
++import javacardx.crypto.Cipher;
+ 
+ /**
+  * DOCME
+@@ -35,7 +35,6 @@
+ 
+     private final static short BUFFER_LENGTH = (short) 255;
+ 
+-    private byte[] buffer;
+     private byte[] tmpBuff;
+     
+     private KeyPair userKeyPair;
+@@ -73,10 +72,10 @@
+      * @see javacard.framework.Applet#process(javacard.framework.APDU)
+      */
+     public void process(APDU apdu) throws ISOException {
+-        buffer = apdu.getBuffer();
++        byte[] inBuffer = apdu.getBuffer();
+ 
+-        if (buffer[ISO7816.OFFSET_CLA] == CLA_SECURITY) {
+-            switch (buffer[ISO7816.OFFSET_INS]) {
++        if (inBuffer[ISO7816.OFFSET_CLA] == CLA_SECURITY) {
++            switch (inBuffer[ISO7816.OFFSET_INS]) {
+                 case INS_CODE: encode(apdu); break;
+                 case INS_DECODE: break;
+                     
+@@ -88,16 +87,13 @@
+         }
+     }
+     
+-    public boolean select() {
+-        return super.select();
+-    }
+-    
+     private void encode(APDU apdu)
+     {
+         short byteRead = apdu.setIncomingAndReceive();
++        byte[] inBuffer = apdu.getBuffer();
+         
+         cipher.init(userKeyPair.getPrivate(), Cipher.MODE_ENCRYPT);
+-        short outbytes = cipher.doFinal(buffer,(short)ISO7816.OFFSET_CDATA, byteRead, buffer, (short)ISO7816.OFFSET_CDATA);    
++        short outbytes = cipher.doFinal(inBuffer,(short)ISO7816.OFFSET_CDATA, byteRead, inBuffer, (short)ISO7816.OFFSET_CDATA);    
+         
+         // Send results
+         short Le = apdu.setOutgoing();
+@@ -107,7 +103,7 @@
+         // indicate the number of bytes in the data field
+         apdu.setOutgoingLength(outbytes); 
+         // at offset 0 send 128 byte of data in the buffer
+-        apdu.sendBytesLong(buffer, (short)ISO7816.OFFSET_CDATA, (short)outbytes);
++        apdu.sendBytesLong(inBuffer, (short)ISO7816.OFFSET_CDATA, (short)outbytes);
+         
+ //        messLength = apdu.setIncomingAndReceive();
+ //        RSAPublicKey pubKey = (RSAPublicKey) userKeyPair.getPublic();
+@@ -133,6 +129,8 @@
+     //                    Public-Key-Transfer                                     //
+     ////////////////////////////////////////////////////////////////////////////////
+     private void getPubKeyModulusSize( APDU apdu ) {
++        apdu.setIncomingAndReceive();
++        byte[] inBuffer = apdu.getBuffer();
+         // Send results
+         short Le = apdu.setOutgoing();
+         if (Le &lt; (short) 2)
+@@ -140,11 +138,11 @@
+         
+         RSAPublicKey pubKey = (RSAPublicKey) userKeyPair.getPublic();
+         short keySize = pubKey.getModulus( tmpBuff,(short) 0);
+-        buffer[ (byte)0 ] = (byte) (keySize / 256 );
+-        buffer[ (byte)1 ] = (byte) (keySize % 256 );
++        inBuffer[ (byte)0 ] = (byte) (keySize / 256 );
++        inBuffer[ (byte)1 ] = (byte) (keySize % 256 );
+         apdu.setOutgoing();
+         apdu.setOutgoingLength( (byte) 2 );
+-        apdu.sendBytesLong( buffer, (short) 0, (short) 2 );
++        apdu.sendBytesLong( inBuffer, (short) 0, (short) 2 );
+     }
+     
+     private void getPubKeyModulus( APDU apdu ) {
+@@ -162,6 +160,9 @@
+     }
+     
+     private void getPubKeyExponentSize( APDU apdu ) {
++        apdu.setIncomingAndReceive();
++        byte[] inBuffer = apdu.getBuffer();
++
+         // Send results
+         short Le = apdu.setOutgoing();
+         if (Le &lt; (short) 2)
+@@ -169,11 +170,11 @@
+ 
+         RSAPublicKey pubKey = (RSAPublicKey) userKeyPair.getPublic();
+         short keySize = pubKey.getExponent(tmpBuff,(short) 0);
+-        buffer[ (byte)0 ] = (byte) (keySize / 256 );
+-        buffer[ (byte)1 ] = (byte) (keySize % 256 );
++        inBuffer[ (byte)0 ] = (byte) (keySize / 256 );
++        inBuffer[ (byte)1 ] = (byte) (keySize % 256 );
+         apdu.setOutgoing();
+         apdu.setOutgoingLength( (byte) 2 );
+-        apdu.sendBytesLong( buffer, (short) 0, (short) 2 );
++        apdu.sendBytesLong( inBuffer, (short) 0, (short) 2 );
+     }
+     
+     private void getPubKeyExponent( APDU apdu ) {
+
+Modified: trunk/src/de/berlios/jmds/client/SCAppletClient.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/SCAppletClient.java	2005-03-01 00:31:37 UTC (rev 45)
++++ trunk/src/de/berlios/jmds/client/SCAppletClient.java	2005-03-01 11:11:22 UTC (rev 46)
+@@ -24,22 +24,24 @@
+ public class SCAppletClient {
+ 
+     /** The singleton instance * */
+-    private final static SCAppletClient INSTANCE = new SCAppletClient();
++    private static SCAppletClient INSTANCE;
++    private static IOP APPLET_IOP;
+ 
+-    private final static IOP APPLET_IOP = new IOP();
+     private final static short[] APPLET_AID = {
+             (short) 0x11, (short) 0x22, (short) 0x33, 
+             (short) 0x44, (short) 0x55, (short) 0x66, (short) 0x77 };
++    
++    private final static byte CLA_SECURITY = (byte) 0x69;
++    private final static byte INS_CODE = (byte) 0x10;
++    private final static byte INS_DECODE = (byte) 0x20;
++    
++    private final static byte INS_GETKEY_MOD_SIZE = (byte) 0x40;
++    private final static byte INS_GETKEY_MOD_DATA = (byte) 0x41;
++    private final static byte INS_GETKEY_EXP_SIZE = (byte) 0x42;
++    private final static byte INS_GETKEY_EXP_DATA = (byte) 0x43;
+ 
+     private static SmartCard card = null;
+ 
+-    private static int CLA;
+-    private static int INS;
+-    private static int P1;
+-    private static int P2;
+-    private static int[] body;
+-    private static int LE;
+-
+     private static class jmdsIOPListener implements IOPListener {
+         public void CardRemoved(IOPEvent event) {
+             findCard();
+@@ -78,6 +80,12 @@
+      * @return the singleton instance of LDAP
+      */
+     public static SCAppletClient getInstance() {
++        if(INSTANCE == null)
++        {
++            APPLET_IOP = new IOP();
++            INSTANCE = new SCAppletClient();
++            findCard();
++        }
+         return INSTANCE;
+     }
+ 
+@@ -89,29 +97,9 @@
+      * @throws SecurityException 
+      */
+     public byte[] code(byte[] requestId) throws SecurityException, slbException {
+-        // Envoi de l'APDU CODE
+-        CLA = Integer.parseInt(&quot;69&quot;, 16);
+-        INS = Integer.parseInt(&quot;10&quot;, 16);
+-        P1 = Integer.parseInt(&quot;00&quot;, 16);
+-        P2 = Integer.parseInt(&quot;00&quot;, 16);
+-        body = Convertor.stringToIntArray(&quot;73119&quot;);
+-        LE = Integer.parseInt(&quot;00&quot;, 16);
+-        System.out.println(&quot; body: &quot; + requestId.toString());
+-
+-        sendCardAPDU(card, CLA, INS, P1, P2, body, LE);
+-
+-        // Envoi de l'APDU GETCODE
+-        System.out.print(&quot;Envoi de l'APDU Get Code: &gt; &quot;);
+-        CLA = (int) Integer.parseInt(&quot;69&quot;, 16);
+-        INS = (int) Integer.parseInt(&quot;11&quot;, 16);
+-        P1 = (int) Integer.parseInt(&quot;00&quot;, 16);
+-        P2 = (int) Integer.parseInt(&quot;00&quot;, 16);
+-        body = Convertor.stringToIntArray(&quot;&quot;);
+-        LE = (int) Integer.parseInt(&quot;20&quot;, 16);
+-        short[] code = sendCardAPDU(card, CLA, INS, P1, P2, body, LE);
+-        if (code != null)
+-            return Convertor.shortArrayToByteArray(code);
+-        return null;
++        int[] body = Convertor.stringToIntArray(&quot;555555&quot;);
++        byte[] code = Convertor.shortArrayToByteArray(sendCardAPDU(card, CLA_SECURITY, INS_CODE, 0, 0, body, 0x40));
++        return code;
+     }
+ 
+     /**
+@@ -122,31 +110,11 @@
+      * @throws SecurityException 
+      */
+     public byte[] decode(byte[] SC) throws SecurityException, slbException {
+-        // Envoi de l'APDU CODE
+-        int CLA = Integer.parseInt(&quot;69&quot;, 16);
+-        int INS = Integer.parseInt(&quot;10&quot;, 16);
+-        int P1 = Integer.parseInt(&quot;00&quot;, 16);
+-        int P2 = Integer.parseInt(&quot;00&quot;, 16);
+-        int[] body = Convertor.stringToIntArray(&quot;6&quot;);
+-        int LE = Integer.parseInt(&quot;00&quot;, 16);
+-
+-        SmartCard card = new SmartCard();
+-        sendCardAPDU(card, CLA, INS, P1, P2, body, LE);
+-
+-        // Envoi de l'APDU getCode
+-        System.out.print(&quot;Envoi de l'APDU Get Code: &gt; &quot;);
+-        CLA = (int) Integer.parseInt(&quot;69&quot;, 16);
+-        INS = (int) Integer.parseInt(&quot;11&quot;, 16);
+-        P1 = (int) Integer.parseInt(&quot;00&quot;, 16);
+-        P2 = (int) Integer.parseInt(&quot;00&quot;, 16);
+-        body = Convertor.stringToIntArray(&quot;&quot;);
+-        LE = (int) Integer.parseInt(&quot;20&quot;, 16);
+-        short[] code = sendCardAPDU(card, CLA, INS, P1, P2, body, LE);
+-
+-        SC = Convertor.shortArrayToByteArray(code);
+-        return SC;
++        int[] body = Convertor.stringToIntArray(&quot;555555&quot;);
++        byte[] decode = Convertor.shortArrayToByteArray(sendCardAPDU(card, CLA_SECURITY, INS_DECODE, 0, 0, body, 0x40));
++        return decode;
+     }
+-
++    
+     /**
+      * @param card
+      * @param LE
+@@ -169,15 +137,11 @@
+         card.BeginTransaction();
+         if (!card.SelectAID(APPLET_AID)) // A v&#233;rifier. Je ne sais pas si &#231;a marche !!
+             throw new SecurityException(&quot;Pas d'applet de cryptage !&quot;);
+-        // CLA = Integer.parseInt(&quot;00&quot;, 16);
+-        // INS = Integer.parseInt(&quot;A4&quot;, 16);
+-        // P1 = Integer.parseInt(&quot;04&quot;, 16);
+-        // P2 = Integer.parseInt(&quot;00&quot;, 16);
+-        // body = Convertor.stringToIntArray(&quot;11223344556677&quot;);
+-        // LE = Integer.parseInt(&quot;00&quot;, 16);
+-        // sendCardAPDU(card,CLA,INS,P1,P2,body,LE);
++        
+         short[] out = card.SendCardAPDU(CLA, INS, P1, P2, body, LE);
+         card.EndTransaction();
++        if (out == null)
++            out = new short[0];
+         return out;
+     }
+     
+@@ -190,6 +154,7 @@
+         int i = 0;
+         while ((i &lt; lstReaders.length) &amp;&amp; (card == null)) {
+             card = new SmartCard();
++            System.out.println(lstReaders[i]);
+             boolean result = APPLET_IOP.Connect(card, lstReaders[i], false);
+             if (result) {
+                 short[] MACKey = Convertor.HexStringToShortArray(&quot;404142434445464748494A4B4C4D4E4F&quot;);
+@@ -212,12 +177,20 @@
+                         }
+ 
+                         if ((shortAID[z - 1] &amp; (byte) 0x80) != 1) {
+-                            if(!APPLET_AID.equals(shortListAID))
++                            boolean equals = (APPLET_AID.length == shortListAID.length);
++                            for (int j = 0; j &lt; shortListAID.length &amp;&amp; equals == true; j++) {
++                                if(APPLET_AID[j] != shortListAID[j])
++                                    equals = false;
++                            }
++                            if(!equals)
++                            {
++                                card.EndTransaction();
+                                 card = null;
++                            }
+                         }
+                     }
+-
+-                    card.EndTransaction();
++                    if(card != null)
++                        card.EndTransaction();
+                 } catch (slbException e) {
+                     card = null;
+                 }
+
+Modified: trunk/src/de/berlios/jmds/tools/Convertor.java
+===================================================================
+--- trunk/src/de/berlios/jmds/tools/Convertor.java	2005-03-01 00:31:37 UTC (rev 45)
++++ trunk/src/de/berlios/jmds/tools/Convertor.java	2005-03-01 11:11:22 UTC (rev 46)
+@@ -115,4 +115,71 @@
+         }
+         return shortKey;
+     }
++
++    /** 
++     * DOCME
++     *
++     * @param shortListAID
++     * @return 
++     */
++    public final static String ShortArrayToSpacedHexString(short[] shortArray) {
++        String strArray = &quot;&quot;;
++        String strHex = &quot;&quot;;
++        byte[] dataArray;
++        byte[] dataArray2 = new byte[1];
++        
++        for (int x=0; x &lt; shortArray.length; x++) {
++          dataArray = ShortToBytePair(shortArray[x]);
++          dataArray2[0] = dataArray[1];
++          strHex = byteToHexString(dataArray2);      
++          strArray = strArray + strHex + &quot; &quot;;
++        }
++        return strArray;
++    }
++    
++    public static byte[] ShortToBytePair(short i)
++    {
++        byte[] retVal = new byte[2];
++        retVal[0] = (byte)((i &amp; 0xFFFF) &gt;&gt; 8);
++        retVal[1] = (byte)(i &amp; 0x00FF);
++        return retVal;
++    }
++
++    /** 
++     * DOCME 
++     * 
++     * @param code
++     * @return 
++     */
++    public static String ByteArrayToSpacedHexString(byte[] byteArray) {
++        String strArray = &quot;&quot;;
++        String strHex = &quot;&quot;;
++        byte[] dataArray = new byte[1];
++        
++        for (int x=0; x &lt; byteArray.length; x++) {
++          dataArray[0] = byteArray[x];
++          strHex = byteToHexString(dataArray);      
++          strArray = strArray + strHex + &quot; &quot;;
++        }
++        return strArray;    }
++
++    /** 
++     * DOCME 
++     *
++     * @param dataArray
++     * @return 
++     */
++    private static String byteToHexString(byte[] byteArray) {
++        String strArray = new String();
++        strArray = &quot;&quot;;
++
++        for (int x=0; x &lt; byteArray.length; x++) {
++            int b = ((int)byteArray[x] &amp; 0x000000ff);
++            if (b &lt; 16) 
++                strArray = strArray + &quot;0&quot; + Integer.toHexString(b).toUpperCase();
++            else  
++                strArray = strArray + Integer.toHexString(b).toUpperCase();
++        }
++        return strArray;
++    }
+ }
+
+Modified: trunk/test/de/berlios/jmds/clients/TestSCApllet.java
+===================================================================
+--- trunk/test/de/berlios/jmds/clients/TestSCApllet.java	2005-03-01 00:31:37 UTC (rev 45)
++++ trunk/test/de/berlios/jmds/clients/TestSCApllet.java	2005-03-01 11:11:22 UTC (rev 46)
+@@ -9,8 +9,8 @@
+  */
+ package de.berlios.jmds.clients;
+ 
+-import slb.iop.IOP;
+-import slb.iop.SmartCard;
++import slb.iop.slbException;
++import de.berlios.jmds.client.SCAppletClient;
+ import de.berlios.jmds.tools.Convertor;
+ 
+ /**
+@@ -21,59 +21,19 @@
+ public class TestSCApllet{
+ 
+     public static void main(String[] args) {
+-        IOP sIOP = new IOP();
+-
+-        String[] lstReaders = sIOP.ListReaders();
+-
+-        for (int i = 0; i &lt; lstReaders.length; i++) {
+-            System.out.println(lstReaders[i]);
+-        }
+-
+-        SmartCard card = new SmartCard();
+-        if (lstReaders.length &gt; 0) {
+-            boolean result = sIOP.Connect(card, lstReaders[0], false);
+-            if (result) {
+-                System.out.println(&quot;Carte connectee&quot;);
+-
+-                int CLA = Integer.parseInt(&quot;00&quot;, 16);
+-                int INS = Integer.parseInt(&quot;A4&quot;, 16);
+-                int P1 = Integer.parseInt(&quot;04&quot;, 16);
+-                int P2 = Integer.parseInt(&quot;00&quot;, 16);
+-                int[] body = Convertor.stringToIntArray(&quot;11223344556677&quot;);
+-                int LE = Integer.parseInt(&quot;00&quot;, 16);
+-                try {
+-                    System.out.println(&quot;Applet Selection&quot;);
+-                    card.BeginTransaction();
+-                    card.SendCardAPDU(CLA, INS, P1, P2, body, LE);
+-                    System.out.println(&quot;Applet selected&quot;);
+-                    card.EndTransaction();
+-                } catch (slb.iop.slbException e) {
+-                    System.out.println(&quot;Pb de Selection&quot;);
+-                    e.printStackTrace();
+-                }
+-
+-                System.out.println(&quot;Demande d'encodage&quot;);
+-                CLA = Integer.parseInt(&quot;69&quot;, 16);
+-                INS = Integer.parseInt(&quot;10&quot;, 16);
+-                P1 = Integer.parseInt(&quot;00&quot;, 16);
+-                P2 = Integer.parseInt(&quot;00&quot;, 16);
+-                body = Convertor.stringToIntArray(&quot;102030&quot;);
+-                LE = Integer.parseInt(&quot;FF&quot;, 16);
+-
+-                try {
+-                    card.BeginTransaction();
+-                    short[] out = card.SendCardAPDU(CLA, INS, P1, P2, body, LE);
+-                    for (int i = 0; i &lt; out.length; i++) {
+-                        System.out.print(Integer.toHexString(out[i]) + &quot; &quot;);
+-                    }
+-                    System.out.println(&quot;&quot;);
+-                    card.EndTransaction();
+-                } catch (slb.iop.slbException e) {
+-                    System.out.println(&quot;Erreur codage&quot;);
+-                    e.printStackTrace();
+-                }
+-            }
+-        }
++        SCAppletClient appletClient = SCAppletClient.getInstance();
++        
++        byte[] code = {(short)0x55, (short)0x55,(short)0x55,(short)0x55,(short)0x55,};
++        
++        try {
++            code = appletClient.code(code);
++            System.out.println(Convertor.ByteArrayToSpacedHexString(code));
++        } catch (SecurityException e) {
++            e.printStackTrace();
++        } catch (slbException e) {
++            e.printStackTrace();
++        } 
++        System.exit(0);
+     }
+ }
+ 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000058.html">[Jmds-svn] r45 - in trunk: applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds/applet
+</A></li>
+	<LI>Next message: <A HREF="000060.html">[Jmds-svn] r47 - in trunk: .settings applet/de/berlios/jmds/applet/javacard src/de/berlios/jmds src/de/berlios/jmds/applet src/de/berlios/jmds/client src/de/berlios/jmds/common src/de/berlios/jmds/server src/de/berlios/jmds/tools test/de/berlios/jmds/clients
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

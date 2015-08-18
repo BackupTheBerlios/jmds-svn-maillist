@@ -1,0 +1,612 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r35 - in trunk: . lib src src/de/berlios/jmds/tools test/de/berlios/jmds test/de/berlios/jmds/tools
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r35%20-%20in%20trunk%3A%20.%20lib%20src%20src/de/berlios/jmds/tools%20test/de/berlios/jmds%20test/de/berlios/jmds/tools&In-Reply-To=%3C200502241814.j1OIEV0k018719%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000046.html">
+   <LINK REL="Next"  HREF="000048.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r35 - in trunk: . lib src src/de/berlios/jmds/tools test/de/berlios/jmds test/de/berlios/jmds/tools</H1>
+    <B>Denis BARDIN at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r35%20-%20in%20trunk%3A%20.%20lib%20src%20src/de/berlios/jmds/tools%20test/de/berlios/jmds%20test/de/berlios/jmds/tools&In-Reply-To=%3C200502241814.j1OIEV0k018719%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r35 - in trunk: . lib src src/de/berlios/jmds/tools test/de/berlios/jmds test/de/berlios/jmds/tools">dbardin at sheep.berlios.de
+       </A><BR>
+    <I>Thu Feb 24 19:14:31 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000046.html">[Jmds-svn] r34 - in trunk: applet/de/berlios/jmds/applet/javacard generator src/de/berlios/jmds/applet
+</A></li>
+        <LI>Next message: <A HREF="000048.html">[Jmds-svn] JMDS : DEV
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#47">[ date ]</a>
+              <a href="thread.html#47">[ thread ]</a>
+              <a href="subject.html#47">[ subject ]</a>
+              <a href="author.html#47">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: dbardin
+Date: 2005-02-24 19:14:30 +0100 (Thu, 24 Feb 2005)
+New Revision: 35
+
+Added:
+   trunk/lib/commons-collections-3.1.jar
+   trunk/lib/commons-configuration-1.1RC1.jar
+   trunk/lib/commons-logging-1.0.4.jar
+   trunk/src/saveRights.xml
+   trunk/test/de/berlios/jmds/tools/
+   trunk/test/de/berlios/jmds/tools/RightsConfigurationTest.java
+   trunk/test/de/berlios/jmds/tools/SecurityConfigurationTest.java
+Removed:
+   trunk/lib/commons-configuration-1.0.jar
+Modified:
+   trunk/.classpath
+   trunk/src/de/berlios/jmds/tools/RightsConfiguration.java
+   trunk/src/de/berlios/jmds/tools/SecurityConfiguration.java
+   trunk/src/rights.xml
+   trunk/src/security.xml
+Log:
+Implantation des objets permettant la recuperation et la sauvegardes des informations des fichiers de conf (.xml) + la javadoc est faite ca devrait vous aider... alle a l IPV6 now
+
+Modified: trunk/.classpath
+===================================================================
+--- trunk/.classpath	2005-02-24 01:53:54 UTC (rev 34)
++++ trunk/.classpath	2005-02-24 18:14:30 UTC (rev 35)
+@@ -6,7 +6,9 @@
+ 	&lt;classpathentry kind=&quot;con&quot; path=&quot;org.eclipse.jdt.launching.JRE_CONTAINER&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/javacardframework.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/slbJIop.jar&quot;/&gt;
+-	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/commons-configuration-1.0.jar&quot;/&gt;
+-	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/commons-lang-2.0.jar&quot;/&gt;	
++	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/commons-lang-2.0.jar&quot;/&gt;
++	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/commons-collections-3.1.jar&quot;/&gt;
++	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/commons-logging-1.0.4.jar&quot;/&gt;
++	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/commons-configuration-1.1RC1.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;output&quot; path=&quot;classes&quot;/&gt;
+ &lt;/classpath&gt;
+
+Added: trunk/lib/commons-collections-3.1.jar
+===================================================================
+(Binary files differ)
+
+
+Property changes on: trunk/lib/commons-collections-3.1.jar
+___________________________________________________________________
+Name: svn:mime-type
+   + application/octet-stream
+
+Deleted: trunk/lib/commons-configuration-1.0.jar
+===================================================================
+(Binary files differ)
+
+Added: trunk/lib/commons-configuration-1.1RC1.jar
+===================================================================
+(Binary files differ)
+
+
+Property changes on: trunk/lib/commons-configuration-1.1RC1.jar
+___________________________________________________________________
+Name: svn:mime-type
+   + application/octet-stream
+
+Added: trunk/lib/commons-logging-1.0.4.jar
+===================================================================
+(Binary files differ)
+
+
+Property changes on: trunk/lib/commons-logging-1.0.4.jar
+___________________________________________________________________
+Name: svn:mime-type
+   + application/octet-stream
+
+Modified: trunk/src/de/berlios/jmds/tools/RightsConfiguration.java
+===================================================================
+--- trunk/src/de/berlios/jmds/tools/RightsConfiguration.java	2005-02-24 01:53:54 UTC (rev 34)
++++ trunk/src/de/berlios/jmds/tools/RightsConfiguration.java	2005-02-24 18:14:30 UTC (rev 35)
+@@ -9,6 +9,9 @@
+  */
+ package de.berlios.jmds.tools;
+ 
++import java.io.File;
++import java.util.Iterator;
++
+ import org.apache.commons.configuration.ConfigurationException;
+ import org.apache.commons.configuration.XMLConfiguration;
+ 
+@@ -21,7 +24,7 @@
+ 	private XMLConfiguration rightsConfig = null;
+ 	
+ 	/** The rigths config file **/
+-	private static final String RIGHTS_FILE = &quot;rights.xml&quot;;
++	private static final File RIGHTS_FILE = new File(&quot;rights.xml&quot;);
+ 	
+ 	/** The singleton instance * */
+ 	private static RightsConfiguration INSTANCE = null;
+@@ -38,8 +41,9 @@
+ 	{
+ 		try
+ 		{
+-			XMLConfiguration.setDelimiter('\n');
+-			this.rightsConfig = new XMLConfiguration (RIGHTS_FILE);				
++			rightsConfig = new XMLConfiguration ();
++			rightsConfig.setFile(RIGHTS_FILE);
++			rightsConfig.load();
+ 		}
+ 		catch (ConfigurationException e)
+ 		{
+@@ -66,29 +70,83 @@
+ 	}
+ 	
+ 	/**
+-	 * @param iClientId 	the identifiant of client
+ 	 * @param szGroup		the group of client
++	 * @param szIOR			the object reference
+ 	 * @param szFonction	the fonction
+ 	 * @return 				the permission of access (true or false)
+ 	 */
+-	public boolean checkFonctionClientAccess(int iClientId, String szGroup, String szFonction)
++	public boolean checkFonctionGroupAccess(String szGroup, String szIOR, String szFonction)
+ 	{
+-		//TODO
++		System.out.println(&quot;Recherche des groups ayant acces&quot;);
++		int i = 0;
++		int iIOR = -1;
++		int iFonction = -1;
++		
++		// Recherche de l'objet dans le fichier de conf
++		System.out.println(&quot;Recherche de l'objet&quot;);
++		iIOR = getIORIndex(szIOR);
++		
++		// Si l'objet a ete trouve alors recherche de la fonction
++		if (iIOR != -1){
++			System.out.println(&quot;Recherche e la fonction&quot;);
++			iFonction = getFonctionIndex(iIOR, szFonction);
++		}
++		
++		// si la fonction de l'objet a ete trouve alors recuperation de group y ayant access
++		if (iFonction != -1){
++			System.out.println(&quot;Recherche du group&quot;);
++			int iGroup = getGroupIndex(iIOR, iFonction, szGroup);
++			if (iGroup !=-1)
++				return true;			
++		}
++		
++		// Si la l objet ou la fonction de l'objet n ont pas ete trouves
+ 		return false;
+ 	}
+ 	
+ 	/**
+ 	 * @param szIOR			the ior reference of object
+-	 * @param szFonction	the the fonction of objetc
++	 * @param szFonction	the the fonction of object
+ 	 * @return				the add status (true validate add and false indicate the fonction exist)
+ 	 */
+ 	public boolean addIORFonction (String szIOR, String szFonction)
+ 	{
+-		//TODO
+-		return false;
++		addIOR(szIOR);
++		
++		int iIOR = getIORIndex(szIOR);
++		int iFonction = getFonctionIndex(iIOR, szFonction);
++			
++		if (iFonction !=- 1) 	// si la fonction existe
++			return false ;
++		else					// si la fonction n existe pas on l ajoute
++		{
++			int iAddFonction = countFonction(iIOR)+1;
++			rightsConfig.addProperty(&quot;ior(&quot;+ iIOR+ &quot;).fonction(&quot;+ iAddFonction+ &quot;)[@id]&quot;, szFonction);
++		}
++		
++		return true;
+ 	}
+ 	
+ 	/**
++	 * @param szIOR			the ior reference of object
++	 * @return				the add status (true validate add and false indicate the fonction exist)
++	 */
++	public boolean addIOR (String szIOR)
++	{
++		int iIOR = getIORIndex(szIOR);
++		
++		if (iIOR !=-1) // Si l'objet existe dans le fichier de conf
++			return false ;
++		else // si l'objet n'existe pas on l'ajoute
++		{
++			int iAddIOR = countIOR()+1;
++			rightsConfig.addProperty(&quot;ior(&quot;+ iAddIOR +&quot;)[@id]&quot;, szIOR);
++			
++		}
++		return true;
++	}
++	
++	/**
+ 	 * To save the configuration file
+ 	 *
+ 	 */
+@@ -96,11 +154,86 @@
+ 	{
+ 		try
+ 		{
+-			rightsConfig.save ();
++			// TODO enregistrement dans le meme fichier rights.xml apres les tests
++			rightsConfig.save(&quot;src/saveRights.xml&quot;);
+ 		}
+ 		catch (ConfigurationException e)
+ 		{
+ 			e.printStackTrace();
+ 		}
+ 	}
++
++	//----------------------------------------------------------//
++	//------------------- PRIVATE METHODS -----------------------//
++	//----------------------------------------------------------//	
++	
++	/**
++	 * @param szIOR the object reference
++	 * @return		the objet index in hierachie
++	 */
++	private int getIORIndex(String szIOR) {
++		int i = 0;
++		Iterator iter = rightsConfig.getList(&quot;ior[@id]&quot;).iterator();
++		while(iter.hasNext()){
++			String iorId = (String) iter.next();
++			System.out.println(iorId);
++			if (iorId.compareTo(szIOR)==0)
++				return i;
++			i++;
++		}
++		return -1;
++	}
++	
++	/**
++	 * @param iIOR			the object index
++	 * @param szFonction	the fonction of object
++	 * @return				the fonction index in hierachie
++	 */
++	private int getFonctionIndex(int iIOR, String szFonction) {
++		int i = 0;
++		Iterator iter = rightsConfig.getList(&quot;ior(&quot;+ iIOR+ &quot;).fonction[@id]&quot;).iterator();
++		i = 0;
++		while(iter.hasNext()){
++			String fonctionId = (String) iter.next();
++			System.out.println(fonctionId);
++			if (fonctionId.compareTo(szFonction)==0)
++				return i;
++			i++;
++		}
++		return -1;
++	}
++	
++	/**
++	 * @param iIOR			the object index
++	 * @param iFonction		the fonction index
++	 * @param szGroup		the group which have access to the fonction
++	 * @return				the group index in hierachie 
++	 */
++	private int getGroupIndex(int iIOR, int iFonction, String szGroup) {
++		int i = 0;
++		Iterator iter = rightsConfig.getList(&quot;ior(&quot;+ iIOR+ &quot;).fonction(&quot;+ iFonction+ &quot;).group[@id]&quot;).iterator();
++		while(iter.hasNext()){
++			String groupId = (String) iter.next();
++			System.out.println(groupId);
++			if (groupId.compareTo(szGroup)==0)
++				return i;
++			i++;
++		}
++		return -1;
++	}
++	
++	/**
++	 * @return the number of object
++	 */
++	private int countIOR() {
++		return rightsConfig.getList(&quot;ior[@id]&quot;).size();
++	}
++	
++	/**
++	 * @param iIOR	the object reference
++	 * @return		the number of fonction
++	 */
++	private int countFonction(int iIOR) {
++		return rightsConfig.getList(&quot;ior(&quot;+ iIOR+ &quot;).fonction[@id]&quot;).size();
++	}
+ }
+
+Modified: trunk/src/de/berlios/jmds/tools/SecurityConfiguration.java
+===================================================================
+--- trunk/src/de/berlios/jmds/tools/SecurityConfiguration.java	2005-02-24 01:53:54 UTC (rev 34)
++++ trunk/src/de/berlios/jmds/tools/SecurityConfiguration.java	2005-02-24 18:14:30 UTC (rev 35)
+@@ -9,6 +9,8 @@
+  */
+ package de.berlios.jmds.tools;
+ 
++import java.util.Iterator;
++
+ import org.apache.commons.configuration.ConfigurationException;
+ import org.apache.commons.configuration.XMLConfiguration;
+ 
+@@ -38,8 +40,9 @@
+ 	{
+ 		try
+ 		{
+-			XMLConfiguration.setDelimiter('\n');
+-			this.securityConfig = new XMLConfiguration (SECURITY_FILE);
++			securityConfig = new XMLConfiguration ();
++			securityConfig.setFileName(SECURITY_FILE);
++			securityConfig.load();
+ 		}
+ 		catch (ConfigurationException e)
+ 		{
+@@ -68,29 +71,44 @@
+ 	/**
+ 	 * @return the server key
+ 	 */
+-	public byte[] getServerKey()
++	public String getServerKey()
+ 	{
+-		// TODO
+-		return null;	
++		return securityConfig.getString(&quot;server[@key]&quot;);	
+ 	}
+ 	
+ 	/**
+-	 * @param iClientId the client identifiant
++	 * @param szClientId the client identifiant
+ 	 * @return			the client key
+ 	 */
+-	public byte[] getClientKey (int iClientId)
++	public String getClientKey (String szClientId)
+ 	{
+-		//TODO
+-		return null;		
++		return getAttributByClientId (szClientId, &quot;key&quot;);		
+ 	}
+ 	
+ 	/**
+-	 * @param iClientId the client identifiant
+-	 * @return			the group client
++	 * @param szClientId 	the client identifiant
++	 * @return				the group client
+ 	 */
+-	public byte[] getclientGroup (int iClientId)
++	public String getclientGroup (String szClientId)
+ 	{
+-		// TODO
+-		return null;		
++		return getAttributByClientId (szClientId, &quot;group&quot;);	
+ 	}
++	
++	/**
++	 * @param szClientId  	the client identifiant
++	 * @param szAttribute 	the attribute search
++	 * @return				the  search attribute value
++	 */
++	private String getAttributByClientId (String szClientId, String szAttribute){				
++		Iterator iter = securityConfig.getList(&quot;clients.client[@id]&quot;).iterator();
++		int i = 0;
++		while(iter.hasNext()){
++			String id = (String) iter.next();
++			if (id.compareTo(szClientId)==0)
++				return securityConfig.getString(&quot;clients.client(&quot;+i+&quot;)[@&quot;+szAttribute+&quot;]&quot;);;
++			i++;
++		}
++		System.out.println(szClientId);
++		return null;
++	}
+ }
+
+Modified: trunk/src/rights.xml
+===================================================================
+--- trunk/src/rights.xml	2005-02-24 01:53:54 UTC (rev 34)
++++ trunk/src/rights.xml	2005-02-24 18:14:30 UTC (rev 35)
+@@ -1,25 +1,25 @@
+ &lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot; ?&gt;
+-
+ &lt;jmds&gt;
+-	&lt;ior id = &quot;ior_1&quot;&gt;
+-         &lt;fonction id = &quot;fct_1&quot;&gt;
+-         	&lt;group id = &quot;grp_1&quot;/&gt;
+-         	&lt;group id = &quot;grp_2&quot;/&gt;
+-         &lt;/fonction&gt;
+-         &lt;fonction id = &quot;fct_2&quot;&gt;
+-         	&lt;group id = &quot;grp_1&quot;/&gt;
+-         &lt;/fonction&gt;
+-         &lt;fonction id = &quot;fct_3&quot;&gt;
+-         	&lt;group id = &quot;grp_2&quot;/&gt;
+-         &lt;/fonction&gt;
+-         &lt;fonction id = &quot;fct_4&quot;/&gt;
+-     &lt;ior id = &quot;ior_2&quot;&gt;
+-     	&lt;fonction id = &quot;fct_1&quot;&gt;
+-         	&lt;group id = &quot;grp_1&quot;/&gt;
+-         &lt;/fonction&gt;
+-         &lt;fonction id = &quot;fct_2&quot;&gt;
+-         	&lt;group id = &quot;grp_2&quot;/&gt;
+-         &lt;/fonction&gt;
+-         &lt;fonction id = &quot;fct_3&quot;/&gt;
++	&lt;ior id=&quot;ior_1&quot;&gt;
++		&lt;fonction id=&quot;fct_1&quot;&gt;
++			&lt;group id=&quot;grp_1&quot;/&gt;
++			&lt;group id=&quot;grp_2&quot;/&gt;
++		&lt;/fonction&gt;
++		&lt;fonction id=&quot;fct_2&quot;&gt;
++			&lt;group id=&quot;grp_1&quot;/&gt;
++		&lt;/fonction&gt;
++		&lt;fonction id=&quot;fct_3&quot;&gt;
++			&lt;group id=&quot;grp_2&quot;/&gt;
++		&lt;/fonction&gt;
++		&lt;fonction id=&quot;fct_4&quot;/&gt;
+ 	&lt;/ior&gt;
+-&lt;/jmds&gt;
++	&lt;ior id=&quot;ior_2&quot;&gt;
++		&lt;fonction id=&quot;fct_1&quot;&gt;
++			&lt;group id=&quot;grp_1&quot;/&gt;
++		&lt;/fonction&gt;
++		&lt;fonction id=&quot;fct_2&quot;&gt;
++			&lt;group id=&quot;grp_2&quot;/&gt;
++		&lt;/fonction&gt;
++		&lt;fonction id=&quot;fct_3&quot;/&gt;
++	&lt;/ior&gt;
++&lt;/jmds&gt;
+\ No newline at end of file
+
+Added: trunk/src/saveRights.xml
+===================================================================
+--- trunk/src/saveRights.xml	2005-02-24 01:53:54 UTC (rev 34)
++++ trunk/src/saveRights.xml	2005-02-24 18:14:30 UTC (rev 35)
+@@ -0,0 +1,29 @@
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
++&lt;jmds&gt;
++	&lt;ior id=&quot;ior_1&quot;&gt;
++		&lt;fonction id=&quot;fct_1&quot;&gt;
++			&lt;group id=&quot;grp_1&quot;/&gt;
++			&lt;group id=&quot;grp_2&quot;/&gt;
++		&lt;/fonction&gt;
++		&lt;fonction id=&quot;fct_2&quot;&gt;
++			&lt;group id=&quot;grp_1&quot;/&gt;
++		&lt;/fonction&gt;
++		&lt;fonction id=&quot;fct_3&quot;&gt;
++			&lt;group id=&quot;grp_2&quot;/&gt;
++		&lt;/fonction&gt;
++		&lt;fonction id=&quot;fct_4&quot;/&gt;
++	&lt;fonction id=&quot;fct_99&quot;/&gt;
++&lt;/ior&gt;
++	&lt;ior id=&quot;ior_2&quot;&gt;
++		&lt;fonction id=&quot;fct_1&quot;&gt;
++			&lt;group id=&quot;grp_1&quot;/&gt;
++		&lt;/fonction&gt;
++		&lt;fonction id=&quot;fct_2&quot;&gt;
++			&lt;group id=&quot;grp_2&quot;/&gt;
++		&lt;/fonction&gt;
++		&lt;fonction id=&quot;fct_3&quot;/&gt;
++	&lt;/ior&gt;
++&lt;ior id=&quot;ior_99&quot;&gt;
++&lt;fonction id=&quot;fct_99&quot;/&gt;
++&lt;/ior&gt;
++&lt;/jmds&gt;
+
+Modified: trunk/src/security.xml
+===================================================================
+--- trunk/src/security.xml	2005-02-24 01:53:54 UTC (rev 34)
++++ trunk/src/security.xml	2005-02-24 18:14:30 UTC (rev 35)
+@@ -1,10 +1,11 @@
+ &lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot; ?&gt;
+ 
+ &lt;jmds&gt;
+-   &lt;server key = &quot;serverKey&quot; /&gt;
++	test
++   &lt;server key=&quot;0123456789&quot;/&gt;
+    &lt;clients&gt;
+-      &lt;client id = &quot;id1&quot; key = &quot;clinetKey1&quot; groupe = &quot;grp_1&quot;/&gt;
+-      &lt;client id = &quot;id2&quot; key = &quot;clinetKey2&quot; groupe = &quot;grp_2&quot;/&gt;
+-      &lt;client id = &quot;id3&quot; key = &quot;clinetKey3&quot; groupe = &quot;grp_1&quot;/&gt;
+-   &lt;/ clients &gt;
++      &lt;client id=&quot;1&quot; key=&quot;1111111111&quot; group=&quot;grp_1&quot;/&gt;
++      &lt;client id=&quot;2&quot; key=&quot;2222222222&quot; group=&quot;grp_2&quot;/&gt;
++      &lt;client id=&quot;3&quot; key=&quot;3333333333&quot; group=&quot;grp_1&quot;/&gt;
++   &lt;/clients &gt;
+ &lt;/jmds&gt;
+
+Added: trunk/test/de/berlios/jmds/tools/RightsConfigurationTest.java
+===================================================================
+--- trunk/test/de/berlios/jmds/tools/RightsConfigurationTest.java	2005-02-24 01:53:54 UTC (rev 34)
++++ trunk/test/de/berlios/jmds/tools/RightsConfigurationTest.java	2005-02-24 18:14:30 UTC (rev 35)
+@@ -0,0 +1,30 @@
++/*
++ * Created on 24 f&#233;vr. 2005
++ *
++ * TODO To change the template for this generated file go to
++ * Window - Preferences - Java - Code Style - Code Templates
++ */
++package de.berlios.jmds.tools;
++
++/**
++ * @author Denis
++ *
++ * TODO To change the template for this generated type comment go to
++ * Window - Preferences - Java - Code Style - Code Templates
++ */
++public class RightsConfigurationTest {
++
++	/**
++	 * @param args
++	 */
++	public static void main(String[] args) {
++		RightsConfiguration rightsConf = RightsConfiguration.getInstance();
++		
++		System.out.println(&quot;Access client : &quot; + rightsConf.checkFonctionGroupAccess(&quot;grp_2&quot;, &quot;ior_2&quot;, &quot;fct_2&quot;));
++
++		System.out.println(&quot;Ajout methode : &quot; + rightsConf.addIORFonction(&quot;ior_99&quot;, &quot;fct_99&quot;));
++		System.out.println(&quot;Ajout methode : &quot; + rightsConf.addIORFonction(&quot;ior_1&quot;, &quot;fct_99&quot;));
++		System.out.println(&quot;Ajout methode : &quot; + rightsConf.addIORFonction(&quot;ior_1&quot;, &quot;fct_1&quot;));
++		rightsConf.save(); // sauvegarde dans le fichier saveRights.xml du repertoire src
++	}
++}
+
+Added: trunk/test/de/berlios/jmds/tools/SecurityConfigurationTest.java
+===================================================================
+--- trunk/test/de/berlios/jmds/tools/SecurityConfigurationTest.java	2005-02-24 01:53:54 UTC (rev 34)
++++ trunk/test/de/berlios/jmds/tools/SecurityConfigurationTest.java	2005-02-24 18:14:30 UTC (rev 35)
+@@ -0,0 +1,27 @@
++/*
++ * Created on 24 f&#233;vr. 2005
++ *
++ * TODO To change the template for this generated file go to
++ * Window - Preferences - Java - Code Style - Code Templates
++ */
++package de.berlios.jmds.tools;
++
++/**
++ * @author Denis
++ *
++ * TODO To change the template for this generated type comment go to
++ * Window - Preferences - Java - Code Style - Code Templates
++ */
++public class SecurityConfigurationTest {
++
++	/**
++	 * @param args
++	 */
++	public static void main(String[] args) {
++		SecurityConfiguration securityConf = SecurityConfiguration.getInstance();
++		
++		System.out.println(&quot;Key server : &quot; + securityConf.getServerKey());
++		System.out.println(&quot;Key client 2 : &quot; + securityConf.getClientKey(&quot;2&quot;));
++		System.out.println(&quot;Key groupe client 1 : &quot; + securityConf.getclientGroup(&quot;1&quot;));
++	}
++}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000046.html">[Jmds-svn] r34 - in trunk: applet/de/berlios/jmds/applet/javacard generator src/de/berlios/jmds/applet
+</A></li>
+	<LI>Next message: <A HREF="000048.html">[Jmds-svn] JMDS : DEV
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#47">[ date ]</a>
+              <a href="thread.html#47">[ thread ]</a>
+              <a href="subject.html#47">[ subject ]</a>
+              <a href="author.html#47">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

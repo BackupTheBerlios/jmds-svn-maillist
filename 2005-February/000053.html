@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r40 - in trunk/src: . fr/umlv/ir3/corba/forum
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r40%20-%20in%20trunk/src%3A%20.%20fr/umlv/ir3/corba/forum&In-Reply-To=%3C200502251245.j1PCjs5N021410%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000052.html">
+   <LINK REL="Next"  HREF="000054.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r40 - in trunk/src: . fr/umlv/ir3/corba/forum</H1>
+    <B>Denis BARDIN at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r40%20-%20in%20trunk/src%3A%20.%20fr/umlv/ir3/corba/forum&In-Reply-To=%3C200502251245.j1PCjs5N021410%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r40 - in trunk/src: . fr/umlv/ir3/corba/forum">dbardin at sheep.berlios.de
+       </A><BR>
+    <I>Fri Feb 25 13:45:54 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000052.html">[Jmds-svn] r39 - in members/jguers: . TestCard TestCard/.settings TestCard/applets TestCard/applets/de TestCard/applets/de/berlios TestCard/applets/de/berlios/jmds TestCard/applets/de/berlios/jmds/test TestCard/applets/de/berlios/jmds/test/javacard TestCard/generator TestCard/src TestCard/src/de TestCard/src/de/berlios TestCard/src/de/berlios/jmds TestCard/src/de/berlios/jmds/test TestCard/src/de/berlios/jmds/test/clients TestCard/src/de/berlios/jmds/tools
+</A></li>
+        <LI>Next message: <A HREF="000054.html">[Jmds-svn] r41 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/ior fr/umlv/ir3/corba/forum
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#53">[ date ]</a>
+              <a href="thread.html#53">[ thread ]</a>
+              <a href="subject.html#53">[ subject ]</a>
+              <a href="author.html#53">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: dbardin
+Date: 2005-02-25 13:45:53 +0100 (Fri, 25 Feb 2005)
+New Revision: 40
+
+Added:
+   trunk/src/fr/umlv/ir3/corba/forum/PersitantForumServer.java
+Modified:
+   trunk/src/fr/umlv/ir3/corba/forum/FindObject.java
+   trunk/src/security.xml
+Log:
+
+
+Modified: trunk/src/fr/umlv/ir3/corba/forum/FindObject.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/FindObject.java	2005-02-25 00:15:44 UTC (rev 39)
++++ trunk/src/fr/umlv/ir3/corba/forum/FindObject.java	2005-02-25 12:45:53 UTC (rev 40)
+@@ -30,9 +30,16 @@
+         for (int i = 0 ; i&lt;objects.length; i++)
+         	System.out.println(objects[i]);
+         
+-        POA object = (POA) orb.resolve_initial_references(&quot;RootPOA&quot;);
+-        object.the_POAManager().activate();
+-        System.out.println(object.get_servant_manager());
++        // Recuperation du root POA
++        POA rootPOA = (POA) orb.resolve_initial_references(&quot;RootPOA&quot;);
++        
++        // Recuperation des fils du root POA
++        POA[]  child= rootPOA.the_children();
++        for(int i = 0; i&lt; child.length; i++)
++        {
++        	System.out.println(i +&quot; : &quot; + child[i].get_servant());
++        }
++         System.out.println(&quot;RootPOA :&quot; + rootPOA.get_servant());
+         //Object obj = object.id_to_reference(object.id());
+ 		//System.out.println(obj);
+     }
+
+Added: trunk/src/fr/umlv/ir3/corba/forum/PersitantForumServer.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/PersitantForumServer.java	2005-02-25 00:15:44 UTC (rev 39)
++++ trunk/src/fr/umlv/ir3/corba/forum/PersitantForumServer.java	2005-02-25 12:45:53 UTC (rev 40)
+@@ -0,0 +1,77 @@
++/*
++ * Created on 1 oct. 2004
++ */
++package fr.umlv.ir3.corba.forum;
++
++import java.io.*;
++
++import org.omg.CORBA.*;
++import org.omg.CORBA.Object;
++import org.omg.CORBA.ORBPackage.InvalidName;
++import org.omg.CosNaming.*;
++import org.omg.CosNaming.NamingContextPackage.*;
++import org.omg.PortableServer.*;
++import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
++import org.omg.PortableServer.POAPackage.*;
++
++/**
++ * @author jguers
++ */
++public class PersitantForumServer {
++
++	/**
++	 * @param args
++	 * @throws InvalidName
++	 * @throws ServantAlreadyActive
++	 * @throws ObjectNotActive
++	 * @throws WrongPolicy
++	 * @throws IOException
++	 * @throws AdapterInactive
++	 * @throws NotFound
++	 * @throws AlreadyBound
++	 * @throws CannotProceed
++	 * @throws InvalidName
++	 * @throws org.omg.CosNaming.NamingContextPackage.InvalidName 
++	 * @throws InvalidPolicy
++	 * @throws AdapterAlreadyExists
++	 */
++	public static void main(String[] args) throws InvalidName, ServantAlreadyActive, ObjectNotActive, WrongPolicy, IOException, AdapterInactive, NotFound, AlreadyBound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName, AdapterAlreadyExists, InvalidPolicy {
++        
++        java.util.Properties props = System.getProperties();
++//        props.put( &quot;org.omg.CORBA.ORBClass&quot;, &quot;org.openorb.CORBA.ORB&quot; );
++//        props.put( &quot;org.omg.CORBA.ORBSingletonClass&quot;, &quot;org.openorb.CORBA.ORBSingleton&quot; );
++//        props.put( &quot;verbose&quot;, &quot;5&quot; );
++        props.put (&quot;org.omg.PortableInterceptor.ORBInitializerClass.de.berlios.jmds.server.ServerORBInitializer&quot; , &quot;&quot;);
++
++		ORB orb = ORB.init(args, props);
++		POA rootPOA = POAHelper.narrow(orb.resolve_initial_references(&quot;RootPOA&quot;));
++		
++		Policy[] policies = {
++				rootPOA.create_request_processing_policy(RequestProcessingPolicyValue.USE_SERVANT_MANAGER), 
++				rootPOA.create_servant_retention_policy(ServantRetentionPolicyValue.RETAIN),
++				rootPOA.create_lifespan_policy(LifespanPolicyValue.PERSISTENT)
++		};
++		
++		POA forumPOA = rootPOA.create_POA(&quot;forumPOA&quot;, rootPOA.the_POAManager(), policies);
++				
++		ForumImpl forum = new ForumImpl(&quot;Forum de Test&quot;, &quot;GG&quot;);
++		
++		byte [] objectID = forumPOA.activate_object(forum);		
++		Object obj = forumPOA.id_to_reference(objectID);
++		System.out.println(objectID);
++		System.out.println(obj);
++        //Cr&#233;ation du service d'annuaire
++        Object ns = orb.resolve_initial_references(&quot;NameService&quot;);
++        NamingContextExt nc = NamingContextExtHelper.narrow(ns) ;
++        
++        NameComponent[] name = nc.to_name(&quot;jmdsForum&quot;);
++        
++        nc.rebind(name,obj);
++        
++		rootPOA.the_POAManager().activate();
++        
++        System.out.println(&quot;Server ready&quot;);
++        
++		orb.run();
++	}
++}
+
+Modified: trunk/src/security.xml
+===================================================================
+--- trunk/src/security.xml	2005-02-25 00:15:44 UTC (rev 39)
++++ trunk/src/security.xml	2005-02-25 12:45:53 UTC (rev 40)
+@@ -1,8 +1,7 @@
+ &lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot; ?&gt;
+ 
+ &lt;jmds&gt;
+-	test
+-   &lt;server key=&quot;0123456789&quot;/&gt;
++	&lt;server key=&quot;0123456789&quot;/&gt;
+    &lt;clients&gt;
+       &lt;client id=&quot;1&quot; key=&quot;1111111111&quot; group=&quot;grp_1&quot;/&gt;
+       &lt;client id=&quot;2&quot; key=&quot;2222222222&quot; group=&quot;grp_2&quot;/&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000052.html">[Jmds-svn] r39 - in members/jguers: . TestCard TestCard/.settings TestCard/applets TestCard/applets/de TestCard/applets/de/berlios TestCard/applets/de/berlios/jmds TestCard/applets/de/berlios/jmds/test TestCard/applets/de/berlios/jmds/test/javacard TestCard/generator TestCard/src TestCard/src/de TestCard/src/de/berlios TestCard/src/de/berlios/jmds TestCard/src/de/berlios/jmds/test TestCard/src/de/berlios/jmds/test/clients TestCard/src/de/berlios/jmds/tools
+</A></li>
+	<LI>Next message: <A HREF="000054.html">[Jmds-svn] r41 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/ior fr/umlv/ir3/corba/forum
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#53">[ date ]</a>
+              <a href="thread.html#53">[ thread ]</a>
+              <a href="subject.html#53">[ subject ]</a>
+              <a href="author.html#53">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

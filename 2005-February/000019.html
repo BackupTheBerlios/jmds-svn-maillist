@@ -1,0 +1,672 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r15 - in trunk: . generated-src/fr/umlv/ir3/corba/sguincha/td2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r15%20-%20in%20trunk%3A%20.%20generated-src/fr/umlv/ir3/corba/sguincha/td2&In-Reply-To=%3C200502182245.j1IMjqrW019227%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000018.html">
+   <LINK REL="Next"  HREF="000020.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r15 - in trunk: . generated-src/fr/umlv/ir3/corba/sguincha/td2</H1>
+    <B>S&#233;bastien Guinchard at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r15%20-%20in%20trunk%3A%20.%20generated-src/fr/umlv/ir3/corba/sguincha/td2&In-Reply-To=%3C200502182245.j1IMjqrW019227%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r15 - in trunk: . generated-src/fr/umlv/ir3/corba/sguincha/td2">sguincha at sheep.berlios.de
+       </A><BR>
+    <I>Fri Feb 18 23:45:52 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000018.html">[Jmds-svn] r14 - in members/jguers/TestCard/src/de/berlios/jmds: . client client/core server server/core tools
+</A></li>
+        <LI>Next message: <A HREF="000020.html">[Jmds-svn] JMSD: Intercepteurs
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: sguincha
+Date: 2005-02-18 23:45:52 +0100 (Fri, 18 Feb 2005)
+New Revision: 15
+
+Modified:
+   trunk/ObjectRef
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHelper.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHolder.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumOperations.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumPOA.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Message.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHelper.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHolder.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHelper.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHolder.java
+   trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/_ForumStub.java
+Log:
+Tiens mon gros Denis... Voil?\195?\160 un petit peu de logs ; )
+
+Modified: trunk/ObjectRef
+===================================================================
+--- trunk/ObjectRef	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/ObjectRef	2005-02-18 22:45:52 UTC (rev 15)
+@@ -1 +1 @@
+-IOR:000000000000001249444c3a7464322f466f72756d3a312e30000000000000010000000000000086000102000000000e38342e39392e3232322e32353200101200000031afabcb000000002026cbea9200000001000000000000000100000008526f6f74504f410000000008000000010000000014000000000000020000000100000020000000000001000100000002050100010001002000010109000000010001010000000026000000020002
+\ No newline at end of file
++IOR:000000000000001249444c3a7464322f466f72756d3a312e30000000000000010000000000000086000102000000000e38342e39392e3232322e323532000f1700000031afabcb0000000020279dc83800000001000000000000000100000008526f6f74504f410000000008000000010000000014000000000000020000000100000020000000000001000100000002050100010001002000010109000000010001010000000026000000020002
+\ No newline at end of file
+
+Modified: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHelper.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHelper.java	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHelper.java	2005-02-18 22:45:52 UTC (rev 15)
+@@ -10,6 +10,10 @@
+ {
+ 	private static String	_id	= &quot;IDL:td2/Forum:1.0&quot;;
+ 
++	/**
++	 * @param a
++	 * @param that
++	 */
+ 	public static void insert (org.omg.CORBA.Any a, fr.umlv.ir3.corba.sguincha.td2.Forum that)
+ 	{
+ 		org.omg.CORBA.portable.OutputStream out = a.create_output_stream ();
+@@ -18,6 +22,10 @@
+ 		a.read_value (out.create_input_stream () , type ());
+ 	}
+ 
++	/**
++	 * @param a
++	 * @return a Forum
++	 */
+ 	public static fr.umlv.ir3.corba.sguincha.td2.Forum extract (org.omg.CORBA.Any a)
+ 	{
+ 		return read (a.create_input_stream ());
+@@ -25,6 +33,9 @@
+ 
+ 	private static org.omg.CORBA.TypeCode	__typeCode	= null;
+ 
++	/**
++	 * @return the TypeCOde
++	 */
+ 	synchronized public static org.omg.CORBA.TypeCode type ()
+ 	{
+ 		if (__typeCode == null)
+@@ -34,21 +45,36 @@
+ 		return __typeCode;
+ 	}
+ 
++	/**
++	 * @return the string id
++	 */
+ 	public static String id ()
+ 	{
+ 		return _id;
+ 	}
+ 
++	/**
++	 * @param istream
++	 * @return a forum
++	 */
+ 	public static fr.umlv.ir3.corba.sguincha.td2.Forum read (org.omg.CORBA.portable.InputStream istream)
+ 	{
+ 		return narrow (istream.read_Object (_ForumStub.class));
+ 	}
+ 
++	/**
++	 * @param ostream
++	 * @param value
++	 */
+ 	public static void write (org.omg.CORBA.portable.OutputStream ostream, fr.umlv.ir3.corba.sguincha.td2.Forum value)
+ 	{
+ 		ostream.write_Object ((org.omg.CORBA.Object) value);
+ 	}
+ 
++	/**
++	 * @param obj
++	 * @return a forum
++	 */
+ 	public static fr.umlv.ir3.corba.sguincha.td2.Forum narrow (org.omg.CORBA.Object obj)
+ 	{
+ 		if (obj == null)
+@@ -66,6 +92,10 @@
+ 		}
+ 	}
+ 
++	/**
++	 * @param obj
++	 * @return a forum
++	 */
+ 	public static fr.umlv.ir3.corba.sguincha.td2.Forum unchecked_narrow (org.omg.CORBA.Object obj)
+ 	{
+ 		if (obj == null)
+
+Modified: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHolder.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHolder.java	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumHolder.java	2005-02-18 22:45:52 UTC (rev 15)
+@@ -8,27 +8,45 @@
+ 
+ public final class ForumHolder implements org.omg.CORBA.portable.Streamable
+ {
++	/**
++	 * Comment for &lt;code&gt;value&lt;/code&gt;
++	 */
+ 	public fr.umlv.ir3.corba.sguincha.td2.Forum	value	= null;
+ 
++	/**
++	 * 
++	 */
+ 	public ForumHolder ()
+ 	{
+ 	}
+ 
++	/**
++	 * @param initialValue
++	 */
+ 	public ForumHolder (fr.umlv.ir3.corba.sguincha.td2.Forum initialValue)
+ 	{
+ 		value = initialValue;
+ 	}
+ 
++	/**
++	 * @see org.omg.CORBA.portable.Streamable#_read(org.omg.CORBA.portable.InputStream)
++	 */
+ 	public void _read (org.omg.CORBA.portable.InputStream i)
+ 	{
+ 		value = fr.umlv.ir3.corba.sguincha.td2.ForumHelper.read (i);
+ 	}
+ 
++	/**
++	 * @see org.omg.CORBA.portable.Streamable#_write(org.omg.CORBA.portable.OutputStream)
++	 */
+ 	public void _write (org.omg.CORBA.portable.OutputStream o)
+ 	{
+ 		fr.umlv.ir3.corba.sguincha.td2.ForumHelper.write (o , value);
+ 	}
+ 
++	/**
++	 * @see org.omg.CORBA.portable.Streamable#_type()
++	 */
+ 	public org.omg.CORBA.TypeCode _type ()
+ 	{
+ 		return fr.umlv.ir3.corba.sguincha.td2.ForumHelper.type ();
+
+Modified: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumOperations.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumOperations.java	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumOperations.java	2005-02-18 22:45:52 UTC (rev 15)
+@@ -8,15 +8,36 @@
+ 
+ public interface ForumOperations
+ {
++	/**
++	 * @return the theme
++	 */
+ 	String theme ();
+ 
++	/**
++	 * @return a String 
++	 */
+ 	String moderator ();
+ 
++	/**
++	 * @param m
++	 * @return if the operation successfully or not
++	 */
+ 	boolean postMessage (fr.umlv.ir3.corba.sguincha.td2.Message m);
+ 
++	/**
++	 * @param title
++	 * @return a message
++	 */
+ 	fr.umlv.ir3.corba.sguincha.td2.Message getMessage (String title);
+ 
++	/**
++	 * @return the table of Message
++	 */
+ 	fr.umlv.ir3.corba.sguincha.td2.Message[] getMessages ();
+ 
++	/**
++	 * @param title
++	 * @return if the remove operation successfully or not
++	 */
+ 	boolean removeMessage (String title);
+ } // interface ForumOperations
+
+Modified: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumPOA.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumPOA.java	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/ForumPOA.java	2005-02-18 22:45:52 UTC (rev 15)
+@@ -22,6 +22,9 @@
+ 		_methods.put (&quot;removeMessage&quot; , new java.lang.Integer (5));
+ 	}
+ 
++	/**
++	 * @see org.omg.CORBA.portable.InvokeHandler#_invoke(java.lang.String, org.omg.CORBA.portable.InputStream, org.omg.CORBA.portable.ResponseHandler)
++	 */
+ 	public org.omg.CORBA.portable.OutputStream _invoke (String $method, org.omg.CORBA.portable.InputStream in, org.omg.CORBA.portable.ResponseHandler $rh)
+ 	{
+ 		org.omg.CORBA.portable.OutputStream out = null;
+@@ -98,16 +101,26 @@
+ 	// Type-specific CORBA::Object operations
+ 	private static String []	__ids	= {&quot;IDL:td2/Forum:1.0&quot;};
+ 
++	/**
++	 * @see org.omg.PortableServer.Servant#_all_interfaces(org.omg.PortableServer.POA, byte[])
++	 */
+ 	public String [] _all_interfaces (org.omg.PortableServer.POA poa, byte [] objectId)
+ 	{
+ 		return (String []) __ids.clone ();
+ 	}
+ 
++	/**
++	 * @return the forum
++	 */
+ 	public Forum _this ()
+ 	{
+ 		return ForumHelper.narrow (super._this_object ());
+ 	}
+ 
++	/**
++	 * @param orb
++	 * @return a forum
++	 */
+ 	public Forum _this (org.omg.CORBA.ORB orb)
+ 	{
+ 		return ForumHelper.narrow (super._this_object (orb));
+
+Modified: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Message.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Message.java	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/Message.java	2005-02-18 22:45:52 UTC (rev 15)
+@@ -8,15 +8,40 @@
+ 
+ public final class Message implements org.omg.CORBA.portable.IDLEntity
+ {
++	/**
++	 * Comment for &lt;code&gt;serialVersionUID&lt;/code&gt;
++	 */
++	private static final long	serialVersionUID	= 1L;
++	/**
++	 * Comment for &lt;code&gt;title&lt;/code&gt;
++	 */
+ 	public String	title	= null;
++	/**
++	 * Comment for &lt;code&gt;author&lt;/code&gt;
++	 */
+ 	public String	author	= null;
++	/**
++	 * Comment for &lt;code&gt;date&lt;/code&gt;
++	 */
+ 	public String	date	= null;
++	/**
++	 * Comment for &lt;code&gt;body&lt;/code&gt;
++	 */
+ 	public String	body	= null;
+ 
++	/**
++	 * 
++	 */
+ 	public Message ()
+ 	{
+ 	} // ctor
+ 
++	/**
++	 * @param _title
++	 * @param _author
++	 * @param _date
++	 * @param _body
++	 */
+ 	public Message (String _title, String _author, String _date, String _body)
+ 	{
+ 		title = _title;
+
+Modified: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHelper.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHelper.java	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHelper.java	2005-02-18 22:45:52 UTC (rev 15)
+@@ -10,6 +10,10 @@
+ {
+ 	private static String	_id	= &quot;IDL:td2/Message/Message:1.0&quot;;
+ 
++	/**
++	 * @param a
++	 * @param that
++	 */
+ 	public static void insert (org.omg.CORBA.Any a, fr.umlv.ir3.corba.sguincha.td2.Message that)
+ 	{
+ 		org.omg.CORBA.portable.OutputStream out = a.create_output_stream ();
+@@ -18,6 +22,10 @@
+ 		a.read_value (out.create_input_stream () , type ());
+ 	}
+ 
++	/**
++	 * @param a
++	 * @return a Message
++	 */
+ 	public static fr.umlv.ir3.corba.sguincha.td2.Message extract (org.omg.CORBA.Any a)
+ 	{
+ 		return read (a.create_input_stream ());
+@@ -26,6 +34,9 @@
+ 	private static org.omg.CORBA.TypeCode	__typeCode	= null;
+ 	private static boolean					__active	= false;
+ 
++	/**
++	 * @return a TypeCode
++	 */
+ 	synchronized public static org.omg.CORBA.TypeCode type ()
+ 	{
+ 		if (__typeCode == null)
+@@ -57,11 +68,18 @@
+ 		return __typeCode;
+ 	}
+ 
++	/**
++	 * @return rhe String ID
++	 */
+ 	public static String id ()
+ 	{
+ 		return _id;
+ 	}
+ 
++	/**
++	 * @param istream
++	 * @return a Message
++	 */
+ 	public static fr.umlv.ir3.corba.sguincha.td2.Message read (org.omg.CORBA.portable.InputStream istream)
+ 	{
+ 		fr.umlv.ir3.corba.sguincha.td2.Message value = new fr.umlv.ir3.corba.sguincha.td2.Message ();
+@@ -72,6 +90,10 @@
+ 		return value;
+ 	}
+ 
++	/**
++	 * @param ostream
++	 * @param value
++	 */
+ 	public static void write (org.omg.CORBA.portable.OutputStream ostream, fr.umlv.ir3.corba.sguincha.td2.Message value)
+ 	{
+ 		ostream.write_string (value.title);
+
+Modified: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHolder.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHolder.java	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageHolder.java	2005-02-18 22:45:52 UTC (rev 15)
+@@ -8,27 +8,45 @@
+ 
+ public final class MessageHolder implements org.omg.CORBA.portable.Streamable
+ {
++	/**
++	 * Comment for &lt;code&gt;value&lt;/code&gt;
++	 */
+ 	public fr.umlv.ir3.corba.sguincha.td2.Message	value	= null;
+ 
++	/**
++	 * 
++	 */
+ 	public MessageHolder ()
+ 	{
+ 	}
+ 
++	/**
++	 * @param initialValue
++	 */
+ 	public MessageHolder (fr.umlv.ir3.corba.sguincha.td2.Message initialValue)
+ 	{
+ 		value = initialValue;
+ 	}
+ 
++	/**
++	 * @see org.omg.CORBA.portable.Streamable#_read(org.omg.CORBA.portable.InputStream)
++	 */
+ 	public void _read (org.omg.CORBA.portable.InputStream i)
+ 	{
+ 		value = fr.umlv.ir3.corba.sguincha.td2.MessageHelper.read (i);
+ 	}
+ 
++	/**
++	 * @see org.omg.CORBA.portable.Streamable#_write(org.omg.CORBA.portable.OutputStream)
++	 */
+ 	public void _write (org.omg.CORBA.portable.OutputStream o)
+ 	{
+ 		fr.umlv.ir3.corba.sguincha.td2.MessageHelper.write (o , value);
+ 	}
+ 
++	/**
++	 * @see org.omg.CORBA.portable.Streamable#_type()
++	 */
+ 	public org.omg.CORBA.TypeCode _type ()
+ 	{
+ 		return fr.umlv.ir3.corba.sguincha.td2.MessageHelper.type ();
+
+Modified: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHelper.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHelper.java	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHelper.java	2005-02-18 22:45:52 UTC (rev 15)
+@@ -10,6 +10,10 @@
+ {
+ 	private static String	_id	= &quot;IDL:td2/MessageSet:1.0&quot;;
+ 
++	/**
++	 * @param a
++	 * @param that
++	 */
+ 	public static void insert (org.omg.CORBA.Any a, fr.umlv.ir3.corba.sguincha.td2.Message[] that)
+ 	{
+ 		org.omg.CORBA.portable.OutputStream out = a.create_output_stream ();
+@@ -18,6 +22,10 @@
+ 		a.read_value (out.create_input_stream () , type ());
+ 	}
+ 
++	/**
++	 * @param a 
++	 * @return a table of message
++	 */
+ 	public static fr.umlv.ir3.corba.sguincha.td2.Message[] extract (org.omg.CORBA.Any a)
+ 	{
+ 		return read (a.create_input_stream ());
+@@ -25,6 +33,9 @@
+ 
+ 	private static org.omg.CORBA.TypeCode	__typeCode	= null;
+ 
++	/**
++	 * @return a TypeCode
++	 */
+ 	synchronized public static org.omg.CORBA.TypeCode type ()
+ 	{
+ 		if (__typeCode == null)
+@@ -36,11 +47,18 @@
+ 		return __typeCode;
+ 	}
+ 
++	/**
++	 * @return a String ID
++	 */
+ 	public static String id ()
+ 	{
+ 		return _id;
+ 	}
+ 
++	/**
++	 * @param istream
++	 * @return a table of Message
++	 */
+ 	public static fr.umlv.ir3.corba.sguincha.td2.Message[] read (org.omg.CORBA.portable.InputStream istream)
+ 	{
+ 		fr.umlv.ir3.corba.sguincha.td2.Message value[] = null;
+@@ -51,6 +69,10 @@
+ 		return value;
+ 	}
+ 
++	/**
++	 * @param ostream
++	 * @param value
++	 */
+ 	public static void write (org.omg.CORBA.portable.OutputStream ostream, fr.umlv.ir3.corba.sguincha.td2.Message[] value)
+ 	{
+ 		ostream.write_long (value.length);
+
+Modified: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHolder.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHolder.java	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/MessageSetHolder.java	2005-02-18 22:45:52 UTC (rev 15)
+@@ -8,27 +8,45 @@
+ 
+ public final class MessageSetHolder implements org.omg.CORBA.portable.Streamable
+ {
++	/**
++	 * Comment for &lt;code&gt;value&lt;/code&gt;
++	 */
+ 	public fr.umlv.ir3.corba.sguincha.td2.Message	value[]	= null;
+ 
++	/**
++	 * 
++	 */
+ 	public MessageSetHolder ()
+ 	{
+ 	}
+ 
++	/**
++	 * @param initialValue
++	 */
+ 	public MessageSetHolder (fr.umlv.ir3.corba.sguincha.td2.Message[] initialValue)
+ 	{
+ 		value = initialValue;
+ 	}
+ 
++	/**
++	 * @see org.omg.CORBA.portable.Streamable#_read(org.omg.CORBA.portable.InputStream)
++	 */
+ 	public void _read (org.omg.CORBA.portable.InputStream i)
+ 	{
+ 		value = fr.umlv.ir3.corba.sguincha.td2.MessageSetHelper.read (i);
+ 	}
+ 
++	/**
++	 * @see org.omg.CORBA.portable.Streamable#_write(org.omg.CORBA.portable.OutputStream)
++	 */
+ 	public void _write (org.omg.CORBA.portable.OutputStream o)
+ 	{
+ 		fr.umlv.ir3.corba.sguincha.td2.MessageSetHelper.write (o , value);
+ 	}
+ 
++	/**
++	 * @see org.omg.CORBA.portable.Streamable#_type()
++	 */
+ 	public org.omg.CORBA.TypeCode _type ()
+ 	{
+ 		return fr.umlv.ir3.corba.sguincha.td2.MessageSetHelper.type ();
+
+Modified: trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/_ForumStub.java
+===================================================================
+--- trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/_ForumStub.java	2005-02-18 22:44:45 UTC (rev 14)
++++ trunk/generated-src/fr/umlv/ir3/corba/sguincha/td2/_ForumStub.java	2005-02-18 22:45:52 UTC (rev 15)
+@@ -9,6 +9,14 @@
+ public class _ForumStub extends org.omg.CORBA.portable.ObjectImpl implements fr.umlv.ir3.corba.sguincha.td2.Forum
+ {
+ 
++	/**
++	 * Comment for &lt;code&gt;serialVersionUID&lt;/code&gt;
++	 */
++	private static final long	serialVersionUID	= 1L;
++
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#theme()
++	 */
+ 	public String theme ()
+ 	{
+ 		org.omg.CORBA.portable.InputStream $in = null;
+@@ -35,6 +43,9 @@
+ 		}
+ 	} // theme
+ 
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#moderator()
++	 */
+ 	public String moderator ()
+ 	{
+ 		org.omg.CORBA.portable.InputStream $in = null;
+@@ -61,6 +72,9 @@
+ 		}
+ 	} // moderator
+ 
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#postMessage(fr.umlv.ir3.corba.sguincha.td2.Message)
++	 */
+ 	public boolean postMessage (fr.umlv.ir3.corba.sguincha.td2.Message m)
+ 	{
+ 		org.omg.CORBA.portable.InputStream $in = null;
+@@ -88,6 +102,9 @@
+ 		}
+ 	} // postMessage
+ 
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#getMessage(java.lang.String)
++	 */
+ 	public fr.umlv.ir3.corba.sguincha.td2.Message getMessage (String title)
+ 	{
+ 		org.omg.CORBA.portable.InputStream $in = null;
+@@ -115,6 +132,9 @@
+ 		}
+ 	} // getMessage
+ 
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#getMessages()
++	 */
+ 	public fr.umlv.ir3.corba.sguincha.td2.Message[] getMessages ()
+ 	{
+ 		org.omg.CORBA.portable.InputStream $in = null;
+@@ -141,6 +161,9 @@
+ 		}
+ 	} // getMessages
+ 
++	/**
++	 * @see fr.umlv.ir3.corba.sguincha.td2.ForumOperations#removeMessage(java.lang.String)
++	 */
+ 	public boolean removeMessage (String title)
+ 	{
+ 		org.omg.CORBA.portable.InputStream $in = null;
+@@ -171,6 +194,9 @@
+ 	// Type-specific CORBA::Object operations
+ 	private static String []	__ids	= {&quot;IDL:td2/Forum:1.0&quot;};
+ 
++	/**
++	 * @see org.omg.CORBA.portable.ObjectImpl#_ids()
++	 */
+ 	public String [] _ids ()
+ 	{
+ 		return (String []) __ids.clone ();
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000018.html">[Jmds-svn] r14 - in members/jguers/TestCard/src/de/berlios/jmds: . client client/core server server/core tools
+</A></li>
+	<LI>Next message: <A HREF="000020.html">[Jmds-svn] JMSD: Intercepteurs
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,771 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Jmds-svn] r32 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/server de/berlios/jmds/tools fr/umlv/ir3/corba/forum
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/jmds-svn/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r32%20-%20in%20trunk/src%3A%20de/berlios/jmds/client%20de/berlios/jmds/server%20de/berlios/jmds/tools%20fr/umlv/ir3/corba/forum&In-Reply-To=%3C200502232152.j1NLqoNs002376%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000043.html">
+   <LINK REL="Next"  HREF="000045.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Jmds-svn] r32 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/server de/berlios/jmds/tools fr/umlv/ir3/corba/forum</H1>
+    <B>Denis BARDIN at BerliOS</B> 
+    <A HREF="mailto:jmds-svn%40lists.berlios.de?Subject=Re%3A%20%5BJmds-svn%5D%20r32%20-%20in%20trunk/src%3A%20de/berlios/jmds/client%20de/berlios/jmds/server%20de/berlios/jmds/tools%20fr/umlv/ir3/corba/forum&In-Reply-To=%3C200502232152.j1NLqoNs002376%40sheep.berlios.de%3E"
+       TITLE="[Jmds-svn] r32 - in trunk/src: de/berlios/jmds/client de/berlios/jmds/server de/berlios/jmds/tools fr/umlv/ir3/corba/forum">dbardin at sheep.berlios.de
+       </A><BR>
+    <I>Wed Feb 23 22:52:50 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000043.html">[Jmds-svn] r31 - trunk
+</A></li>
+        <LI>Next message: <A HREF="000045.html">[Jmds-svn] r33 - team/Docs team/Docs/uml trunk trunk/src/de/berlios/jmds/applet trunk/test/de/berlios/jmds/test/clients
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#44">[ date ]</a>
+              <a href="thread.html#44">[ thread ]</a>
+              <a href="subject.html#44">[ subject ]</a>
+              <a href="author.html#44">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: dbardin
+Date: 2005-02-23 22:52:47 +0100 (Wed, 23 Feb 2005)
+New Revision: 32
+
+Added:
+   trunk/src/de/berlios/jmds/tools/RightsConfiguration.java
+   trunk/src/de/berlios/jmds/tools/SecurityConfiguration.java
+Modified:
+   trunk/src/de/berlios/jmds/client/ClientInter.java
+   trunk/src/de/berlios/jmds/client/ClientORBInitializer.java
+   trunk/src/de/berlios/jmds/client/SCAppletClient.java
+   trunk/src/de/berlios/jmds/server/RightsManager.java
+   trunk/src/de/berlios/jmds/server/SCManager.java
+   trunk/src/de/berlios/jmds/server/ServerInter.java
+   trunk/src/de/berlios/jmds/server/ServerORBInitializer.java
+   trunk/src/de/berlios/jmds/tools/Convertor.java
+   trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java
+   trunk/src/fr/umlv/ir3/corba/forum/ForumImpl.java
+   trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java
+Log:
+Nettoyage des classes + creation d'ojet de stockage des fichiers de configuration
+
+Modified: trunk/src/de/berlios/jmds/client/ClientInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/ClientInter.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/de/berlios/jmds/client/ClientInter.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -1,19 +1,21 @@
+-/*
+- * Created on 18 f&#233;vr. 2005
+- * by S&#233;bastien GUINCHARD
+- * Copyright: GPL - UMLV(FR) - 2004/2005
++/* 
++ * File    : SCManager.java
++ * Created : 18 f&#233;vr. 2005
++ * 
++ * =======================================
++ * JMDS PROJECT (&quot;<A HREF="http://jmds.berlios.de">http://jmds.berlios.de</A>&quot;)
++ * =======================================
++ *
+  */
+ package de.berlios.jmds.client;
+ 
+-import org.omg.IOP.ServiceContext;
+-import org.omg.PortableInterceptor.*;
++import org.omg.PortableInterceptor.ClientRequestInfo;
++import org.omg.PortableInterceptor.ClientRequestInterceptor;
++import org.omg.PortableInterceptor.ForwardRequest;
+ 
+ /**
+- * DOCME
++ * @author S&#233;bastien GUINCHARD
+  * 
+- * @version 0.1
+- * 
+- * @author S&#233;bastien GUINCHARD
+  */
+ public class ClientInter extends org.omg.CORBA.LocalObject implements
+         ClientRequestInterceptor {
+@@ -23,6 +25,10 @@
+      */
+     private static final long serialVersionUID = 3618417146430765111L;
+ 
++    //----------------------------------------------------------//
++	//------------------- PUBLIC METHODS -----------------------//
++	//----------------------------------------------------------//
++    
+     /**
+      * @see org.omg.PortableInterceptor.ClientRequestInterceptorOperations#send_request(org.omg.PortableInterceptor.ClientRequestInfo)
+      */
+
+Modified: trunk/src/de/berlios/jmds/client/ClientORBInitializer.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/ClientORBInitializer.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/de/berlios/jmds/client/ClientORBInitializer.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -1,7 +1,11 @@
+-/*
+- * Created on 18 f&#233;vr. 2005
+- * by S&#233;bastien GUINCHARD
+- * Copyright: GPL - UMLV(FR) - 2004/2005
++/* 
++ * File    : SCManager.java
++ * Created : 18 f&#233;vr. 2005
++ * 
++ * =======================================
++ * JMDS PROJECT (&quot;<A HREF="http://jmds.berlios.de">http://jmds.berlios.de</A>&quot;)
++ * =======================================
++ *
+  */
+ package de.berlios.jmds.client;
+ 
+@@ -11,11 +15,8 @@
+ import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
+ 
+ /**
+- * DOCME
++ * @author S&#233;bastien GUINCHARD
+  * 
+- * @version 0.1
+- * 
+- * @author S&#233;bastien GUINCHARD
+  */
+ public class ClientORBInitializer extends LocalObject implements ORBInitializer {
+ 
+@@ -24,6 +25,10 @@
+      */
+     private static final long serialVersionUID = 1L;
+ 
++	//----------------------------------------------------------//
++	//------------------- PUBLIC METHODS -----------------------//
++	//----------------------------------------------------------//
++    
+     /**
+      * @see org.omg.PortableInterceptor.ORBInitializerOperations#pre_init(org.omg.PortableInterceptor.ORBInitInfo)
+      */
+
+Modified: trunk/src/de/berlios/jmds/client/SCAppletClient.java
+===================================================================
+--- trunk/src/de/berlios/jmds/client/SCAppletClient.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/de/berlios/jmds/client/SCAppletClient.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -51,7 +51,7 @@
+ 	}
+ 	
+ 	/**
+-	 * @param iRequest_ID as id of the request message
++	 * @param RequestId as id of the request message
+ 	 * @return The array byte which contains the encoding servec context
+ 	 */
+ 	public byte[] code (byte[] RequestId)
+
+Modified: trunk/src/de/berlios/jmds/server/RightsManager.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/RightsManager.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/de/berlios/jmds/server/RightsManager.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -10,8 +10,8 @@
+ 
+ package de.berlios.jmds.server;
+ 
+-import org.apache.commons.configuration.ConfigurationException;
+-import org.apache.commons.configuration.XMLConfiguration;
++import de.berlios.jmds.tools.RightsConfiguration;
++import de.berlios.jmds.tools.SecurityConfiguration;
+ 
+ /**
+  * @author Denis
+@@ -20,17 +20,15 @@
+ public class RightsManager {
+ 	
+ 	/** The security configuration **/
+-	private XMLConfiguration securityConfig;
++	private SecurityConfiguration securityConfig = SecurityConfiguration.getInstance();
+ 	
+ 	/** The rights configuration **/
+-	private XMLConfiguration rightsConfig;
++	private RightsConfiguration rightsConfig=RightsConfiguration.getInstance();
+ 	
+-	/** The security config file **/
+-	private static final String SECURITY_FILE = &quot;security.xml&quot;;
+ 	
+-	/** The rigts config file **/
+-	private static final String RIGHTS_FILE = &quot;rights.xml&quot;;
+ 	
++	
++	
+ 	/** The singleton instance * */
+ 	private static RightsManager INSTANCE = null;
+ 	
+@@ -44,16 +42,7 @@
+ 	 */
+ 	private RightsManager ()
+ 	{
+-		try
+-		{
+-			XMLConfiguration.setDelimiter('\n');
+-			this.securityConfig = new XMLConfiguration (SECURITY_FILE);
+-			this.rightsConfig = new XMLConfiguration (RIGHTS_FILE);				
+-		}
+-		catch (ConfigurationException e)
+-		{
+-			throw new RuntimeException (e);
+-		}			
++			
+ 	}
+ 	
+ 	//----------------------------------------------------------//
+@@ -62,9 +51,9 @@
+ 
+ 	
+ 	/**
+-	 * To get the singleton instance of LDAP
++	 * To get the singleton instance of RightsManager
+ 	 * 
+-	 * @return the singleton instance of LDAP
++	 * @return the singleton instance of RightsManager
+ 	 */
+ 	public static RightsManager getInstance ()
+ 	{
+
+Modified: trunk/src/de/berlios/jmds/server/SCManager.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/SCManager.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/de/berlios/jmds/server/SCManager.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -10,12 +10,17 @@
+ 
+ package de.berlios.jmds.server;
+ 
++import de.berlios.jmds.tools.SecurityConfiguration;
+ 
++
+ /**
+  * @author Denis
+  *
+  */
+ public class SCManager {
++	/** The security configuration **/
++	private SecurityConfiguration securityConfig = SecurityConfiguration.getInstance();
++	
+ 	/** The singleton instance * */
+ 	private static SCManager INSTANCE = null;
+ 	
+@@ -38,9 +43,9 @@
+ 
+ 	
+ 	/**
+-	 * To get the singleton instance of LDAP
++	 * To get the singleton instance of SCManager
+ 	 * 
+-	 * @return the singleton instance of LDAP
++	 * @return the singleton instance of SCManager
+ 	 */
+ 	public static SCManager getInstance ()
+ 	{
+@@ -51,7 +56,7 @@
+ 	}
+ 	
+ 	/**
+-	 * @param iRequest_ID as id of the request message
++	 * @param RequestId as id of the request message
+ 	 * @return The array byte which contains the encoding servec context
+ 	 */
+ 	public byte[] code (byte[] RequestId)
+
+Modified: trunk/src/de/berlios/jmds/server/ServerInter.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/ServerInter.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/de/berlios/jmds/server/ServerInter.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -1,19 +1,21 @@
+-/*
+- * Created on 18 f&#233;vr. 2005
+- * by S&#233;bastien GUINCHARD
+- * Copyright: GPL - UMLV(FR) - 2004/2005
++/* 
++ * File    : SCManager.java
++ * Created : 18 f&#233;vr. 2005
++ * 
++ * =======================================
++ * JMDS PROJECT (&quot;<A HREF="http://jmds.berlios.de">http://jmds.berlios.de</A>&quot;)
++ * =======================================
++ *
+  */
++
+ package de.berlios.jmds.server;
+ 
+ import org.omg.IOP.ServiceContext;
+ import org.omg.PortableInterceptor.*;
+ 
+-/**
+- * DOCME
++/** 
++ * @author S&#233;bastien GUINCHARD
+  * 
+- * @version 0.1
+- * 
+- * @author S&#233;bastien GUINCHARD
+  */
+ public class ServerInter extends org.omg.CORBA.LocalObject implements ServerRequestInterceptor
+ {
+@@ -23,6 +25,10 @@
+      */
+     private static final long serialVersionUID = 3689630311277277232L;
+ 
++	//----------------------------------------------------------//
++	//------------------- PUBLIC METHODS -----------------------//
++	//----------------------------------------------------------//    
++    
+     /**
+ 	 * @see org.omg.PortableInterceptor.ServerRequestInterceptorOperations#receive_request_service_contexts(org.omg.PortableInterceptor.ServerRequestInfo)
+ 	 */
+
+Modified: trunk/src/de/berlios/jmds/server/ServerORBInitializer.java
+===================================================================
+--- trunk/src/de/berlios/jmds/server/ServerORBInitializer.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/de/berlios/jmds/server/ServerORBInitializer.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -1,8 +1,13 @@
+-/*
+- * Created on 18 f&#233;vr. 2005
+- * by S&#233;bastien GUINCHARD
+- * Copyright: GPL - UMLV(FR) - 2004/2005
++/* 
++ * File    : SCManager.java
++ * Created : 18 f&#233;vr. 2005
++ * 
++ * =======================================
++ * JMDS PROJECT (&quot;<A HREF="http://jmds.berlios.de">http://jmds.berlios.de</A>&quot;)
++ * =======================================
++ *
+  */
++
+ package de.berlios.jmds.server;
+ 
+ import org.omg.CORBA.LocalObject;
+@@ -10,11 +15,8 @@
+ import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
+ 
+ /**
+- * DOCME
++ * @author S&#233;bastien GUINCHARD
+  * 
+- * @version 0.1
+- * 
+- * @author S&#233;bastien GUINCHARD
+  */
+ public class ServerORBInitializer extends LocalObject implements ORBInitializer {
+ 
+@@ -23,6 +25,10 @@
+      */
+     private static final long serialVersionUID = 1L;
+ 
++	//----------------------------------------------------------//
++	//------------------- PUBLIC METHODS -----------------------//
++	//----------------------------------------------------------//
++    
+     /**
+      * @see org.omg.PortableInterceptor.ORBInitializerOperations#pre_init(org.omg.PortableInterceptor.ORBInitInfo)
+      */
+
+Modified: trunk/src/de/berlios/jmds/tools/Convertor.java
+===================================================================
+--- trunk/src/de/berlios/jmds/tools/Convertor.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/de/berlios/jmds/tools/Convertor.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -1,20 +1,28 @@
+-/*
+- * Created on 9 f&#233;vr. 2005
+- * by J&#233;r&#244;me GUERS
+- * Copyright: GPL - UMLV(FR) - 2004/2005
++/* 
++ * File    : SCManager.java
++ * Created : 9 f&#233;vr. 2005
++ * 
++ * =======================================
++ * JMDS PROJECT (&quot;<A HREF="http://jmds.berlios.de">http://jmds.berlios.de</A>&quot;)
++ * =======================================
++ *
+  */
++
+ package de.berlios.jmds.tools;
+ 
+ /**
+  * Permet la conversion de String en short[] et inversement
+  * 
+- * @version 0.1
++ * @author J&#233;r&#244;me GUERS
+  * 
+- * @author J&#233;r&#244;me GUERS
+  */
+ public class Convertor {
+     
+-    /**
++	//----------------------------------------------------------//
++	//------------------- PUBLIC METHODS -----------------------//
++	//----------------------------------------------------------//    
++	
++	/**
+      * DOCME
+      * @param value 
+      * @return a table of short
+
+Added: trunk/src/de/berlios/jmds/tools/RightsConfiguration.java
+===================================================================
+--- trunk/src/de/berlios/jmds/tools/RightsConfiguration.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/de/berlios/jmds/tools/RightsConfiguration.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -0,0 +1,106 @@
++/* 
++ * File    : SCManager.java
++ * Created : 23 f&#233;vr. 2005
++ * 
++ * =======================================
++ * JMDS PROJECT (&quot;<A HREF="http://jmds.berlios.de">http://jmds.berlios.de</A>&quot;)
++ * =======================================
++ *
++ */
++package de.berlios.jmds.tools;
++
++import org.apache.commons.configuration.ConfigurationException;
++import org.apache.commons.configuration.XMLConfiguration;
++
++/**
++ * @author Denis
++ *
++ */
++public class RightsConfiguration {
++	/** The security config xml file **/
++	private XMLConfiguration rightsConfig = null;
++	
++	/** The rigths config file **/
++	private static final String RIGHTS_FILE = &quot;rights.xml&quot;;
++	
++	/** The singleton instance * */
++	private static RightsConfiguration INSTANCE = null;
++	
++	//----------------------------------------------------------//
++	//------------------- CONSTRUCTORS -------------------------//
++	//----------------------------------------------------------//
++	
++	/**
++	 * Constructor
++	 *  
++	 */
++	private RightsConfiguration ()
++	{
++		try
++		{
++			XMLConfiguration.setDelimiter('\n');
++			this.rightsConfig = new XMLConfiguration (RIGHTS_FILE);				
++		}
++		catch (ConfigurationException e)
++		{
++			throw new RuntimeException (e);
++		}
++	}
++	
++	//----------------------------------------------------------//
++	//------------------- PUBLIC METHODS -----------------------//
++	//----------------------------------------------------------//
++
++	
++	/**
++	 * To get the singleton instance of RightsConfiguration
++	 * 
++	 * @return the singleton instance of RightsConfiguration
++	 */
++	public static RightsConfiguration getInstance ()
++	{
++		if (INSTANCE == null)
++			INSTANCE = new RightsConfiguration ();
++		
++		return INSTANCE;
++	}
++	
++	/**
++	 * @param iClientId 	the identifiant of client
++	 * @param szGroup		the group of client
++	 * @param szFonction	the fonction
++	 * @return 				the permission of access (true or false)
++	 */
++	public boolean checkFonctionClientAccess(int iClientId, String szGroup, String szFonction)
++	{
++		//TODO
++		return false;
++	}
++	
++	/**
++	 * @param szIOR			the ior reference of object
++	 * @param szFonction	the the fonction of objetc
++	 * @return				the add status (true validate add and false indicate the fonction exist)
++	 */
++	public boolean addIORFonction (String szIOR, String szFonction)
++	{
++		//TODO
++		return false;
++	}
++	
++	/**
++	 * To save the configuration file
++	 *
++	 */
++	public void save ()
++	{
++		try
++		{
++			rightsConfig.save ();
++		}
++		catch (ConfigurationException e)
++		{
++			e.printStackTrace();
++		}
++	}
++}
+
+Added: trunk/src/de/berlios/jmds/tools/SecurityConfiguration.java
+===================================================================
+--- trunk/src/de/berlios/jmds/tools/SecurityConfiguration.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/de/berlios/jmds/tools/SecurityConfiguration.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -0,0 +1,96 @@
++/* 
++ * File    : SCManager.java
++ * Created : 23 f&#233;vr. 2005
++ * 
++ * =======================================
++ * JMDS PROJECT (&quot;<A HREF="http://jmds.berlios.de">http://jmds.berlios.de</A>&quot;)
++ * =======================================
++ *
++ */
++package de.berlios.jmds.tools;
++
++import org.apache.commons.configuration.ConfigurationException;
++import org.apache.commons.configuration.XMLConfiguration;
++
++/**
++ * @author Denis
++ *
++ */
++public class SecurityConfiguration {
++	/** The security config xml file **/
++	private XMLConfiguration securityConfig = null;
++	
++	/** The security config file **/
++	private static final String SECURITY_FILE = &quot;security.xml&quot;;
++
++	/** The singleton instance * */
++	private static SecurityConfiguration INSTANCE = null;
++	
++	//----------------------------------------------------------//
++	//------------------- CONSTRUCTORS -------------------------//
++	//----------------------------------------------------------//
++	
++	/**
++	 * Constructor
++	 *  
++	 */
++	private SecurityConfiguration ()
++	{
++		try
++		{
++			XMLConfiguration.setDelimiter('\n');
++			this.securityConfig = new XMLConfiguration (SECURITY_FILE);
++		}
++		catch (ConfigurationException e)
++		{
++			throw new RuntimeException (e);
++		}
++	}
++	
++	//----------------------------------------------------------//
++	//------------------- PUBLIC METHODS -----------------------//
++	//----------------------------------------------------------//
++
++	
++	/**
++	 * To get the singleton instance of SecurityConfiguration
++	 * 
++	 * @return the singleton instance of SecurityConfiguration
++	 */
++	public static SecurityConfiguration getInstance ()
++	{
++		if (INSTANCE == null)
++			INSTANCE = new SecurityConfiguration ();
++		
++		return INSTANCE;
++	}
++	
++	/**
++	 * @return the server key
++	 */
++	public byte[] getServerKey()
++	{
++		// TODO
++		return null;	
++	}
++	
++	/**
++	 * @param iClientId the client identifiant
++	 * @return			the client key
++	 */
++	public byte[] getClientKey (int iClientId)
++	{
++		//TODO
++		return null;		
++	}
++	
++	/**
++	 * @param iClientId the client identifiant
++	 * @return			the group client
++	 */
++	public byte[] getclientGroup (int iClientId)
++	{
++		// TODO
++		return null;		
++	}
++}
+
+Modified: trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/fr/umlv/ir3/corba/forum/ForumClient.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -16,6 +16,10 @@
+  */
+ public class ForumClient {
+ 
++    /**
++     * @param args
++     * @throws Exception
++     */
+     public static void main(String[] args) throws Exception {
+         java.util.Properties props = System.getProperties();
+         // props.put( &quot;org.omg.CORBA.ORBClass&quot;, &quot;org.openorb.CORBA.ORB&quot; );
+
+Modified: trunk/src/fr/umlv/ir3/corba/forum/ForumImpl.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/ForumImpl.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/fr/umlv/ir3/corba/forum/ForumImpl.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -15,6 +15,10 @@
+ 	private String moderator;
+ 	private ConcurrentHashMap discussion;
+ 	
++	/**
++	 * @param theme
++	 * @param moderator
++	 */
+ 	public ForumImpl(String theme, String moderator)
+ 	{
+ 		this.theme = theme;
+@@ -22,26 +26,41 @@
+ 		discussion = new ConcurrentHashMap();
+ 	}
+ 	
++	/**
++	 * @see fr.umlv.ir3.corba.forum.ForumOperations#theme()
++	 */
+ 	public String theme() {
+ 		return theme;
+ 	}
+ 
++	/**
++	 * @see fr.umlv.ir3.corba.forum.ForumOperations#moderator()
++	 */
+ 	public String moderator() {
+ 		return moderator;
+ 	}
+ 
++	/**
++	 * @see fr.umlv.ir3.corba.forum.ForumOperations#postMessage(java.lang.String, org.omg.CORBA.Any)
++	 */
+ 	public boolean postMessage(String title, org.omg.CORBA.Any m) throws Reject{
+ 		if(discussion.putIfAbsent(title, m) == null)
+ 			return true;
+ 		return false;
+ 	}
+ 
++	/**
++	 * @see fr.umlv.ir3.corba.forum.ForumOperations#getMessage(java.lang.String)
++	 */
+ 	public Any getMessage(String title)  throws Reject{
+ 		if(!discussion.containsKey(title))
+ 			throw new Reject(&quot;Title unknow&quot;, &quot;Pas de message ayant ce titre: &quot; + title);
+ 		return (Any) discussion.get(title);
+ 	}
+ 
++	/**
++	 * @see fr.umlv.ir3.corba.forum.ForumOperations#removeMessage(java.lang.String)
++	 */
+ 	public void removeMessage(String title) throws Reject {
+ 		if(discussion.containsKey(title))
+ 		{
+@@ -49,11 +68,17 @@
+ 		}
+ 	}
+ 	
+-	 public Any[] getMessages () {
++	 /**
++	 * @see fr.umlv.ir3.corba.forum.ForumOperations#getMessages()
++	 */
++	public Any[] getMessages () {
+ 	 	return (Any[]) discussion.values().toArray(new Any[discussion.size()]);
+ 	 }
+ 	 
+-	 public void getInfo (StringHolder theme, StringHolder moderator, IntHolder size) {
++	 /**
++	 * @see fr.umlv.ir3.corba.forum.ForumOperations#getInfo(org.omg.CORBA.StringHolder, org.omg.CORBA.StringHolder, org.omg.CORBA.IntHolder)
++	 */
++	public void getInfo (StringHolder theme, StringHolder moderator, IntHolder size) {
+ 	 	theme.value = this.theme;
+ 	 	moderator.value = this.moderator;
+ 	 	size.value = discussion.size();
+
+Modified: trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java
+===================================================================
+--- trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java	2005-02-23 20:45:36 UTC (rev 31)
++++ trunk/src/fr/umlv/ir3/corba/forum/ForumServer.java	2005-02-23 21:52:47 UTC (rev 32)
+@@ -19,6 +19,20 @@
+  */
+ public class ForumServer {
+ 
++	/**
++	 * @param args
++	 * @throws InvalidName
++	 * @throws ServantAlreadyActive
++	 * @throws ObjectNotActive
++	 * @throws WrongPolicy
++	 * @throws IOException
++	 * @throws AdapterInactive
++	 * @throws NotFound
++	 * @throws AlreadyBound
++	 * @throws CannotProceed
++	 * @throws InvalidName
++	 * @throws org.omg.CosNaming.NamingContextPackage.InvalidName 
++	 */
+ 	public static void main(String[] args) throws InvalidName, ServantAlreadyActive, ObjectNotActive, WrongPolicy, IOException, AdapterInactive, NotFound, AlreadyBound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName {
+         
+         java.util.Properties props = System.getProperties();
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000043.html">[Jmds-svn] r31 - trunk
+</A></li>
+	<LI>Next message: <A HREF="000045.html">[Jmds-svn] r33 - team/Docs team/Docs/uml trunk trunk/src/de/berlios/jmds/applet trunk/test/de/berlios/jmds/test/clients
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#44">[ date ]</a>
+              <a href="thread.html#44">[ thread ]</a>
+              <a href="subject.html#44">[ subject ]</a>
+              <a href="author.html#44">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/jmds-svn">More information about the Jmds-svn
+mailing list</a><br>
+</body></html>
